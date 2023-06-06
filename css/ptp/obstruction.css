@@ -1,0 +1,378 @@
+/* Obstruction pop up */
+.obstructionPopUp {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 8;
+  background-color: #f2f2f2;
+  height: 50%;
+  width: 38%;
+  top: 165px;
+  left: 33.3%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+.obstructionHeader {
+  border-bottom: 0.1em solid #e6e6e6;
+  background-color: #fff;
+  height: 40px;
+  box-shadow: rgb(0 0 0 / 20%) 0px 2px 4px;
+}
+.obstruction-modal-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #350964;
+  padding: 8px;
+}
+.obstructionDiv {
+  padding: 0px 10px;
+  height: 90%;
+  overflow-y: scroll;
+}
+.submitObstruction {
+  text-align: center;
+}
+
+#obsUL {
+  list-style: none;
+  padding: 5px;
+}
+#obsUL li {
+  background: white;
+  position: relative;
+  padding: 8px 12px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  border-bottom: 1px solid #54585a;
+}
+
+.deleteObs {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 2px 12px;
+  color: #350964;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.deleteObs:hover {
+  background-color: #350964;
+  color: white;
+}
+
+/* Pop up report */
+.ptppopup {
+  z-index: 10;
+  width: 100%;
+  /* height: calc(100%+70px); */
+  height: 100%;
+  background-color: #f2f2f2;
+  position: absolute;
+  top: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  /* overflow-x: auto; */
+  /* overflow-y: scroll; */
+}
+.ptpcontent {
+  width: 100%;
+  /* height: auto; */
+  /* overflow: auto; */
+  background-color: #e6e7e8;
+}
+.ptpreportheader {
+  display: block;
+  padding: 0 60px;
+  border-bottom: 0.1em solid #e6e6e6;
+  background-color: #fff;
+}
+.modal-title {
+  font-size: 18px;
+  line-height: 80px;
+  margin: 0;
+  font-weight: 600;
+  color: #350964;
+}
+.modal-small-title {
+  font-size: 14px;
+  line-height: 80px;
+  margin: 0;
+  font-weight: 500;
+  color: #350964;
+}
+.modal-control {
+  color: #350964;
+  padding: 1px 10px 0;
+  float: right;
+  cursor: pointer;
+}
+
+.modal-control .export {
+  appearance: none;
+  color: #350964;
+  padding: 5px;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  font-weight: 500;
+  padding: 4px;
+  font-size: 12px;
+  line-height: 1.5;
+  box-shadow: inset 0 1px 2px rgb(0 0 0 / 10%);
+  border: 1px solid #d6d6d6;
+  border-radius: 3px;
+  height: 30px;
+  background-image: url(/images/angle-down-solid.svg);
+  background-repeat: no-repeat;
+  background-position: calc(100% - 8px) 50%;
+  background-size: 15px 15px;
+  letter-spacing: 0.05em;
+  background-color: #fff;
+}
+.modal-control .export option {
+  color: #350964;
+  padding-right: 5px;
+}
+.modal-control select:focus,
+.modal-control select:active {
+  outline: none;
+}
+.modal-control select option {
+  color: #350964;
+  padding-right: 10px;
+}
+/* Body of the link report */
+.modal-body {
+  background-color: #e6e7e8;
+  padding: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .modal-body .row {
+    display: block;
+  }
+  .reportheader {
+    padding: 0 20px;
+  }
+}
+.comp-hide {
+  display: none;
+}
+
+@media screen and (max-width: 750px) {
+  .comp-hide {
+    display: block;
+  }
+  .mob-hide {
+    display: none;
+  }
+}
+/* .report-holder {
+  text-align: center;
+  justify-content: center;
+} */
+.ptp-report-content {
+  background-color: #fff;
+  overflow: hidden;
+  display: block;
+  padding: 20px;
+  border: 1px solid #e3e3e3;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 1px rgb(0 0 0 / 5%);
+  margin-bottom: 20px;
+  width: 100%;
+}
+/* Report containers heading */
+.heading {
+  text-align: left;
+  font-size: 0.9em;
+  font-weight: 600;
+  margin-bottom: 10px;
+  height: 20px;
+  font-family: "Times New Roman", Times, serif;
+  color: #350964;
+  text-transform: uppercase;
+  line-height: 0.57;
+  /* margin: 0 10px; */
+}
+.heading i {
+  float: right;
+  font-size: large;
+}
+.modal-control select {
+  appearance: none !important;
+  color: #350964 !important;
+  padding: 5px;
+}
+.modal-control select:focus,
+.modal-control select:active {
+  outline: none;
+}
+.modal-control select option {
+  color: #350964;
+  padding-right: 10px;
+}
+#reportLinkName {
+  outline: none;
+  border: none;
+  text-align: right;
+  background-color: none !important;
+  line-height: 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  color: #350964;
+  padding: 3px 5px 5px 5px;
+  font-size: 14px;
+}
+#reportLinkName:hover,
+#reportLinkName:active {
+  border-radius: 3px;
+  border: 1px solid #d6d6d6;
+  box-shadow: inset 0 1px 2px rgb(0 0 0 / 10%);
+  background-color: #fff;
+  color: #350964 !important;
+  cursor: pointer;
+}
+/* .report_holder {
+  display: flex;
+} */
+/* Table for the reports */
+.report-holder table {
+  margin-bottom: 10px;
+  width: 100%;
+  overflow: hidden;
+  background-color: #fafafa;
+  border-spacing: 0;
+  border-collapse: collapse;
+  display: table;
+}
+.report-holder tr {
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  height: 35px;
+  display: table-row;
+}
+.report-holder td {
+  font-weight: 500;
+  padding: 7px;
+  vertical-align: middle;
+  font-size: 13px;
+  color: #54585a !important;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Report Elevation */
+.ptp-report-chart {
+  /* position: relative; */
+  height: 256px;
+  /* width: 100%;
+  text-align: center; */
+  /* position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0; */
+}
+
+/* Report Map */
+.ptp-report-map-container {
+  position: relative;
+  /* display: flex; */
+  /* flex: auto; */
+  height: 91%;
+  width: 100%;
+  padding: 0;
+  top: 0;
+  left: 0;
+}
+
+#ptpreportmap {
+  position: absolute;
+  /* height: 100%; */
+  /* width: 100%;*/
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.ptp-report-map-height {
+  /* height: 539px; */
+  height: 96.5%;
+}
+
+@media screen and (max-width: 1115px) and (min-width: 992px) {
+  .ptp-report-map-height {
+    height: 539px;
+  }
+  .ptp-report-chart {
+    height: 209px;
+  }
+}
+
+/* Link stats */
+.report-holder th {
+  font-weight: 600;
+  font-size: 13px;
+  text-align: left;
+  padding: 7px;
+  color: #350964;
+  width: 33.33%;
+  text-align: center;
+}
+.report-holder th:nth-child(odd) {
+  color: #350964 !important;
+}
+.report-holder th:nth-child(1) {
+  text-align: start;
+}
+/* Button to export table to html */
+.dataToXlsx {
+  text-align: end;
+}
+.exportBtn {
+  color: #350964;
+  font-weight: 600;
+}
+.addoverflow {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+/* print */
+@media print {
+  .print-hide {
+    display: none;
+  }
+  .print-display {
+    display: block;
+  }
+  .report-header {
+    margin: 0 auto;
+  }
+  .heading {
+    background: #e6e7e8 !important;
+    border-bottom: 1px solid black;
+    text-align: center;
+    padding: 13px;
+    height: 33px;
+  }
+  .ptppopup .row {
+    display: block;
+  }
+  .report-holder {
+    width: 100%;
+  }
+  .ptp-report-map-height {
+    height: 450px;
+  }
+  #ptpreportmap {
+    height: 450px;
+    width: 100%;
+    visibility: visible;
+  }
+}

@@ -1,0 +1,231 @@
+/* NavBar Styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  box-sizing: border-box;
+  background: transparent;
+  color: #545454;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Loader CSS */
+.loader-wrapper {
+  position: fixed;
+  background: #fff;
+  width: 100%;
+  height: 100vh;
+  z-index: 7;
+  text-align: center;
+  top: 0;
+  left: 0;
+}
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.header {
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 9;
+  width: 100%;
+  padding: 0px;
+  height: 110px;
+  /* box-shadow: rgb(0 0 0 /20%) 0 2px 4px; */
+  max-width: 1500px;
+}
+.top-head {
+  width: 100%;
+  background-color: #d1d3d4;
+  position: relative;
+}
+.topheadflex {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+a,
+a:hover {
+  text-decoration: none;
+  outline: none;
+}
+a:hover {
+  color: #fff;
+}
+a,
+button {
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: normal;
+  color: #350964;
+  display: inline-block;
+}
+.topheadflex a {
+  margin: 0 0 0 25px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 7.5px 0px;
+  font-family: "Poppins", sans-serif;
+  display: block;
+  color: #808285;
+}
+.topheadflex a:active,
+.topheadflex a:hover {
+  color: #350964;
+}
+
+/* Search Bar */
+.search-bar {
+  display: none;
+  width: 35%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.3s all ease;
+}
+.search-bar form {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+}
+.search-bar form .form-group {
+  width: 90%;
+  margin: 0;
+}
+.search-bar form .form-control {
+  font-size: 15px;
+  box-shadow: none;
+  font-family: "Poppins", sans-serif;
+  color: #555;
+  border: 1px solid #ccc;
+  /* border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px; */
+  border-right: none;
+  border-bottom-right-radius: unset;
+  border-top-right-radius: unset;
+  height: 29px;
+}
+.search-bar form .close-search {
+  width: 10%;
+  background-color: #fff;
+  padding: 4px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-bottom-right-radius: 6px;
+  border-top-right-radius: 6px;
+  font-size: 400;
+  font-weight: bolder;
+  text-align: center;
+}
+
+/* Bottom Header */
+.bottom-head {
+  width: 100%;
+  background-color: #fff !important;
+  box-shadow: rgb(0 0 0 /20%) 0 2px 4px;
+}
+
+.bottomheadflex {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.logo {
+  width: 10%;
+  padding-top: 4px;
+}
+.logo a {
+  width: 100%;
+}
+.mainmenu {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+.menuoutbox {
+  width: 82%;
+}
+.mainmenu ul {
+  list-style: none;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.mainmenu .menuoutbox ul li span {
+  line-height: 30px;
+  color: #808285;
+  display: block;
+  position: relative;
+  font-size: 16px;
+  padding: 20px 20px;
+  border-bottom: 5px solid #fff;
+  border-top: 5px solid #fff;
+  cursor: default;
+}
+.menuoutbox ul li a:hover {
+  background: #fbfbfb;
+  color: #350964;
+  border-top-color: #fbfbfb;
+  border-bottom-color: #350964;
+}
+.moblogobox {
+  display: none;
+}
+.togglemenus {
+  display: none;
+}
+/* slide gets added when screen is 750px width */
+.slide {
+  left: 0;
+  transition: 0.5s ease all;
+}
+
+.getdemobtn {
+  width: 120px;
+  text-align: center;
+  border-radius: 12px;
+  background-color: #350964;
+  color: #fff;
+  padding: 5px;
+  line-height: 20px;
+  font-family: "Poppins", sans-serif;
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+}
+.getdemobtn:hover {
+  background-color: #000;
+  color: #fff;
+}
+.show {
+  left: 0;
+}
+.mobile-patch {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  background-color: #53337a5e;
+  transition: 0.5s ease all;
+  z-index: 15;
+  width: 100%;
+  height: 100%;
+}

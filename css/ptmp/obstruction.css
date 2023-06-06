@@ -1,0 +1,68 @@
+.editObstruction {
+  /* float: right; */
+  /* margin-right: 39px; */
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  display: none;
+}
+.obstruction-section {
+  background-color: #f2f2f2;
+  display: none;
+  margin-bottom: 20px;
+  height: 245px;
+}
+.obstructionHeader {
+  background-color: #fff;
+  height: 35px;
+  border-bottom: 0.01em solid #e6e6e6;
+}
+.obstruction-modal-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #350964;
+  padding: 8px;
+}
+.obstructionfield {
+  padding: 8px 20px;
+  overflow-y: scroll;
+  border-bottom: 1px solid #fff;
+}
+.obstructionfield input[type="button"] {
+  text-align: center;
+}
+.obstructionfield .sidebar-padding:nth-child(3) {
+  margin-top: 20px;
+}
+.submitObstruction {
+  text-align: center;
+}
+
+.obsul {
+  list-style: none;
+  padding: 5px;
+}
+.obsul li {
+  background: white;
+  position: relative;
+  padding: 8px 12px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  border-bottom: 1px solid #54585a;
+}
+
+.deleteobs {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 2px 12px;
+  color: #350964;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.deleteobs:hover {
+  background-color: #350964;
+  color: white;
+}

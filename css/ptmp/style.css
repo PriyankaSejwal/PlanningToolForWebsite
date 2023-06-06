@@ -1,0 +1,351 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: #350964;
+  height: 100%;
+  max-width: 1500px;
+  /* overflow: hidden; */
+}
+.container-fluid {
+  padding-top: 110px;
+}
+.overlay-section {
+  /* height: 547px; */
+  padding: 0;
+}
+.sidebar-section {
+  border-bottom: 1px solid #fff;
+}
+.sidebar-section-body {
+  padding: 9px 8px;
+  /* padding-right: 10px; */
+}
+.disabled-class {
+  pointer-events: none;
+  opacity: 0.4;
+}
+.sidebarBody2 {
+  background-color: #e6e7e8;
+  padding: 0 10px 10px 10px;
+  position: relative;
+  /* display: flex; */
+  /* width: 100%; */
+  /* height: 496px; */
+  /* overflow: hidden; */
+  overflow-y: scroll;
+  font-size: 13px;
+}
+.sidebar-padding {
+  padding: 3px;
+}
+.sidebar-padding-small {
+  padding-right: 3px;
+  padding-left: 3px;
+}
+
+.unit {
+  position: relative;
+  float: right;
+  right: 6px;
+  bottom: 22px;
+  margin-bottom: -22px;
+  color: #54585a;
+  opacity: 0.4;
+}
+.align-center {
+  text-align: center;
+  padding: 15px 30px;
+}
+.sidebar-section-header {
+  padding: 6px 0px;
+  height: 33px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #350964 !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  line-height: 0.6 !important;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.slave-parameter-section {
+  padding: 0px 10px 10px 11px;
+}
+.border-section {
+  padding-bottom: 18px;
+  border-bottom: 1px solid #fff;
+}
+
+/* hiding the dd coordinate divs */
+.hiddenDDCoord {
+  display: none;
+}
+/* Table Slave  */
+.link-summary {
+  width: 100%;
+  border-radius: 4px;
+  background-color: #fff;
+  white-space: nowrap;
+}
+
+.link-summary tr {
+  border-bottom: 1px solid #b7aacc;
+  line-height: 20px !important;
+  display: table-row;
+}
+
+.link-summary th {
+  /* padding-left: 10px; */
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: left;
+  letter-spacing: 0.02em;
+  color: #350964;
+  padding: 2px;
+}
+#masterTable tr:nth-child(1) th {
+  text-align: center;
+}
+
+.link-summary td {
+  font-size: 11px;
+  color: #625094;
+  text-align: center;
+  font-weight: 500;
+  padding: 1px;
+}
+
+/* PTMP  */
+.mainContainer {
+  display: flex;
+}
+.sidebarBody {
+  width: 40%;
+  height: 491px;
+  overflow-y: scroll;
+}
+.sectionBorder {
+  padding: 0px 0px 10px 0px;
+  width: 100%;
+  /* border-bottom: 1px solid #d6d6d6; */
+}
+.masterSection .subSection,
+.miscSection .subSection {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.miscSection .subSection {
+  justify-content: flex-start;
+}
+.miscSection .sectionBorder,
+.buttonSection .sectionBorder {
+  box-shadow: rgb(0 0 0 /20%) 0 2px 4px;
+  padding: 10px 10px;
+}
+.buttonSection .subSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* header {
+  padding-left: 12px;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  background-color: #e6e7e8;
+  padding-top: 5px;
+  font-weight: 600;
+} */
+.coordSection {
+  /* height: 120px; */
+  /* overflow-y: scroll; */
+  box-shadow: rgb(0 0 0 / 20%) 0px 2px 4px;
+}
+/* .masterSection .subSection {
+  background-color: #e6e7e8;
+  padding: 5px 0px;
+} */
+
+.coordSection .subSection {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.coordSection .item {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  width: 33%;
+}
+.coordSection .sectionBorder {
+  padding: 10px 6px;
+}
+.masterSection .subSection {
+  background-color: #e6e7e8;
+  padding: 5px 0px;
+  justify-content: center;
+}
+.masterSection .item,
+.miscSection .item {
+  display: flex;
+  flex-direction: column;
+  padding: 3px;
+  position: relative;
+}
+.miscSection .item {
+  width: 33%;
+}
+.masterSection .item ~ .item {
+  width: 19%;
+}
+.label {
+  padding: 0px 0px 3px 3px;
+  color: #350964;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+  text-align: left;
+}
+.select {
+  height: 27px;
+  /* appearance: none; */
+  outline: none;
+  border: 1px solid #d6d6d6;
+  border-radius: 6px;
+  padding: 3px 6px;
+  color: #54585a;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+input {
+  border: 1px solid #d6d6d6;
+  border-radius: 5px;
+  padding: 5px;
+  color: #54585a;
+  outline: none;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  font-weight: 400;
+}
+
+/* Slave Section */
+#slavesInput {
+  /* height: 248px; */
+  /* overflow-y: scroll; */
+  /* border-bottom: 1px solid #d6d6d6; */
+  /* box-shadow: rgb(0 0 0 /20%) 0 -2px 4px; */
+}
+#slavesInput .inputSection {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding-bottom: 5px;
+  background-color: #e6e7e8;
+}
+.inputSection .item {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+.inputSection .item {
+  width: 32%;
+}
+.inputSection .item ~ .item {
+  width: 20%;
+}
+.units {
+  color: #54585a;
+  font-size: 10px; /* padding-left: 45px; */
+  /* opacity: 0.4; */
+}
+.masterTableDiv {
+  width: 95%;
+  margin: 0 auto;
+  /* padding: 0px 15px; */
+  /* margin: 0px 15px; */
+}
+/* div having table of slave outputs */
+.slaveTableDiv {
+  width: 100%;
+  background-color: #fff;
+  padding: 10px 5px;
+}
+
+#masterTable tr:nth-child(1) th,
+.report-slave-table tr:nth-child(1) th {
+  text-align: center;
+}
+
+.slavespan,
+.masterspan {
+  /* border-bottom: 1px solid #d6d6d6; */
+  padding: 3px 5px;
+  font-size: 15px;
+  color: #54585a;
+  width: 34%;
+  font-size: 12px;
+}
+
+.slaveInMasterRange {
+  margin-top: 19px;
+  padding: 3px 5px;
+}
+
+#map {
+  height: 650px;
+  width: 830px;
+}
+
+/* SCROLL BAR STYLING */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: #939596;
+  border-radius: 5px;
+}
+
+/* button */
+.btnGroup {
+  text-align: center;
+  padding: 10px 0px;
+}
+button {
+  padding: 5px;
+  background-color: #fff;
+  border: 1px solid #d6d6d6;
+  color: #54585a;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  border-radius: 5px;
+  letter-spacing: 0.05em;
+}
+button:disabled,
+button[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+button:disabled:hover {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: none;
+}
+button:hover {
+  background-color: #350964;
+  color: #fff;
+  cursor: pointer;
+}

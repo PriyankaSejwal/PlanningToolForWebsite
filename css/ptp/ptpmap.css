@@ -1,0 +1,34 @@
+/* MAP */
+.ptp-map-section {
+  padding: 0;
+}
+#ptpmap {
+  position: relative;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+/* Adding Responsiveness */
+/* Making map visible at each and every height */
+@media screen and (max-width: 992px) {
+  .ptp-map-section {
+    height: 30em;
+  }
+}
+@media screen and (min-height: 1100px) {
+  .ptp-map-section {
+    height: 40em;
+  }
+}
+@media screen and (min-height: 1300px) {
+  .ptp-map-section {
+    height: 45em;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .ptp-report-map-height {
+    height: 400px;
+  }
+}

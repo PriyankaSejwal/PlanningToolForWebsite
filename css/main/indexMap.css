@@ -1,0 +1,28 @@
+/* MAP */
+.map-section {
+  padding: 0;
+}
+#indexmap {
+  position: relative;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+/* Adding Responsiveness */
+/* Making map visible at each and every height */
+@media screen and (max-width: 992px) {
+  .map-section {
+    height: 30em;
+  }
+}
+@media screen and (min-height: 1100px) {
+  .map-section {
+    height: 40em;
+  }
+}
+@media screen and (min-height: 1300px) {
+  .map-section {
+    height: 45em;
+  }
+}

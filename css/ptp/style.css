@@ -1,0 +1,255 @@
+/* this is general styling ofr the ptp page */
+
+.overlay-section {
+  padding: 0px;
+}
+.sidebar-section {
+  border-bottom: 1px solid #fff;
+}
+.sidebar-section-body {
+  padding: 9px 8px;
+  /* padding-right: 10px; */
+}
+.container-fluid {
+  padding-top: 110px;
+}
+.overlay-section {
+  overflow: hidden;
+  padding: 0;
+}
+.sidebarBody2 {
+  background-color: #e6e7e8;
+  padding: 0 10px 10px 10px;
+  position: relative;
+  /* display: flex; */
+  /* width: 100%; */
+  /* height: 491px; */
+  /* overflow: hidden; */
+  overflow-y: scroll;
+  font-size: 13px;
+}
+
+.sidebar-padding {
+  padding: 3px;
+}
+
+label {
+  /* padding-left: 3px; */
+  color: #350964 !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  padding: 0 !important;
+}
+
+.input {
+  border-radius: 3px;
+  border: 1px solid #d6d6d6;
+  width: 100%;
+  padding: 4px;
+  font-size: 12px;
+  line-height: 1.5;
+  box-shadow: inset 0 1px 2px rgb(0 0 0 / 10%);
+  background: #fff;
+  display: inline-block;
+  height: 30px;
+  color: #54585a;
+  -webkit-text-fill-color: #54585a;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  text-align: left;
+  letter-spacing: 0.05em;
+  outline: none;
+}
+input:hover {
+  /* background-color: #b7aacc; */
+  color: #54585a !important;
+}
+.input:valid {
+  background-color: #e7f2f7;
+  color: #54585a;
+}
+input[type="number"]::-webkit-inner-spin-button {
+  appearance: none;
+  -webkit-appearance: none;
+}
+/* the button calculate which is disbaled till lat long entered for both sides */
+.validate-section {
+  text-align: center !important;
+}
+
+.sidebarBody2 select,
+.mob-hide select {
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  font-weight: 500;
+  padding: 4px;
+  font-size: 12px;
+  line-height: 1.5;
+  box-shadow: inset 0 1px 2px rgb(0 0 0 / 10%);
+  border: 1px solid #d6d6d6;
+  border-radius: 3px;
+  height: 30px;
+  color: #54585a !important;
+  letter-spacing: 0.05em;
+  background-color: #e7f2f7;
+}
+
+.disable {
+  background-color: #e0e0d1;
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.4;
+}
+.disable:hover {
+  background-color: #e0e0d1;
+}
+
+/*  class which gets added when ion4le is selected */
+.disable.extAnt {
+  background-color: #e7f2f7;
+  color: #54585a;
+  opacity: 1;
+  pointer-events: visible;
+}
+/* .disable:valid {
+  background-color: #e7f2f7;
+} */
+.disable.extAnt:hover {
+  /* background-color: #b7aacc; */
+  /* color: #fff; */
+  cursor: text;
+}
+.top-margin {
+  margin-top: 21px;
+}
+strong {
+  color: red;
+}
+.metre {
+  position: relative;
+  float: right;
+  right: 10px;
+  bottom: 22px;
+  margin-bottom: -22px; /* to avoid extra space taken up by div for this element */
+  color: #54585a;
+  opacity: 0.4;
+}
+/* styling for the section containing the link summary */
+.ptp-sidebar-section-header {
+  padding: 10px 0px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ptp-sidebar-section-title {
+  font-weight: bolder;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.refresh {
+  color: #350964;
+  font-weight: 600;
+}
+
+/* Sidebar section 3 table */
+.ptp-link-summary {
+  width: 100%;
+  border-radius: 4px;
+  background-color: #fff;
+  margin: 0;
+  /* overflow-x: hidden; */
+}
+.ptp-link-summary tbody {
+  display: table-row-group;
+  vertical-align: middle;
+}
+.ptp-link-summary tr {
+  border-bottom: 1px solid #b7aacc;
+  line-height: 30px !important;
+  display: table-row;
+}
+.ptp-link-summary th {
+  /* padding-left: 10px; */
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-align: left;
+  letter-spacing: 0.05em;
+  color: #350964;
+}
+.ptp-link-summary td,
+.ptp-link-summary th {
+  /* width: 25%; */
+  white-space: nowrap;
+  vertical-align: middle;
+  line-height: 30px !important;
+}
+.ptp-link-summary td {
+  padding-left: 8px;
+  font-size: 12px;
+  /* color: rgb(131, 184, 185); */
+  color: #625094;
+  text-align: center;
+}
+
+/* Link Report Button */
+.align-center {
+  text-align: center;
+}
+
+/* Edit option for the elevation chart */
+.editPencil {
+  display: none;
+  padding: 1px 15px 5px !important;
+}
+#editObstruction {
+  float: right;
+}
+
+/* Elevation Chart */
+.ptp-elevation-chart {
+  border-radius: 4px;
+  text-align: center;
+  background-color: #fff;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.chart {
+  position: inline-block !important;
+  /* position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0; */
+  /* position: relative; */
+  height: auto;
+  /* min-width: 200px;
+   */
+  /* width: 100%; */
+  width: fit-content; /* width fit -content worked to centet the google charts div */
+  /* overflow-x: auto;
+    overflow-y: hidden; */
+  margin: 0 auto;
+}
+
+/* SCROLL BAR STYLING */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: #939596;
+  border-radius: 5px;
+}

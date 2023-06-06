@@ -1,0 +1,93 @@
+/* This CSS file contains styling of buttons, input fields and dropdwon menus */
+
+.input {
+  border-radius: 3px;
+  border: 1px solid #d6d6d6;
+  width: 100%;
+  padding: 4px;
+  font-size: 12px;
+  line-height: 1.5;
+  box-shadow: inset 0 1px 2px rgb(0 0 0 / 10%);
+  background: #fff;
+  display: inline-block;
+  height: 30px;
+  color: #54585a;
+  -webkit-text-fill-color: #54585a;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  text-align: left;
+  letter-spacing: 0.05em;
+  outline: none;
+}
+
+.sidebarBody2 input:valid {
+  background-color: rgb(232, 240, 254);
+}
+input:disabled {
+  background-color: #ebebe4;
+  color: #c6c6c6;
+}
+
+input:focus {
+  box-shadow: inset -4px -4px 7px rgb(0 0 0 / 5%);
+}
+input[type="number"]::-webkit-inner-spin-button {
+  appearance: none;
+  -webkit-appearance: none;
+}
+input:hover {
+  /* background-color: #b7aacc; */
+  color: #54585a !important;
+}
+.smallinput {
+  height: 27px;
+}
+/* select option styling*/
+/* sideBarbody 2 for the main ptmp page where we select the number of slaves bandwidth frequency */
+.sidebarBody2 select {
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  font-weight: 500;
+  padding: 4px;
+  font-size: 12px;
+  line-height: 1.5;
+  box-shadow: inset 0 1px 2px rgb(0 0 0 / 10%);
+  border: 1px solid #d6d6d6;
+  border-radius: 4px;
+  height: 28px;
+  color: #54585a !important;
+  letter-spacing: 0.05em;
+  background-color: #fff;
+  cursor: pointer;
+}
+.btn {
+  padding: 4px 10px;
+  margin-right: 5px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  touch-action: manipulation;
+  /* cursor: wait; */
+  border-radius: 4px;
+  background-color: white;
+  border: 1px solid #ccc;
+  color: #54585a;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+}
+.btn:hover {
+  background-color: #350964;
+  color: #fff;
+  /* cursor: wait; */
+}
+
+/* Setting for Labels */
+label {
+  /* padding-left: 3px; */
+  color: #350964 !important;
+  font-weight: 500 !important;
+  font-size: 14px;
+  line-height: 1 !important;
+  padding: 0 !important;
+}

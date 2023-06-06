@@ -1,0 +1,101 @@
+@media screen and (max-width: 300px) {
+  .sidebar-section .btn {
+    padding: 3px 8px;
+    font-size: 14px;
+  }
+  #ctryCode {
+    font-size: 14px !important;
+  }
+  .container-fluid {
+    padding-top: 85px !important;
+  }
+  .sidebarBody2 {
+    padding: 0px 10px 3px 3px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .container-fluid {
+    padding-top: 90px !important;
+  }
+}
+@media screen and (max-width: 1500px) {
+  .container-fluid {
+    padding-top: 110px;
+  }
+}
+
+@media screen and (min-width: 550px) and (max-width: 749px) {
+  .bottom-head {
+    margin-top: 15px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  /* .sidebar-padding {
+    padding: 0 1px;
+  } */
+  label {
+    font-weight: 400;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .overlay-section {
+    height: 547px;
+  }
+  .sidebarBody2 {
+    height: 496px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .overlay-section {
+    height: 545px;
+  }
+  .sidebarBody2 {
+    height: 494px;
+  }
+}
+@media screen and (max-width: 1280px) and (min-height: 799px) {
+  .overlay-section {
+    height: 690px;
+  }
+  .sidebarBody2 {
+    height: 639px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .overlay-section {
+    height: 545px;
+  }
+  .sidebarBody2 {
+    height: 493px;
+  }
+  .obstructionPopUp {
+    left: 0%;
+    top: 160px;
+    height: 40%;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .overlay-section {
+    height: 545px;
+  }
+  .sidebarBody2 {
+    height: 494px;
+  }
+}
+
+@media screen and (min-height: 1024px) and (max-height: 1368px) {
+  .overlay-section {
+    height: 544px;
+  }
+  .sidebarBody2 {
+    height: 491px;
+  }
+}

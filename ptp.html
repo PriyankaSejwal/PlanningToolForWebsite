@@ -1,0 +1,2652 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Link Planning Tool || PTP</title>
+    <!-- Image of the logo of IO HFCL -->
+    <link rel="icon" href="images/io_logo.svg" type="image/x-icon" />
+    <!-- Bootstrap links -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <!-- JQuery Links -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <!-- Google Charts -->
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <!-- FontAwesome Icons Link -->
+    <script
+      src="https://kit.fontawesome.com/cc800be774.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Google Fonts Link -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Internal CSS -->
+    <link type="text/css" rel="stylesheet" href="css/main/navbar.css" />
+    <link type="text/css" rel="stylesheet" href="css/ptp/style.css">
+    <link type="text/css" rel="stylesheet" href="css/ptp/countryselect.css">
+    <link type="text/css" rel="stylesheet" href="css/ptp/obstruction.css">
+    <!-- <link type="text/css" rel="stylesheet" href="css/ptpptmpselection.css"> -->
+    <link type="text/css" rel="stylesheet" href="css/ptp/responsive.css" />
+    <link type="text/css" rel="stylesheet" href="css/ptp/ptpmap.css">
+  </head>
+  <body>
+    <!-- NavBar Begins -->
+    <div class="wrapper">
+      <div class="header print-hide">
+        <!-- Top Header for Search Result -->
+        <div class="top-head">
+          <div class="container">
+            <div class="topheadflex">
+              <a href="https://io.hfcl.com/contact-us" class="active"
+                >Contact Us</a
+              >
+              <a href="#" class="searchLink" id="search-Click">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+          <div class="search-bar" id="search">
+            <form
+              action="https://io.hfcl.com/search"
+              method="get"
+              class="search"
+            >
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" />
+              </div>
+              <div class="close-search" id="closeSearch">
+                <i class="fa fa-times" aria-hidden="true"></i>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- Bottom Header -->
+        <div class="bottom-head">
+          <div class="container">
+            <div class="bottomheadflex">
+              <!-- HFCL LOGO -->
+              <div class="logo">
+                <a href="https://io.hfcl.com">
+                  <img
+                    src="images/IO-logo-new.png"
+                    alt="io-logo"
+                    width="124px"
+                  />
+                </a>
+              </div>
+              <!-- Main Menu contains hamburger menu and demo btn-->
+              <div class="mainmenu">
+                <!-- contains hamburger menu -->
+                <div class="menuoutbox">
+                  <div class="moblogobox">
+                    <a href="https://io.hfcl.com">
+                      <img src="images/IO-logo-new.png" alt="io-logo" />
+                    </a>
+                  </div>
+                  <ul class="mobileulfix">
+                    <li class="menuhover">
+                      <span>Link Planning Tool</span>
+                    </li>
+                  </ul>
+                </div>
+                <!-- Demo Button -->
+                <a href="https://io.hfcl.com/contact-us" class="getdemobtn"
+                  >Get a Demo</a
+                >
+                <!-- Toggle Menu Hamburger Sign -->
+                <div class="togglemenus">
+                  <span></span><span></span><span></span>
+                </div>
+              </div>
+              <!-- MainMenu Ends -->
+            </div>
+            <!-- Bottom head flex ends -->
+          </div>
+          <!-- container ends -->
+        </div>
+        <!-- bottomhead ends -->
+        <div class="mobile-patch"></div>
+      </div>
+      <!-- Header ends -->
+    </div>
+    <!-- Nav Bar Ends -->
+
+    <!-- PTP/PTMP Selection Body Starts -->
+    <div class="container-fluid print-hide">
+        <div class="row">
+          <!-- PTP PTMP selection container
+          <div class="col-lg-4" id="ptpptmpselectionPage">
+            <div class="sidebar-body">
+              <form action="">
+                <!-- First Section -->
+                <!-- Section contains the options for PTP and P2MP -->
+                <!-- <div class="sidebar-section">
+                  <div class="sidebar-section-body">
+                    <div class="row btnleft">
+                      <div class="col-6 text-right pull-right">
+                        <span>Click here</span>
+                        <span class="glyphicon glyphicon-arrow-right rightArrow"></span>
+                        <button type="button" class="linkbtn " id="p2pp2mp">
+                          <span
+                            class="glyphicon glyphicon-plus"
+                            aria-hidden="true"
+                          ></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#" class="ptp">Add a new PTP</a></li>
+                          <li><a href="ptmp.html" class="ptmp">Add a new P2MP</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div> -->
+          <!-- </div>  -->
+
+          <!-- PTP Page -->
+          <div class="col-lg-4 overlay-section" id="ptpPage">
+            <!-- Close Button to go back to choice of ptp ptmp -->
+              <div class="sidebar-section">
+                <div class="sidebar-section-body">
+                  <div class="d-flex justify-content-between">
+                    <!-- Button to cancel the selected country and reset button -->
+                    <div class="col-8" >
+                      <button type="button" class="ptplinkbtn btn" id="cancelp2p">
+                        <a href="index.html">Go Back</a>
+                      </button>
+                      </button>
+                      <button type="button" class="btn disable" id="ptpresetLink">Reset</button>
+                    </div>    
+                    <!-- Choose the country -->
+                    <div class="col-3 text-right">
+                      <select name="" id="ptpctryCode" onchange="ptpctryChange()">
+                        <option value="" selected disabled>Country</option>
+                        <option value="af">Afghanistan</option>
+                        <option value="ax">Alan Islands</option>
+                        <option value="al">Albania</option>
+                        <option value="as">American Samoa</option>
+                        <option value="ad">Andorra</option>
+                        <option value="ai">Anguilla</option>
+                        <option value="atg">Antigua and Barbuda</option>
+                        <option value="arg">Argentina</option>
+                        <option value="arm">Armenia</option>
+                        <option value="aw">Aruba</option>
+                        <option value="at">Austria</option>
+                        <option value="au">Australia</option>
+                        <option value="az">Azerbaijan</option>
+                        <option value="bh">Bahrain</option>
+                        <option value="bs">Bahamas</option>
+                        <option value="bd">Bangladesh</option>
+                        <option value="bb">Barbados</option>
+                        <option value="by">Belarus</option>
+                        <option value="blz">Belize</option>
+                        <option value="be">Belgium</option>
+                        <option value="bm">Bermuda</option>
+                        <option value="bt">Bhutan</option>
+                        <option value="bol">Bolivia</option>
+                        <option value="ba">Bosnia</option>
+                        <option value="bw">Botswana</option>
+                        <option value="br">Brazil</option>
+                        <option value="brn">Brunei</option>
+                        <option value="bg">Bulgaria</option>
+                        <option value="bfa">Burkina Faso</option>
+                        <option value="bi">Burundi</option>
+                        <option value="kh">Cambodia</option>
+                        <option value="cm">Cameroon</option>
+                        <option value="ca">Canada</option>
+                        <option value="cym">Cayman Islands</option>
+                        <option value="caf">Central African Republic</option>
+                        <option value="td">Chad</option>
+                        <option value="cl">Chile</option>
+                        <option value="cn">China</option>
+                        <option value="cok">Cook Island</option>
+                        <option value="civ">Cote D'Ivoire</option>
+                        <option value="cxr">Christmas Island</option>
+                        <option value="co">Colombia</option>
+                        <option value="cod">Congo</option>
+                        <option value="cr">Costa Rica</option>
+                        <option value="hr">Croatia</option>
+                        <option value="cu">Cuba</option>
+                        <option value="cy">Cyprus</option>
+                        <option value="cz">Czec Republic</option>
+                        <option value="dji">Djibouti</option>
+                        <option value="dk">Denmark</option>
+                        <option value="dm">Dominica</option>
+                        <option value="do">Dominican Republic</option>
+                        <option value="ec">Ecuador</option>
+                        <option value="eg">Egypt</option>
+                        <option value="slv">El Salvador</option>
+                        <option value="ee">Estonia</option>
+                        <option value="et">Ethiopia</option>
+                        <option value="fk">Falkland Islands</option>
+                        <option value="fo">Faroa Islands</option>
+                        <option value="fi">Finland</option>
+                        <option value="fr">France</option>
+                        <option value="gf">French Guiana</option>
+                        <option value="pyf">French Ploynesia</option>
+                        <option value="atf">French Southern Terrain</option>
+                        <option value="ga">Gabon</option>
+                        <option value="ge">Georgia</option>
+                        <option value="de">Germany</option>
+                        <option value="gha">Ghana</option>
+                        <option value="gi">Gibraltar</option>
+                        <option value="gr">Greece</option>
+                        <option value="gl">Greenland</option>
+                        <option value="grd">Grenada</option>
+                        <option value="gp">Guadeloupe</option>
+                        <option value="gg">Guernsey</option>
+                        <option value="gum">Guam</option>
+                        <option value="ht">Haiti</option>
+                        <option value="hn">Honduras</option>
+                        <option value="hk">Honkong</option>
+                        <option value="hu">Hungary</option>
+                        <option value="is">Iceland</option>
+                        <option value="in">India</option>
+                        <option value="ir">Iran</option>
+                        <option value="iq">Iraq</option>
+                        <option value="ie">Ireland</option>
+                        <option value="imn">Isle of Man</option>
+                        <option value="il">Israel</option>
+                        <option value="it">Italy</option>
+                        <option value="jm">Jamaica</option>
+                        <option value="jp">Japan</option>
+                        <option value="je">Jersey</option>
+                        <option value="jo">Jordan</option>
+                        <option value="kaz">Kazakhstan</option>
+                        <option value="ke">Kenya</option>
+                        <option value="kir">Kiribati</option>
+                        <option value="kw">Kuwait</option>
+                        <option value="kgz">Kyrgyzstan</option>
+                        <option value="lv">Latvia</option>
+                        <option value="lb">Lebanon</option>
+                        <option value="ls">Lesotho</option>
+                        <option value="lby">Libya</option>
+                        <option value="lt">Lithuania</option>
+                        <option value="li">Liechtenstein</option>
+                        <option value="lu">Luxembourg</option>
+                        <option value="mo">Macao</option>
+                        <option value="mk">Macedonia</option>
+                        <option value="mdgs">Madagascar</option>
+                        <option value="mw">Malawi</option>
+                        <option value="my">Malaysia</option>
+                        <option value="mv">Maldives</option>
+                        <option value="mt">Malta</option>
+                        <option value="mhl">Marshal Islands</option>
+                        <option value="mr">Mauritania</option>
+                        <option value="mu">Mauritius</option>
+                        <option value="mq">Martinique</option>
+                        <option value="yt">Mayotte</option>
+                        <option value="mx">Mexico</option>
+                        <option value="fsm">Micronesia</option>
+                        <option value="md">Moldova</option>
+                        <option value="mc">Monaco</option>
+                        <option value="mng">Mongolia</option>
+                        <option value="me">Montenegro</option>
+                        <option value="ms">Montserrat</option>
+                        <option value="ma">Morocco</option>
+                        <option value="mmr">Myanmar</option>
+                        <option value="nru">Nauru</option>
+                        <option value="npl">Nepal</option>
+                        <option value="nl">Netherlands</option>
+                        <option value="an">Netherlands-Antilles</option>
+                        <option value="nc">New Caledonia</option>
+                        <option value="nz">New Zealand</option>
+                        <option value="ni">Nicaragua</option>
+                        <option value="ner">Niger</option>
+                        <option value="ng">Nigeria</option>
+                        <option value="niu">Niue</option>
+                        <option value="no">Norway</option>
+                        <option value="nfk">Norfolk Island</option>
+                        <option value="mnp">Northern Mariana Islands</option>
+                        <option value="om">Oman</option>
+                        <option value="plw">Palau</option>
+                        <option value="pa">Panama</option>
+                        <option value="pk">Pakistan</option>
+                        <option value="png">Papua New Guinea</option>
+                        <option value="pry">Paraguay</option>
+                        <option value="pe">Peru</option>
+                        <option value="ph">Philippines</option>
+                        <option value="pl">Poland</option>
+                        <option value="pt">Portugal</option>
+                        <option value="pr">Puerto Rico</option>
+                        <option value="qat">Qatar</option>
+                        <option value="re">Reunion</option>
+                        <option value="ro">Romania</option>
+                        <option value="ru">Russia</option>
+                        <option value="rw">Rwanda</option>
+                        <option value="sh">Saint Helena</option>
+                        <option value="spm">Saint Pierre & Miquelon</option>
+                        <option value="sm">San Marino</option>
+                        <option value="ws">Samoa</option>
+                        <option value="sa">Saudi Arabia</option>
+                        <option value="rs">Serbia</option>
+                        <option value="sn">Senegal</option>
+                        <option value="sg">Singapore</option>
+                        <option value="sx">St. Maarten/ St. Martin</option>
+                        <option value="sk">Slovakia</option>
+                        <option value="si">Slovenia</option>
+                        <option value="za">South Africa</option>
+                        <option value="kr">South Korea</option>
+                        <option value="es">Spain</option>
+                        <option value="lk">Sri Lanka</option>
+                        <option value="sdn">Sudan</option>
+                        <option value="sr">Suriname</option>
+                        <option value="se">Sweden</option>
+                        <option value="ch">Switzerland</option>
+                        <option value="sy">Syria</option>
+                        <option value="tw">Taiwan</option>
+                        <option value="tz">Tanzania</option>
+                        <option value="tha">Thailand</option>
+                        <option value="tg">Togo</option>
+                        <option value="tto">Trinidad & Tobago</option>
+                        <option value="tn">Tunisia</option>
+                        <option value="tr">Turkey</option>
+                        <option value="tca">Turks & Caicos Island</option>
+                        <option value="uga">Uganda</option>
+                        <option value="gb">UK</option>
+                        <option value="ae">United Arab Emirates</option>
+                        <option value="uy">Uruguay</option>
+                        <option value="us">US</option>
+                        <option value="ug">Ukraine</option>
+                        <option value="uz">Uzbekistan</option>
+                        <option value="vut">Vanuatu</option>
+                        <option value="va">Vatican city</option>
+                        <option value="ve">Venezuela</option>
+                        <option value="vn">Vietnam</option>
+                        <option value="vgb">Virgin Islands (British)</option>
+                        <option value="wlf">Wallis and Futina</option>
+                        <option value="ye">Yemen</option>
+                        <option value="zm">Zambia</option>
+                        <option value="zw">Zimbabwe</option>
+                        <option value="nd">No Country</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+  
+            <!-- Sidebar body of ptp starts -->
+            <div class="sidebar-body sidebarBody2 disable" id="ptp-container">
+              <form action="" id="resetForm" class="sidebar-form">
+                <!-- Sidebar Section 0 for Name of the link-->
+                <div class="sidebar-section">
+                  <div class="sidebar-section-body">
+                    <!-- Name to be given to the link  -->
+                    <div class="row">
+                      <div class="col-12 sidebar-padding">
+                        <label for="" class="label">Link Name</label>
+                        <input
+                          type="text"
+                          class="input"
+                          id="linkName"
+                          value="Link Planning 1" 
+                          placeholder="Name of the Link"
+                          required
+                        />
+                      </div>
+                    </div>
+                     <!-- Any relevant information if user wants to enter for the Sites  -->
+                     <div class="row">
+                      <div class="col-6 sidebar-padding">
+                        <label for="" class="label">Site A Name</label>
+                        <input
+                          type="text"
+                          class="input"
+                          id="siteAName"
+                          value="Site 1"
+                          placeholder="Site related info"
+                          required
+                        />
+                      </div>
+                      <div class="col-6 sidebar-padding">
+                        <label for="" class="label">Site B Name</label>
+                        <input
+                          type="text"
+                          class="input"
+                          id="siteBName"
+                          value="Site 2"
+                          placeholder="Site related info"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Sidebar Section 1 -->
+                <!--Start of Sidebar section 1 contains address and tower and height inputs -->
+                <div class="sidebar-section">
+                  <div class="sidebar-section-body">
+                    <!-- Inputs for the addresses  -->
+                    <!-- <div class="input-grid"> -->
+                    <!-- For address division -->
+                    <div class="row">
+                      <!-- First input for address 1 -->
+                      <div class="col-6 sidebar-padding">
+                        <label for="channelBandwidth" class="label">Site A</label>
+                        <!-- <div class="input-grid-col-5"> -->
+                        <input
+                          type="text"
+                          class="input"
+                          id="add1"
+                          placeholder="address for A"
+                          required
+                        />
+                        <!-- Munish has put 5 input fields hidden for contact details captured at website page -->
+                        <!-- </div> -->
+                      </div>
+                      <!-- Second input for address 2 -->
+                      <div class="col-6 sidebar-padding">
+                        <label for="channelBandwidth" class="label">Site B</label>
+                        <!-- <div class="input-grid-col-5"> -->
+                        <input
+                          type="text"
+                          class="input"
+                          id="add2"
+                          placeholder="address for B"
+                          required
+                        />
+                        <!-- </div> -->
+                      </div>
+                    </div>
+                    <!-- </div> -->
+  
+                    <!-- End for the input of adrresses -->
+  
+                    <!-- Inputs for the tower locations and the heights -->
+                    <!-- <div class="input-grid"> -->
+                    <!-- For towers col 1 -->
+                    <div class="row">
+                      <!-- LAtlong of Site A -->
+                      <div class="col-6 sidebar-padding">
+                        <!-- <label for="channelBandwidth" class="label">Tower</label> -->
+                        <!-- <div class="input-grid-col-5"> -->
+                        <input
+                          type="text"
+                          class="input"
+                          id="searchtower1"
+                          placeholder="lat,long"
+                          required
+                        />
+                        <!-- </div> -->
+                      </div>
+                      <!-- Latlong of Site B -->
+                      <div class="col-6 sidebar-padding">
+                        <!-- <label for="channelBandwidth" class="label">Tower</label> -->
+                        <!-- <div class="input-grid-col-5"> -->
+                        <input
+                          type="text"
+                          class="input"
+                          id="searchtower2"
+                          placeholder="lat,long"
+                          required
+                        />
+                        <!-- </div> -->
+                      </div>
+                    </div>
+  
+                    <!-- The hidden row which will contain the decimal formatted co-ordinate which will not be visible -->
+                    <div class="row" hidden>
+                      <!-- LAtlong of Site A -->
+                      <div class="col-6 sidebar-padding">
+                        <!-- <label for="channelBandwidth" class="label">Tower</label> -->
+                        <!-- <div class="input-grid-col-5"> -->
+                        <input
+                          type="text"
+                          class="input towerinput"
+                          id="decimal1"
+                          placeholder="lat,long"
+                          required
+                        />
+                        <!-- </div> -->
+                      </div>
+                      <!-- Latlong of Site B -->
+                      <div class="col-6 sidebar-padding">
+                        <!-- <label for="channelBandwidth" class="label">Tower</label> -->
+                        <!-- <div class="input-grid-col-5"> -->
+                        <input
+                          type="text"
+                          class="input towerinput"
+                          id="decimal2"
+                          placeholder="lat,long"
+                          required
+                          />
+                        <!-- </div> -->
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 sidebar-padding validate-section">
+                        <button type="button" id="latLongBtn" class="btn btn-validate" onclick="inputMarker()" disabled>Calculate</button>
+                      </div>
+                    </div>
+                    <!-- </div> -->
+                    <!-- End of the inputs for the tower location  -->
+                  </div>
+                </div>
+                <!-- End of sidebar section 1 containing address tower -->
+  
+                <!-- Start of Sidebar Section 2 -->
+                <!-- Contains all the options to choose from say - bandwidth, frequency, radio, cable loss, transmit power-->
+                <div class="sidebar-section">
+                  <div class="sidebar-section-body">
+                    <!-- <div class="input-grid"> -->
+                      <!-- Row for bandwidth and frequency -->
+                    <div class="row">
+                      <div class="col-6 sidebar-padding">
+                        <label for="">Channel Bandwidth</label>
+                        <!-- <div> -->
+                        <select
+                          name=""
+                          id="ptpchannelBandwidth"
+                          class="select"
+                          onchange="ptpfrequencydata()"
+                        >
+                          <option value="" hidden>Bandwidth</option>
+                          <option value="10" id="10mhz">10 MHz</option>
+                          <option value="20" selected>20 MHz</option>
+                          <option value="40">40 MHz</option>
+                          <option value="80">80 MHz</option>
+                          <option value="160" disabled>160 MHz</option>
+                        </select>
+                        <!-- </div> -->
+                      </div>
+                      <div class="col-6 sidebar-padding">
+                        <label for="">Channel Frequency</label>
+                        <!-- <div> -->
+                        <select
+                          id="ptpchannelFrequency"
+                          class="select"
+                          onchange="calcFresnel(); ptpeirpcalculate()"
+                        ></select>
+                        <!-- </div> -->
+                      </div>
+                    </div>
+                      <!-- Row for Max EIRP -->
+                      <div class="row" id="eirplevel">
+                        <!-- Max EIRP  -->
+                        <div class="col-12 sidebar-padding">
+                          <label for="" class="label">Max EIRP</label>
+                          <input
+                            type="text"
+                            name=""
+                            id="ptpeirpMax"
+                            value=""
+                            class="input"
+                            disabled
+                          />
+                        </div>
+                      </div>
+                    <!-- row for Radio selection -->
+                    <div class="row">
+                      <!-- Radio A -->
+                      <div class="col-6 sidebar-padding">
+                        <label for="" class="label">Radio</label>
+                        <!-- <div> -->
+                        <select
+                          name=""
+                          id="radio1"
+                          class="select"
+                        >
+                          <optgroup label="Integrated Sector Antenna" class="optGroup">
+                            <option value="17">ion4l1_BTS</option>
+                            <option value="17">ion4xl1_BTS</option>
+                            <option value="19">ion4l2_BTS</option>
+                            <option value="19">ion4xl2_BTS</option>
+                          </optgroup>
+                          <optgroup label="Integrated Dish Antenna"class="optGroup">
+                            <option value="23">ion4l2</option>
+                            <option value="23">ion4xl2</option>
+                            <option value="25" id="defaultRadioA" selected>ion4l3</option>
+                            <option value="25">ion4xl3</option>
+                            <option value="25">ion4l3_CPE</option>
+                            <option value="27">ion4l4</option>
+                            <option value="27">ion4xl4</option>
+                          </optgroup>
+                          <optgroup label="Integrated Flat Panel Antenna" class="optGroup">
+                            <option value="23">ion4l2_CPE</option>
+                          </optgroup>
+                          <optgroup label="External Antenna">
+                            <option value="0" id="extA">ion4le</option>
+                            <option value="0" >ion4xle</option>
+                            <option value="0" >ion4le_CPE</option>
+                          </optgroup>
+                        </select>
+                        <strong class="radioAlert" style="display: none;">Select radio from same family</strong>
+                        <!-- </div> -->
+                      </div>
+                      <!-- Radio B -->
+                      <div class="col-6 sidebar-padding top-margin">
+                        <label for="" class="label"></label>
+                        <!-- <div> -->
+                        <select
+                          name=""
+                          id="radio2"
+                          class="select"
+                        >
+                        <optgroup label="Integrated Sector Antenna" class="optGroup">
+                          <option value="17">ion4l1_BTS</option>
+                          <option value="17">ion4xl1_BTS</option>
+                          <option value="19">ion4l2_BTS</option>
+                          <option value="19">ion4xl2_BTS</option>
+                        </optgroup>
+                        <optgroup label="Integrated Dish Antenna"class="optGroup">
+                          <option value="23">ion4l2</option>
+                          <option value="23">ion4xl2</option>
+                          <option value="25" id="defaultRadioB" selected>ion4l3</option>
+                          <option value="25">ion4xl3</option>
+                          <option value="25">ion4l3_CPE</option>
+                          <option value="27">ion4l4</option>
+                          <option value="27">ion4xl4</option>
+                        </optgroup>
+                        <optgroup label="Integrated Flat Panel Antenna" class="optGroup">
+                          <option value="23">ion4l2_CPE</option>
+                        </optgroup>
+                        <optgroup label="External Antenna">
+                          <option value="0" id="extB">ion4le</option>
+                          <option value="0" >ion4xle</option>
+                          <option value="0" >ion4le_CPE</option>
+                        </optgroup>
+                        </select>
+                        <strong class="radioAlert" style="display: none;">Select radio from same family</strong>
+                        <!-- </div> -->
+                      </div>
+                    </div>
+                    <!-- Row for antenna gain -->
+                    <!-- event listeners added in query select js -->
+                    <div class="row" id="hiddenGain">
+                      <!-- Antenna gain A -->
+                      <div class="col-6 sidebar-padding">
+                        <label for="" class="label">Antenna Gain</label>
+                        <input
+                          type="number"
+                          name=""
+                          id="antgain1"
+                          class="input disable"
+                          disabled
+                          value="25"
+                          required
+                        />
+                        <span class="metre">dBi</span>
+                        <strong class="gain1Alert" style="display: none;">Please enter value less than Max EIRP.</strong> 
+                      </div>
+                      <!-- Antenna Gain B -->
+                      <div class="col-6 sidebar-padding top-margin">
+                        <label for="" class="label"></label>
+                        <input
+                          type="number"
+                          name=""
+                          id="antgain2"
+                          class="input disable"
+                          value="25"
+                          disabled
+                        />
+                        <span class="metre">dBi</span>
+                        <strong class="gain2Alert" style="display: none;">Please enter value less than Max EIRP.</strong> 
+                      </div>
+                    </div>
+                    <!-- Row for cable and other losses -->
+                    <div class="row">
+                      <!-- Cable Loss A -->
+                      <div class="col-6 sidebar-padding">
+                        <label for="" class="label">Cable Loss</label>
+                        <input
+                          type="number"
+                          name=""
+                          id="cableLoss1"
+                          value="2"
+                          min="2"
+                          max="6"
+                          class="input disable"
+                          disabled
+                          required
+                          onchange="calcTxPower()"
+                        />
+                        <span class="metre">dB</span>
+                        <strong class="cable1Alert" style="display: none;">Value range 0-6 dB</strong> 
+                      </div>
+                      <!-- Cable loss B -->
+                      <div class="col-6 sidebar-padding top-margin">
+                        <label for="" class="label"></label>
+                        <input
+                          type="number"
+                          name=""
+                          id="cableLoss2"
+                          value="2"
+                          min="2"
+                          max="6"
+                          class="input disable"
+                          required
+                          disabled
+                          onchange="calcTxPower()"
+                        />
+                        <span class="metre">dB</span>
+                        <strong class="cable2Alert" style="display: none;">Value range 0-6 dB</strong> 
+                      </div>
+                    </div>
+                      <!-- Max Transmit power B -->
+                      <!-- <div class="col-6 sidebar-padding top-margin">
+                        <label for="" class="label"></label>
+                        <input
+                          type="number"
+                          name=""
+                          id="maxtransmitPower2"
+                          value="30"
+                          class="input"
+                        />
+                      </div> -->
+                    
+                    <!-- Row for calculated transmit power -->
+                    <div class="row">
+                      <!-- Calculated Transmit Power A -->
+                      <div class="col-6 sidebar-padding">
+                        <label for="" class="label">Transmit Power</label>
+                        <input
+                          type="number"
+                          name=""
+                          id="transmitPower1"
+                          class="input"
+                          min="0"
+                          max="27"
+                          value=""
+                          required
+                        />
+                        <span class="metre">dBm</span>
+                        <strong class="tx1Alert" style="display:none">Less than 3. Please adjust ant. gain/ cable loss.</strong>
+                        <strong class="tx1Alert2" style="display:none">Out of Range</strong>
+                      </div>
+                      <!-- Calculated Transmit power B -->
+                      <div class="col-6 sidebar-padding top-margin">
+                        <label for="" class="label"></label>
+                        <input
+                          type="number"
+                          name=""
+                          id="transmitPower2"
+                          class="input"
+                          min="0"
+                          max="27"
+                          value=""
+                          required
+                        />
+                        <span class="metre">dBm</span>
+                        <strong class="tx2Alert" style="display:none">Less than 3. Please adjust ant. gain/ cable loss.</strong>
+                        <strong class="tx2Alert2" style="display:none">Out of Range</strong>
+                      </div>
+                    </div>
+                     <!-- For height -->
+                     <div class="row">
+                      <!-- Height of tower A -->
+                      <div class="col-6 sidebar-padding">
+                        <label for="channelBandwidth" class="label">Height</label>
+                        <!-- <div class="input-grid-col-5"> -->
+                        <input
+                          type="text"
+                          class="input"
+                          id="aheight1"
+                          value="15"
+                          required
+                          onchange="heightUpdate()"
+                        />
+                        <span class="metre">m</span>
+                        <!-- </div> -->
+                      </div>
+                      <!-- Height for tower B -->
+                      <div class="col-6 sidebar-padding top-margin">
+                        <!-- <div class="input-grid-col-5"> -->
+                        <label for="channelBandwidth" class="label"></label>
+                        <input
+                          type="text"
+                          class="input"
+                          id="aheight2"
+                          value="15"
+                          required
+                          onchange="heightUpdate()"
+                        />
+                        <span class="metre">m</span>
+                        <!-- </div> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End of sidebar section 2 which contains options to choose from say - bandwidth, freq, cable loss, transmit power -->
+  
+                <!-- Sidebar Section 3 -->
+                <!-- Start of sidebar section 3 which contains the calculated values and button for report generation-->
+                <div class="sidebar-section">
+                  <!-- Heading of the Section -->
+                  <header class="ptp-sidebar-section-header">
+                    <label for="" class="ptp-sidebar-section-title"
+                      >Link Summary</label
+                    >
+                  </header>
+                  <!-- Body of the link summary -->
+                  <!-- Empty class emties the innerHtML when radio is ion4le i.e. ant gain is 0 -->
+                  <!-- resetTable is called when cancel ptp button is pressed to reset the value of the table -->
+                  <div class="sidebar-section-body" style="padding: 0">
+                    <div class="table-responsive">
+                      <table class="ptp-link-summary table">
+                        <tbody>
+                          <form class="tableform">
+                          <tr>
+                            <th>link distance</th>
+                            <td>
+                              <span class="ng-binding resetTable" id="linkDistance"></span>
+                              <span>Km</span>
+                            </td>
+                            <th>fresnel radius</th>
+                            <td>
+                              <span class="ng-binding resetTable" id="fresnelRadius"></span>
+                              <span>m</span>
+                            </td>
+                          </tr>
+                          <!-- Second Column -->
+                         
+                          <tr>
+                            <th>rsl a</th>
+                            <td>
+                              <span class="ng-binding empty resetTable" id="rsl1"></span>
+                              <span>dBm</span>
+                            </td>
+                            <th>rsl b</th>
+                            <td>
+                              <span class="ng-binding empty resetTable" id="rsl2"></span>
+                              <span>dBm</span>
+                            </td>
+                          </tr>
+                          <!-- Third Column -->
+                          <tr>
+                            <th>snr a</th>
+                            <td>
+                              <span class="ng-binding empty resetTable" id="snr1"></span>
+                              <span>dB</span>
+                            </td>
+                            <th>snr b</th>
+                            <td>
+                              <span class="ng-binding empty resetTable" id="snr2"></span>
+                              <span>dB</span>
+                            </td>
+                          </tr>
+                          <!-- Fourth Column -->
+                          <tr>
+                            <th>throughput A</th>
+                            <td>
+                              <span class="ng-binding empty resetTable" id="throughput1"></span>
+                              <span>Mbps</span>
+                            </td>
+                            <th>throughput B</th>
+                            <td>
+                              <span class="ng-binding empty resetTable" id="throughput2"></span>
+                              <span>Mbps</span>
+                            </td>
+                          </tr>
+                          <!-- Last Column -->
+                          <tr>
+                            <th>line of sight</th>
+                            <td>
+                              <span class="ng-binding resetTable" id="los">Yes / No</span>
+                            </td>
+                            <th>link Availability</th>
+                            <td id="availabilityValue">
+                              <span
+                                class="ng-binding empty resetTable"
+                                id="linkAvailability"
+                              ></span>
+                              <span>%</span>
+                            </td>
+                            <td id="msg" style="display: none">
+                            <span>LOS Unclear</span></td>
+                          </tr>
+                        </form> 
+                        </tbody>
+                      </table>
+                    </div>
+  
+                    <div class="align-center">
+                      <div class="sidebar-section-body" style="padding: 30px">
+                        <div class="btn-group">
+                          <button
+                            type="button"
+                            class="btn"
+                            id="ptpreportbtn"
+                            onclick="reportMarker()"
+                            disabled
+                          >
+                            Installation Report
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End of the sidebar section containing calculated values and the button for the report -->
+                <!-- Start of the Sidebar Section 4 -->
+                <!-- Elevation Chart Section -->
+                <div class="sidebar-section-body">
+                  <div class="row">
+                    <div class="modal-control editPencil"><i class="fa-solid fa-pencil" id="editObstruction"></i></div>
+                    <div class="col-xs-12">
+                      <div class="ptp-elevation-chart col-xs-12">
+                        <div id="ptpchart" class="chart"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End of Sidebar Section 4 containing elevation chart-->
+              </form>
+            </div>
+          </div>
+           <!-- Map Container -->
+        <div class="col-lg-8 ptp-map-section ptp-map-container">
+            <div id="ptpmap" class="sidebar-section-body"></div>
+        </div>
+    </div>
+</div>
+     <!-- Pop up table for obstruction information -->
+     <div class="obstructionPopUp">
+        <div class="obstructionHeader">
+          <div class="obstruction-modal-title">Obstruction Detail
+            <div class="modal-control">
+              <i class="fa-solid fa-xmark" id="obstruction-close-btn"></i>
+            </div>
+          </div> 
+        </div>
+        <div class="obstructionDiv"> 
+          <div class="sidebar-section">
+          <div class="sidebar-section-body">
+            <div class="row">
+              <div class="col-5 sidebar-padding">
+                <label for="" class="label">Distance (Km)</label>
+                <input type="text" class="input" id="obstructionDistance" required>
+              </div>
+              <div class="col-5 sidebar-padding">
+                <label for="" class="label">Obstruction Height (m)</label>
+                <input type="text" class="input" id="obstructionMastHt" required>
+              </div>
+              <div class="col-2 sidebar-padding ">
+                <label></label>
+                <input type="submit" value="Add" class="input submitObstruction" onclick="newObstructionData()"/>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="obstructionData">
+           <ul id="obsUL"></ul>
+          </div>
+        </div>
+      </div>
+      <!-- End of the obstruction detail table -->
+      <!-- Link Report Pop Up -->
+      <div class="ptppopup">
+        <div class="ptpcontent">
+          <!-- Start of the header of linked report -->
+          <div class="ptpreportheader">
+            <h4 class="modal-title">
+              Installation Report
+              <div class="modal-control print-hide">
+                <i class="fa-solid fa-xmark" id="ptp-close-btn"></i>
+              </div>
+              <div  
+                class="modal-control print-hide comp-hide"
+                onclick="window.print()"
+              >
+                <i class="fa-solid fa-print"></i>
+              </div>
+              <!-- Export Select -->
+              <div class="modal-control print-hide mob-hide">
+                <select
+                  name=""
+                  id="ptpexports"
+                  class="export"
+                  onchange="downloadExport()"
+                >
+                  <option value="" hidden>Export</option>
+                  <option value="">Print / Download</option>
+                  <option value="">Export To Excel</option>
+                </select>
+              </div>
+              <div class="modal-control">
+                <span class="modal-small-title" id="reportLinkName" />
+              </div>
+            </h4>
+          </div>
+          <!-- Header ends -->
+          <!-- Start of the body of link report --> 
+          <div class="modal-body container">
+            <div class="row second-row">
+              <div class="col-lg-6 report-holder">
+                <div class="ptp-report-content content1">
+                  <div class="heading">Link Settings</div>
+                  <table class="table table-condensed table-striped" id="tbl1">
+                    <tbody>
+                      <tr>
+                        <th></th>
+                        <th>Site A</th>
+                        <th>Site B</th>
+                      </tr>
+                      <tr>
+                        <th>Radio</th>
+                        <td>
+                          <span id="reportRadio1"></span>
+                        </td>
+                        <td>
+                          <span id="reportRadio2"></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Channel Bandwidth</th>
+                        <td colspan="2">
+                          <span id="reportbandwidth"></span>
+                          <span>MHz</span>
+                        </td>
+                        <td style="display: none"></td>
+                      </tr>
+                      <tr>
+                        <th>Frequency</th>
+                        <td colspan="2">
+                          <span id="reportfrequency"></span>
+                          <span>MHz</span>
+                        </td>
+                        <td style="display: none"></td>
+                      </tr>
+                      <tr>
+                        <th>Transmit Power</th>
+                        <td>
+                          <span id="reporttx1"></span>
+                          <span>dBm</span>
+                        </td>
+                        <td>
+                          <span id="reporttx2"></span>
+                          <span>dBm</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Antenna Gain</th>
+                        <td>
+                          <span id="reportAntGain1"></span>
+                          <span>dBi</span>
+                        </td>
+                        <td>
+                          <span id="reportAntGain2"></span>
+                          <span>dBi</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Cable Loss</th>
+                        <td>
+                          <span id="reportloss1"></span>
+                          <span>dB</span>
+                        </td>
+                        <td>
+                          <span id="reportloss2"></span>
+                          <span>dB</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-lg-6 report-holder">
+                <div class="ptp-report-content content2">
+                  <div class="heading">Elevation Profile</div>
+                  <div class="elevation-chart">
+                    <div
+                      class="ptp-report-chart chart"
+                      id="report_elevation_profile"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Second row of the link report -->
+            <div class="row second-row">
+              <!-- Map container -->
+              <div class="col-lg-5 report-holder" style="display: flex">
+                <div class="ptp-report-content ptp-report-map-height content3">
+                  <div class="heading">Link Topography</div>
+                  <div class="ptp-report-map-container">
+                    <div id="ptpreportmap"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- link statistics container -->
+              <div class="col-lg-7 report-holder">
+                <div class="ptp-report-content content4">
+                  <div class="heading">Link Stats</div>
+                  <div class="table-responsive-lg">
+                    <table class="table table-condensed table-striped" id="tbl2">
+                      <tbody>
+                        <tr>
+                          <th></th>
+                          <th>Site A</th>
+                          <th>Site B</th>
+                        </tr>
+                        <tr>
+                          <th>Link Distance</th>
+                          <td colspan="2">
+                            <span id="reportlinkdistance"></span>
+                            <span>Km</span>
+                          </td>
+                          <td style="display: none"></td>
+                        </tr>
+                        <tr>
+                          <th>Fresnel Radius</th>
+                          <td colspan="2">
+                            <span id="reportfresradius"></span>
+                            <span>m</span>
+                          </td>
+                          <td style="display: none"></td>
+                        </tr>
+                        <tr>
+                          <th>LOS</th>
+                          <td colspan="2">
+                            <span id="reportlos"></span>
+                            <span></span>
+                          </td>
+                          <td style="display: none"></td>
+                        </tr>
+                        <tr>
+                          <th>RSL</th>
+                          <td>
+                            <span id="reportrsl1"></span>
+                            <span>dBm</span>
+                          </td>
+                          <td>
+                            <span id="reportrsl2"></span>
+                            <span>dBm</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>SNR</th>
+                          <td>
+                            <span id="reportsnr1"></span>
+                            <span>dB</span>
+                          </td>
+                          <td>
+                            <span id="reportsnr2"></span>
+                            <span>dB</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>Fade Margin</th>
+                          <td>
+                            <span id="fadeMargin1"></span>
+                            <span>dB</span>
+                          </td>
+                          <td>
+                            <span id="fadeMargin2"></span>
+                            <span>dB</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>MCS</th>
+                          <td>
+                            <span id="mcs1"></span>
+                            <span></span>
+                          </td>
+                          <td>
+                            <span id="mcs2"></span>
+                            <span></span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>Modulation</th>
+                          <td>
+                            <span id="modulation1"></span>
+                            <span></span>
+                          </td>
+                          <td>
+                            <span id="modulation2"></span>
+                            <span></span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>FEC</th>
+                          <td>
+                            <span id="fec1"></span>
+                            <span></span>
+                          </td>
+                          <td>
+                            <span id="fec2"></span>
+                            <span></span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>Link Rate</th>
+                          <td>
+                            <span id="linkRate1"></span>
+                            <span></span>
+                          </td>
+                          <td>
+                            <span id="linkRate2"></span>
+                            <span></span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>Throughput</th>
+                          <td>
+                            <span id="reportthroughput1"></span>
+                            <span>Mbps</span>
+                          </td>
+                          <td>
+                            <span id="reportthroughput2"></span>
+                            <span>Mbps</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>Link Availability</th>
+                          <td colspan="2">
+                            <span id="reportlinkAvailability"></span>
+                            <span>%</span>
+                          </td>
+                          <td style="display: none"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Third row of the link report -->
+            <div class="row second-row">
+              <!-- Site A details -->
+              <div class="col-lg-6 report-holder">
+                <div class="ptp-report-content content5">
+                  <div class="heading">
+                    Site A <i class="fa-solid fa-location-dot"></i>
+                  </div>
+                  <div class="table-responsive-lg">
+                    <table class="table table-condensed table-striped" id="tbl3">
+                      <tbody>
+                        <tr>
+                          <th>Site Name</th>
+                          <td><span id="reportSiteAName"></span></td>
+                        </tr>
+                        <tr>
+                          <th style="vertical-align: middle">Address</th>
+                          <td id="addHeightA">
+                            <span id="reportAddressA"></span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>Co-ordinates</th>
+                          <td><span id="reportCoordA"></span></td>
+                        </tr>
+                        <tr>
+                          <th>Country</th>
+                          <td><span id="reportCountryA"></span></td>
+                        </tr>
+                        <tr>
+                          <th>Elevation</th>
+                          <td><span id="reportElevationA"></span></td>
+                        </tr>
+                        <tr>
+                          <th>Height</th>
+                          <td><span id="reportHeightA"></span></td>
+                        </tr>
+                        <tr>
+                          <th>Azimuth Angle</th>
+                          <td><span id="reportHeadingA"></span></td>
+                        </tr>
+                        <tr>
+                          <th>Antenna Downtilt</th>
+                          <td><span id="reportTiltA"></span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <!-- Site B Details -->
+              <div class="col-lg-6 report-holder">
+                <div class="ptp-report-content content6">
+                  <div class="heading">
+                    Site B <i class="fa-solid fa-location-dot"></i>
+                  </div>
+                  <div class="table-responsive-lg">
+                    <table class="table table-condensed table-striped" id="tbl4">
+                      <tbody>
+                        <tr>
+                          <th>Site Name</th>
+                          <td><span id="reportSiteBName"></span></td>
+                        </tr>
+                        <tr>
+                          <th style="vertical-align: middle">Address</th>
+                          <td id="addHeightB">
+                            <span id="reportAddressB"></span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>Co-ordinates</th>
+                          <td><span id="reportCoordB"></span></td>
+                        </tr>
+                        <tr>
+                          <th>Country</th>
+                          <td><span id="reportCountryB"></span></td>
+                        </tr>
+                        <tr>
+                          <th>Elevation</th>
+                          <td><span id="reportElevationB"></span></td>
+                        </tr>
+                        <tr>
+                          <th>Height</th>
+                          <td><span id="reportHeightB"></span></td>
+                        </tr>
+                        <tr>
+                          <th>Azimuth Angle</th>
+                          <td><span id="reportHeadingB"></span></td>
+                        </tr>
+                        <tr>
+                          <th>Antenna Downtilt</th>
+                          <td><span id="reportTiltB"></span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Third row ends -->
+            <!-- Button to donwload the Tables -->
+            <div class="dataToXlsx comp-hide">
+              <button class="exportBtn btn" onclick="exportToExcel()">
+                <span style="padding-right: 3px">
+                  <i class="fa fa-download" aria-hidden="true"></i>
+                </span>
+                Export To Excel
+              </button>
+            </div>
+          </div>
+          <!-- Link Report Body ends -->
+        </div>
+      </div>
+       <!-- End of link report pop up -->
+    <!-- Strat of reference table div -->
+    <div class="table" style="display: none">
+        <!-- Table 1 10 MHz -->
+        <table id="10MHz" class="mcsTable" hidden>
+          <tr>
+            <th>Min</th>
+            <th>Max</th>
+            <th>MCS</th>
+            <th>Modulation</th>
+            <th>FEC</th>
+            <th>Link Rate</th>
+            <th>Throughput</th>
+          </tr>
+          <tr>
+            <td>-150</td>
+            <td>-85.01</td>
+            <td>NA</td>
+            <td>NA</td>
+            <td>NA</td>
+            <td>NA</td>
+            <td>NA</td>
+          </tr>
+          <tr>
+            <td>-85</td>
+            <td>-82.01</td>
+            <td>0</td>
+            <td>BPSK</td>
+            <td>1/2</td>
+            <td>7</td>
+            <td>4.9</td>
+          </tr>
+          <tr>
+            <td>-82</td>
+            <td>-80.01</td>
+            <td>1</td>
+            <td>QPSK</td>
+            <td>1/2</td>
+            <td>14</td>
+            <td>9.8</td>
+          </tr>
+          <tr>
+            <td>-80</td>
+            <td>-77.01</td>
+            <td>2</td>
+            <td>QPSK</td>
+            <td>3/4</td>
+            <td>21</td>
+            <td>14.7</td>
+          </tr>
+          <tr>
+            <td>-77</td>
+            <td>-73.01</td>
+            <td>3</td>
+            <td>16-QAM</td>
+            <td>1/2</td>
+            <td>28</td>
+            <td>19.6</td>
+          </tr>
+          <tr>
+            <td>-73</td>
+            <td>-69.01</td>
+            <td>4</td>
+            <td>16-QAM</td>
+            <td>3/4</td>
+            <td>43</td>
+            <td>30.01</td>
+          </tr>
+          <tr>
+            <td>-69</td>
+            <td>-68.01</td>
+            <td>5</td>
+            <td>64-QAM</td>
+            <td>2/3</td>
+            <td>57</td>
+            <td>39.9</td>
+          </tr>
+          <tr>
+            <td>-68</td>
+            <td>-65.01</td>
+            <td>6</td>
+            <td>64-QAM</td>
+            <td>3/4</td>
+            <td>65</td>
+            <td>45.5</td>
+          </tr>
+          <tr>
+            <td>-65</td>
+            <td>-62.01</td>
+            <td>7</td>
+            <td>64-QAM</td>
+            <td>5/6</td>
+            <td>72</td>
+            <td>50.4</td>
+          </tr>
+          <tr>
+            <td>-62</td>
+            <td>-60.01</td>
+            <td>8</td>
+            <td>256-QAM</td>
+            <td>3/4</td>
+            <td>86</td>
+            <td>60.2</td>
+          </tr>
+          <tr>
+            <td>-60</td>
+            <td>0</td>
+            <td>9</td>
+            <td>256-QAM</td>
+            <td>5/6</td>
+            <td>96</td>
+            <td>67.2</td>
+          </tr>
+          <tr>
+            <td>0.1</td>
+            <td>100</td>
+            <td>NA</td>
+            <td>NA</td>
+            <td>NA</td>
+            <td>NA</td>
+            <td>NA</td>
+          </tr>
+        </table>
+  
+        <!-- TABLE 2 BANDWIDTH 20MHz -->
+        <table id="20MHz" class="mcsTable" hidden>
+          <tr>
+            <th>Min</th>
+            <th>Max</th>
+            <th>MCS</th>
+            <th>Modulation</th>
+            <th>FEC</th>
+            <th>Link Rate</th>
+            <th>Throughput</th>
+          </tr>
+          <tr>
+            <td>-100</td>
+            <td>-82.01</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+          </tr>
+          <tr>
+            <td>-82</td>
+            <td>-79.01</td>
+            <td>0</td>
+            <td>BPSK</td>
+            <td>1/2</td>
+            <td>14.4</td>
+            <td>10</td>
+          </tr>
+          <tr>
+            <td>-79</td>
+            <td>-77.01</td>
+            <td>1</td>
+            <td>QPSK</td>
+            <td>1/2</td>
+            <td>28.9</td>
+            <td>20</td>
+          </tr>
+          <tr>
+            <td>-77</td>
+            <td>-74.01</td>
+            <td>2</td>
+            <td>QPSK</td>
+            <td>3/4</td>
+            <td>43.3</td>
+            <td>30</td>
+          </tr>
+          <tr>
+            <td>-74</td>
+            <td>-70.01</td>
+            <td>3</td>
+            <td>16-QAM</td>
+            <td>1/2</td>
+            <td>57.8</td>
+            <td>40</td>
+          </tr>
+          <tr>
+            <td>-70</td>
+            <td>-66.01</td>
+            <td>4</td>
+            <td>16-QAM</td>
+            <td>3/4</td>
+            <td>86.7</td>
+            <td>60</td>
+          </tr>
+          <tr>
+            <td>-66</td>
+            <td>-65.01</td>
+            <td>5</td>
+            <td>64-QAM</td>
+            <td>2/3</td>
+            <td>115.6</td>
+            <td>80</td>
+          </tr>
+          <tr>
+            <td>-65</td>
+            <td>-64.01</td>
+            <td>6</td>
+            <td>64-QAM</td>
+            <td>3/4</td>
+            <td>130</td>
+            <td>91</td>
+          </tr>
+          <tr>
+            <td>-64</td>
+            <td>-59.01</td>
+            <td>7</td>
+            <td>64-QAM</td>
+            <td>5/6</td>
+            <td>144.4</td>
+            <td>101</td>
+          </tr>
+          <tr>
+            <td>-59</td>
+            <td>-57.01</td>
+            <td>8</td>
+            <td>256-QAM</td>
+            <td>3/4</td>
+            <td>173.3</td>
+            <td>120</td>
+          </tr>
+          <tr>
+            <td>-57</td>
+            <td>0</td>
+            <td>9</td>
+            <td>256-QAM</td>
+            <td>5/6</td>
+            <td>192</td>
+            <td>135</td>
+          </tr>
+          <tr>
+            <td>0.1</td>
+            <td>100</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+          </tr>
+        </table>
+  
+        <!-- TABLE 2 BANDWIDTH 40MHz  -->
+  
+        <table id="40MHz" class="mcsTable" hidden>
+          <tr>
+            <th>Min</th>
+            <th>Max</th>
+            <th>MCS</th>
+            <th>Modulation</th>
+            <th>FEC</th>
+            <th>Link Rate</th>
+            <th>Throughput</th>
+          </tr>
+          <tr>
+            <td>-100</td>
+            <td>-79.01</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+          </tr>
+          <tr>
+            <td>-79</td>
+            <td>-76.01</td>
+            <td>0</td>
+            <td>BPSK</td>
+            <td>1/2</td>
+            <td>30</td>
+            <td>21</td>
+          </tr>
+          <tr>
+            <td>-76</td>
+            <td>-74.01</td>
+            <td>1</td>
+            <td>QPSK</td>
+            <td>1/2</td>
+            <td>60</td>
+            <td>42</td>
+          </tr>
+          <tr>
+            <td>-74</td>
+            <td>-71.01</td>
+            <td>2</td>
+            <td>QPSK</td>
+            <td>3/4</td>
+            <td>90</td>
+            <td>63</td>
+          </tr>
+          <tr>
+            <td>-71</td>
+            <td>-67.01</td>
+            <td>3</td>
+            <td>16-QAM</td>
+            <td>1/2</td>
+            <td>120</td>
+            <td>84</td>
+          </tr>
+          <tr>
+            <td>-67</td>
+            <td>-63.01</td>
+            <td>4</td>
+            <td>16-QAM</td>
+            <td>3/4</td>
+            <td>180</td>
+            <td>126</td>
+          </tr>
+          <tr>
+            <td>-63</td>
+            <td>-62.01</td>
+            <td>5</td>
+            <td>64-QAM</td>
+            <td>2/3</td>
+            <td>240</td>
+            <td>168</td>
+          </tr>
+          <tr>
+            <td>-62</td>
+            <td>-61.01</td>
+            <td>6</td>
+            <td>64-QAM</td>
+            <td>3/4</td>
+            <td>270</td>
+            <td>189</td>
+          </tr>
+          <tr>
+            <td>-61</td>
+            <td>-56.01</td>
+            <td>7</td>
+            <td>64-QAM</td>
+            <td>5/6</td>
+            <td>300</td>
+            <td>210</td>
+          </tr>
+          <tr>
+            <td>-56</td>
+            <td>-54.01</td>
+            <td>8</td>
+            <td>256-QAM</td>
+            <td>3/4</td>
+            <td>360</td>
+            <td>252</td>
+          </tr>
+          <tr>
+            <td>-54</td>
+            <td>0</td>
+            <td>9</td>
+            <td>256-QAM</td>
+            <td>5/6</td>
+            <td>400</td>
+            <td>280</td>
+          </tr>
+          <tr>
+            <td>0.1</td>
+            <td>100</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+          </tr>
+        </table>
+  
+        <table id="80MHz" class="mcsTable" hidden>
+          <tr>
+            <th>Min</th>
+            <th>Max</th>
+            <th>MCS</th>
+            <th>Modulation</th>
+            <th>FEC</th>
+            <th>Link Rate</th>
+            <th>Throughput</th>
+          </tr>
+          <tr>
+            <td>-100</td>
+            <td>-76.01</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+          </tr>
+          <tr>
+            <td>-76</td>
+            <td>-73.01</td>
+            <td>0</td>
+            <td>BPSK</td>
+            <td>1/2</td>
+            <td>65</td>
+            <td>45</td>
+          </tr>
+          <tr>
+            <td>-73</td>
+            <td>-71.01</td>
+            <td>1</td>
+            <td>QPSK</td>
+            <td>1/2</td>
+            <td>130</td>
+            <td>91</td>
+          </tr>
+          <tr>
+            <td>-71</td>
+            <td>-68.01</td>
+            <td>2</td>
+            <td>QPSK</td>
+            <td>3/4</td>
+            <td>195</td>
+            <td>135</td>
+          </tr>
+          <tr>
+            <td>-68</td>
+            <td>-64.01</td>
+            <td>3</td>
+            <td>16-QAM</td>
+            <td>1/2</td>
+            <td>260</td>
+            <td>182</td>
+          </tr>
+          <tr>
+            <td>-64</td>
+            <td>-60.01</td>
+            <td>4</td>
+            <td>16-QAM</td>
+            <td>3/4</td>
+            <td>390</td>
+            <td>275</td>
+          </tr>
+          <tr>
+            <td>-60</td>
+            <td>-59.01</td>
+            <td>5</td>
+            <td>64-QAM</td>
+            <td>2/3</td>
+            <td>520</td>
+            <td>365</td>
+          </tr>
+          <tr>
+            <td>-59</td>
+            <td>-58.01</td>
+            <td>6</td>
+            <td>64-QAM</td>
+            <td>3/4</td>
+            <td>585</td>
+            <td>410</td>
+          </tr>
+          <tr>
+            <td>-58</td>
+            <td>-53.01</td>
+            <td>7</td>
+            <td>64-QAM</td>
+            <td>5/6</td>
+            <td>650</td>
+            <td>455</td>
+          </tr>
+          <tr>
+            <td>-53</td>
+            <td>-51.01</td>
+            <td>8</td>
+            <td>256-QAM</td>
+            <td>3/4</td>
+            <td>780</td>
+            <td>546</td>
+          </tr>
+          <tr>
+            <td>-51</td>
+            <td>0</td>
+            <td>9</td>
+            <td>256-QAM</td>
+            <td>5/6</td>
+            <td>866.7</td>
+            <td>610</td>
+          </tr>
+          <tr>
+            <td>0.1</td>
+            <td>100</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+          </tr>
+        </table>
+  
+        <table id="160MHz" class="mcsTable" hidden>
+          <tr>
+            <th>Min</th>
+            <th>Max</th>
+            <th>MCS</th>
+            <th>Modulation</th>
+            <th>FEC</th>
+            <th>Link Rate</th>
+            <th>Throughput</th>
+          </tr>
+  
+          <tr>
+            <td>6</td>
+            <td>9.9999</td>
+            <td>0</td>
+            <td>BPSK</td>
+            <td>1/2</td>
+            <td>130</td>
+            <td>45</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>11.9999</td>
+            <td>1</td>
+            <td>QPSK</td>
+            <td>1/2</td>
+            <td>260</td>
+            <td>91</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>14.9999</td>
+            <td>2</td>
+            <td>QPSK</td>
+            <td>3/4</td>
+            <td>390</td>
+            <td>135</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>16.9999</td>
+            <td>3</td>
+            <td>16-QAM</td>
+            <td>1/2</td>
+            <td>520</td>
+            <td>182</td>
+          </tr>
+          <tr>
+            <td>17</td>
+            <td>19.9999</td>
+            <td>4</td>
+            <td>16-QAM</td>
+            <td>3/4</td>
+            <td>780</td>
+            <td>275</td>
+          </tr>
+          <tr>
+            <td>20</td>
+            <td>22.9999</td>
+            <td>5</td>
+            <td>64-QAM</td>
+            <td>2/3</td>
+            <td>1040</td>
+            <td>365</td>
+          </tr>
+          <tr>
+            <td>23</td>
+            <td>25.9999</td>
+            <td>6</td>
+            <td>64-QAM</td>
+            <td>3/4</td>
+            <td>1170</td>
+            <td>410</td>
+          </tr>
+          <tr>
+            <td>26</td>
+            <td>29.9999</td>
+            <td>7</td>
+            <td>64-QAM</td>
+            <td>5/6</td>
+            <td>1300</td>
+            <td>455</td>
+          </tr>
+          <tr>
+            <td>30</td>
+            <td>30.9999</td>
+            <td>8</td>
+            <td>256-QAM</td>
+            <td>3/4</td>
+            <td>1560</td>
+            <td>546</td>
+          </tr>
+          <tr>
+            <td>31</td>
+            <td>80</td>
+            <td>9</td>
+            <td>256-QAM</td>  
+            <td>5/6</td>
+            <td>1733.3</td>
+            <td>610</td>
+          </tr>
+        </table>
+        <!-- Tables for UBAX -->
+        <!-- Table 1 10 MHz -->
+        <table id="UBAX10MHz" class="mcsTable" hidden>
+          <tr>
+            <th>Min</th>
+            <th>Max</th>
+            <th>MCS</th>
+            <th>Modulation</th>
+            <th>FEC</th>
+            <th>Link Rate</th>
+            <th>Throughput</th>
+          </tr>
+          <tr>
+            <td>-150</td>
+            <td>-85.01</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+          </tr>
+          <tr>
+            <td>-85</td>
+            <td>-82.01</td>
+            <td>0</td>
+            <td>BPSK</td>
+            <td>1/2</td>
+            <td>7</td>
+            <td>4.9</td>
+          </tr>
+          <tr>
+            <td>-82</td>
+            <td>-80.01</td>
+            <td>1</td>
+            <td>QPSK</td>
+            <td>1/2</td>
+            <td>14</td>
+            <td>9.8</td>
+          </tr>
+          <tr>
+            <td>-80</td>
+            <td>-77.01</td>
+            <td>2</td>
+            <td>QPSK</td>
+            <td>3/4</td>
+            <td>21</td>
+            <td>14.7</td>
+          </tr>
+          <tr>
+            <td>-77</td>
+            <td>-73.01</td>
+            <td>3</td>
+            <td>16-QAM</td>
+            <td>1/2</td>
+            <td>28</td>
+            <td>19.6</td>
+          </tr>
+          <tr>
+            <td>-73</td>
+            <td>-69.01</td>
+            <td>4</td>
+            <td>16-QAM</td>
+            <td>3/4</td>
+            <td>43</td>
+            <td>30.01</td>
+          </tr>
+          <tr>
+            <td>-69</td>
+            <td>-68.01</td>
+            <td>5</td>
+            <td>64-QAM</td>
+            <td>2/3</td>
+            <td>57</td>
+            <td>39.9</td>
+          </tr>
+          <tr>
+            <td>-68</td>
+            <td>-65.01</td>
+            <td>6</td>
+            <td>64-QAM</td>
+            <td>3/4</td>
+            <td>65</td>
+            <td>45.5</td>
+          </tr>
+          <tr>
+            <td>-65</td>
+            <td>-62.01</td>
+            <td>7</td>
+            <td>64-QAM</td>
+            <td>5/6</td>
+            <td>72</td>
+            <td>50.4</td>
+          </tr>
+          <tr>
+            <td>-62</td>
+            <td>-60.01</td>
+            <td>8</td>
+            <td>256-QAM</td>
+            <td>3/4</td>
+            <td>86</td>
+            <td>60.2</td>
+          </tr>
+          <tr>
+            <td>-60</td>
+            <td>0</td>
+            <td>9</td>
+            <td>256-QAM</td>
+            <td>5/6</td>
+            <td>96</td>
+            <td>67.2</td>
+          </tr>
+          <tr>
+            <td>0.1</td>
+            <td>100</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+          </tr>
+        </table>
+  
+        <!-- TABLE 2 BANDWIDTH 20MHz -->
+        <table id="UBAX20MHz" class="mcsTable" hidden>
+          <tr>
+            <th>Min</th>
+            <th>Max</th>
+            <th>MCS</th>
+            <th>Modulation</th>
+            <th>FEC</th>
+            <th>Link Rate</th>
+            <th>Throughput</th>
+          </tr>
+          <tr>
+            <td>-100</td>
+            <td>-82.01</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+          </tr>
+          <tr>
+            <td>-82</td>
+            <td>-79.01</td>
+            <td>0</td>
+            <td>BPSK</td>
+            <td>1/2</td>
+            <td>17.2</td>
+            <td>12</td>
+          </tr>
+          <tr>
+            <td>-79</td>
+            <td>-77.01</td>
+            <td>1</td>
+            <td>QPSK</td>
+            <td>1/2</td>
+            <td>34.4</td>
+            <td>24</td>
+          </tr>
+          <tr>
+            <td>-77</td>
+            <td>-74.01</td>
+            <td>2</td>
+            <td>QPSK</td>
+            <td>3/4</td>
+            <td>51.6</td>
+            <td>36.1</td>
+          </tr>
+          <tr>
+            <td>-74</td>
+            <td>-70.01</td>
+            <td>3</td>
+            <td>16-QAM</td>
+            <td>1/2</td>
+            <td>68.8</td>
+            <td>48.2</td>
+          </tr>
+          <tr>
+            <td>-70</td>
+            <td>-66.01</td>
+            <td>4</td>
+            <td>16-QAM</td>
+            <td>3/4</td>
+            <td>103.2</td>
+            <td>72.2</td>
+          </tr>
+          <tr>
+            <td>-66</td>
+            <td>-65.01</td>
+            <td>5</td>
+            <td>64-QAM</td>
+            <td>2/3</td>
+            <td>137.6</td>
+            <td>96.3</td>
+          </tr>
+          <tr>
+            <td>-65</td>
+            <td>-64.01</td>
+            <td>6</td>
+            <td>64-QAM</td>
+            <td>3/4</td>
+            <td>154.9</td>
+            <td>108.4</td>
+          </tr>
+          <tr>
+            <td>-64</td>
+            <td>-59.01</td>
+            <td>7</td>
+            <td>64-QAM</td>
+            <td>5/6</td>
+            <td>172.1</td>
+            <td>120.5</td>
+          </tr>
+          <tr>
+            <td>-59</td>
+            <td>-57.01</td>
+            <td>8</td>
+            <td>256-QAM</td>
+            <td>3/4</td>
+            <td>206.5</td>
+            <td>144.5</td>
+          </tr>
+          <tr>
+            <td>-57</td>
+            <td>-54.01</td>
+            <td>9</td>
+            <td>256-QAM</td>
+            <td>5/6</td>
+            <td>229.4</td>
+            <td>160.6</td>
+          </tr>
+          <tr>
+            <td>-54</td>
+            <td>-52.01</td>
+            <td>10</td>
+            <td>1024-QAM</td>
+            <td>3/4</td>
+            <td>258.1</td>
+            <td>180.7</td>
+          </tr>
+          <tr>
+            <td>-52</td>
+            <td>0</td>
+            <td>11</td>
+            <td>1024-QAM</td>
+            <td>5/6</td>
+            <td>286.8</td>
+            <td>200.8</td>
+          </tr>
+          <tr>
+            <td>0.1</td>
+            <td>100</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+          </tr>
+        </table>
+  
+        <!-- TABLE 2 BANDWIDTH 40MHz  -->
+  
+        <table id="UBAX40MHz" class="mcsTable" hidden>
+          <tr>
+            <th>Min</th>
+            <th>Max</th>
+            <th>MCS</th>
+            <th>Modulation</th>
+            <th>FEC</th>
+            <th>Link Rate</th>
+            <th>Throughput</th>
+          </tr>
+          <tr>
+            <td>-100</td>
+            <td>-79.01</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+          </tr>
+          <tr>
+            <td>-79</td>
+            <td>-76.01</td>
+            <td>0</td>
+            <td>BPSK</td>
+            <td>1/2</td>
+            <td>34.4</td>
+            <td>24.1</td>
+          </tr>
+          <tr>
+            <td>-76</td>
+            <td>-74.01</td>
+            <td>1</td>
+            <td>QPSK</td>
+            <td>1/2</td>
+            <td>68.8</td>
+            <td>48.2</td>
+          </tr>
+          <tr>
+            <td>-74</td>
+            <td>-71.01</td>
+            <td>2</td>
+            <td>QPSK</td>
+            <td>3/4</td>
+            <td>103.2</td>
+            <td>72.2</td>
+          </tr>
+          <tr>
+            <td>-71</td>
+            <td>-67.01</td>
+            <td>3</td>
+            <td>16-QAM</td>
+            <td>1/2</td>
+            <td>137.6</td>
+            <td>96.3</td>
+          </tr>
+          <tr>
+            <td>-67</td>
+            <td>-63.01</td>
+            <td>4</td>
+            <td>16-QAM</td>
+            <td>3/4</td>
+            <td>206.5</td>
+            <td>144.5</td>
+          </tr>
+          <tr>
+            <td>-63</td>
+            <td>-62.01</td>
+            <td>5</td>
+            <td>64-QAM</td>
+            <td>2/3</td>
+            <td>275.3</td>
+            <td>192.7</td>
+          </tr>
+          <tr>
+            <td>-62</td>
+            <td>-61.01</td>
+            <td>6</td>
+            <td>64-QAM</td>
+            <td>3/4</td>
+            <td>309.7</td>
+            <td>216.8</td>
+          </tr>
+          <tr>
+            <td>-61</td>
+            <td>-56.01</td>
+            <td>7</td>
+            <td>64-QAM</td>
+            <td>5/6</td>
+            <td>344.1</td>
+            <td>240.9</td>
+          </tr>
+          <tr>
+            <td>-56</td>
+            <td>-54.01</td>
+            <td>8</td>
+            <td>256-QAM</td>
+            <td>3/4</td>
+            <td>412.9</td>
+            <td>289</td>
+          </tr>
+          <tr>
+            <td>-54</td>
+            <td>-51.01</td>
+            <td>9</td>
+            <td>256-QAM</td>
+            <td>5/6</td>
+            <td>458.8</td>
+            <td>321.2</td>
+          </tr>
+          <tr>
+            <td>-51</td>
+            <td>-49.01</td>
+            <td>10</td>
+            <td>1024-QAM</td>
+            <td>3/4</td>
+            <td>516.2</td>
+            <td>361.3</td>
+          </tr>
+          <tr>
+            <td>-49</td>
+            <td>0</td>
+            <td>11</td>
+            <td>1024-QAM</td>
+            <td>5/6</td>
+            <td>573.5</td>
+            <td>401.4</td>
+          </tr>
+          <tr>
+            <td>0.1</td>
+            <td>100</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+          </tr>
+        </table>
+  
+        <table id="UBAX80MHz" class="mcsTable" hidden>
+          <tr>
+            <th>Min</th>
+            <th>Max</th>
+            <th>MCS</th>
+            <th>Modulation</th>
+            <th>FEC</th>
+            <th>Link Rate</th>
+            <th>Throughput</th>
+          </tr>
+          <tr>
+            <td>-100</td>
+            <td>-76.01</td>
+            <td>NA</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+          </tr>
+          <tr>
+            <td>-76</td>
+            <td>-73.01</td>
+            <td>0</td>
+            <td>BPSK</td>
+            <td>1/2</td>
+            <td>72.1</td>
+            <td>50.5</td>
+          </tr>
+          <tr>
+            <td>-73</td>
+            <td>-71.01</td>
+            <td>1</td>
+            <td>QPSK</td>
+            <td>1/2</td>
+            <td>144.1</td>
+            <td>100.9</td>
+          </tr>
+          <tr>
+            <td>-71</td>
+            <td>-68.01</td>
+            <td>2</td>
+            <td>QPSK</td>
+            <td>3/4</td>
+            <td>216.2</td>
+            <td>151.3</td>
+          </tr>
+          <tr>
+            <td>-68</td>
+            <td>-64.01</td>
+            <td>3</td>
+            <td>16-QAM</td>
+            <td>1/2</td>
+            <td>288.2</td>
+            <td>201.7</td>
+          </tr>
+          <tr>
+            <td>-64</td>
+            <td>-60.01</td>
+            <td>4</td>
+            <td>16-QAM</td>
+            <td>3/4</td>
+            <td>432.4</td>
+            <td>302.7</td>
+          </tr>
+          <tr>
+            <td>-60</td>
+            <td>-59.01</td>
+            <td>5</td>
+            <td>64-QAM</td>
+            <td>2/3</td>
+            <td>576.5</td>
+            <td>403.5</td>
+          </tr>
+          <tr>
+            <td>-59</td>
+            <td>-58.01</td>
+            <td>6</td>
+            <td>64-QAM</td>
+            <td>3/4</td>
+            <td>648.5</td>
+            <td>453.9</td>
+          </tr>
+          <tr>
+            <td>-58</td>
+            <td>-53.01</td>
+            <td>7</td>
+            <td>64-QAM</td>
+            <td>5/6</td>
+            <td>720.6</td>
+            <td>504.4</td>
+          </tr>
+          <tr>
+            <td>-53</td>
+            <td>-51.01</td>
+            <td>8</td>
+            <td>256-QAM</td>
+            <td>3/4</td>
+            <td>864.7</td>
+            <td>605.3</td>
+          </tr>
+          <tr>
+            <td>-51</td>
+            <td>-48.01</td>
+            <td>9</td>
+            <td>256-QAM</td>
+            <td>5/6</td>
+            <td>960.8</td>
+            <td>672.6</td>
+          </tr>
+          <tr>
+            <td>-48</td>
+            <td>-46.01</td>
+            <td>10</td>
+            <td>1024-QAM</td>
+            <td>3/4</td>
+            <td>1080.9</td>
+            <td>756.6</td>
+          </tr>
+          <tr>
+            <td>-46</td>
+            <td>0</td>
+            <td>11</td>
+            <td>1024-QAM</td>
+            <td>5/6</td>
+            <td>1201</td>
+            <td>840.7</td>
+          </tr>
+          <tr>
+            <td>0.1</td>
+            <td>100</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+          </tr>
+        </table>
+  
+        <table id="UBAX160MHz" class="mcsTable" hidden>
+          <tr>
+            <th>Min</th>
+            <th>Max</th>
+            <th>MCS</th>
+            <th>Modulation</th>
+            <th>FEC</th>
+            <th>Link Rate</th>
+            <th>Throughput</th>
+          </tr>
+  
+          <tr>
+            <td>6</td>
+            <td>9.9999</td>
+            <td>0</td>
+            <td>BPSK</td>
+            <td>1/2</td>
+            <td>144.1</td>
+            <td>101</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>11.9999</td>
+            <td>1</td>
+            <td>QPSK</td>
+            <td>1/2</td>
+            <td>288.2</td>
+            <td>201.7</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>14.9999</td>
+            <td>2</td>
+            <td>QPSK</td>
+            <td>3/4</td>
+            <td>432.4</td>
+            <td>302.7</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>16.9999</td>
+            <td>3</td>
+            <td>16-QAM</td>
+            <td>1/2</td>
+            <td>576.5</td>
+            <td>403.5</td>
+          </tr>
+          <tr>
+            <td>17</td>
+            <td>19.9999</td>
+            <td>4</td>
+            <td>16-QAM</td>
+            <td>3/4</td>
+            <td>864.7</td>
+            <td>605.3</td>
+          </tr>
+          <tr>
+            <td>20</td>
+            <td>22.9999</td>
+            <td>5</td>
+            <td>64-QAM</td>
+            <td>2/3</td>
+            <td>1152.9</td>
+            <td>807</td>
+          </tr>
+          <tr>
+            <td>23</td>
+            <td>25.9999</td>
+            <td>6</td>
+            <td>64-QAM</td>
+            <td>3/4</td>
+            <td>1297.1</td>
+            <td>908</td>
+          </tr>
+          <tr>
+            <td>26</td>
+            <td>29.9999</td>
+            <td>7</td>
+            <td>64-QAM</td>
+            <td>5/6</td>
+            <td>1441.2</td>
+            <td>1008.8</td>
+          </tr>
+          <tr>
+            <td>30</td>
+            <td>30.9999</td>
+            <td>8</td>
+            <td>256-QAM</td>
+            <td>3/4</td>
+            <td>1729.4</td>
+            <td>1210.6</td>
+          </tr>
+          <tr>
+            <td>31</td>
+            <td>80</td>
+            <td>9</td>
+            <td>256-QAM</td>
+            <td>5/6</td>
+            <td>1921.6</td>
+            <td>1345.1</td>
+          </tr>
+          <tr>
+            <td>31</td>
+            <td>80</td>
+            <td>10</td>
+            <td>1024-QAM</td>
+            <td>3/4</td>
+            <td>2161.8</td>
+            <td>1513.3</td>
+          </tr>
+          <tr>
+            <td>31</td>
+            <td>80</td>
+            <td>11</td>
+            <td>1024-QAM</td>
+            <td>5/6</td>
+            <td>2402</td>
+            <td>1681.4</td>
+          </tr>
+        </table>
+      </div>
+    <!-- Javascript files -->
+    <script src="javascript/main/navbar.js"></script>
+    <script src="javascript/ptp/ctryArray.js"></script>
+    <script src="javascript/ptp/ctryselect.js"></script>
+    <script src="javascript/ptp/functionalitiesptp.js"></script>
+    <script src="javascript/ptp/heightchange.js"></script>
+    <script src="javascript/ptp/obstruction.js"></script>
+    <script src="javascript/ptp/ptpeirpcalculate.js"></script>
+    <script src="javascript/ptp/ptpmap.js"></script>
+    <script src="javascript/ptp/tabletocsv.js"></script>
+    <script src="javascript/ptp/validatlatlng.js"></script>
+    <!-- <script src="javascript/ptpptmpselection.js"></script> -->
+    <script src="javascript/ptp/queryselect.js"></script>
+    
+    <!-- API Link-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5zYlkJtKZsemt792qtpPb6fPs1sMqBI&libraries=places&callback=ptpMap"></script>
+
+    <script src="javascript/ptp/placesapi.js"></script>
+  </body>
+</html>

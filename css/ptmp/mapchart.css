@@ -1,0 +1,58 @@
+/* Map */
+
+.map-section {
+  padding: 0px;
+}
+
+#map3d {
+  /* display: hidden; */
+  position: relative;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  /* overflow-y: scroll; */
+  overflow-x: hidden;
+  background-color: #e6e7e8;
+}
+
+/* Adding Responsiveness */
+/* Making map visible at each and every height */
+@media screen and (max-width: 992px) {
+  .map-section {
+    height: 30em;
+  }
+}
+@media screen and (min-height: 1100px) {
+  .map-section {
+    height: 40em;
+  }
+}
+@media screen and (min-height: 1300px) {
+  .map-section {
+    height: 59em;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .report-map-height {
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .ptmp-chart {
+    width: 410px;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .ptmp-chart {
+    width: 375px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .ptmp-chart {
+    width: 400px;
+  }
+}
