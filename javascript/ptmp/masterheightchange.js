@@ -3,13 +3,14 @@
 $("#masterHeight").change(function () {
   var numOfSlaves = $("#numberOfSlaves").val();
   for (let k = 1; k <= numOfSlaves; k++) {
-    if ($(`#obsUL${k}`).html != "") {
+    if ($(`#obsUL${k}`).html() != "") {
       // we have obstruction data
       masterheightchangeafterobs(k);
     } else {
       // we do not have obstruction data
       updatechartafterMasterhtchange(k);
     }
+    availability(k);
   }
 });
 

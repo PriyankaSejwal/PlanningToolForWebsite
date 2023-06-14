@@ -6,22 +6,25 @@
   #ctryCode {
     font-size: 14px !important;
   }
-  .container-fluid {
-    padding-top: 85px !important;
-  }
+
   .sidebarBody2 {
     padding: 0px 10px 3px 3px;
-  }
-}
-
-@media screen and (max-width: 550px) {
-  .container-fluid {
-    padding-top: 90px !important;
   }
 }
 @media screen and (max-width: 1500px) {
   .container-fluid {
     padding-top: 110px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .container-fluid {
+    padding-top: 90px !important;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .container-fluid {
+    padding-top: 85px !important;
   }
 }
 
@@ -38,6 +41,17 @@
   label {
     font-weight: 400;
     font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 992px) and (min-width: 750px) {
+  #ptpPage .btn,
+  #PTPPage .btn a {
+    font-size: 25px;
+  }
+  #ptpPage #ptpctryCode {
+    font-size: 25px;
+    height: 49px;
   }
 }
 
@@ -58,6 +72,7 @@
     height: 494px;
   }
 }
+
 @media screen and (max-width: 1280px) and (min-height: 799px) {
   .overlay-section {
     height: 690px;

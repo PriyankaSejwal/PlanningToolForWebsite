@@ -107,4 +107,5 @@ function updateElevationWithObstruction(i) {
   );
 
   chart.draw(obstructionjoined, options);
+  availability(i);
 }

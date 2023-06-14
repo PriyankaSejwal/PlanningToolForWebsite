@@ -6,6 +6,7 @@ function slaveHeightChange(iter) {
   } else {
     slaveHeightChangeNoObs(iter);
   }
+  availability(iter);
 }
 
 // slave height changed then single elevatin chart gets affected.
