@@ -1,100 +1,40 @@
-// Function to display the antenna gain column when ion4le is selected as the radio
-//  gets called when radio is changed
-// function selectedRadioA() {
-//   // checking whether both the radios belong to the same family either UBAx or UB22
-//   var radioType1 = $("#radio1 option:selected").html();
-//   var radioType2 = $("#radio2 option:selected").html();
-//   if (
-//     (radioType1.includes("4l") && radioType2.includes("4l")) ||
-//     (radioType1.includes("4xl") && radioType2.includes("4xl"))
-//   ) {
-//     var r1 = document.querySelector("#radio1");
-//     var gain1 = document.querySelector("#antgain1");
-//     var loss1 = document.getElementById("cableLoss1");
-//     document.getElementById("antgain1").value = r1.value;
-//     var radioA = r1.options[r1.selectedIndex];
-//     var option_group = radioA.parentNode;
-//     var gain1alert = document.querySelector(".gain1Alert");
-//     var empty = document.querySelectorAll(".empty");
-//     console.log(radioA.innerHTML);
-//     // When external antenna selected then removing and adding certain functionalities.
-//     if (option_group.label == "External Antenna") {
-//       extRadio(gain1, loss1, gain1alert, empty);
-//     } else {
-//       otherRadio(gain1, loss1, gain1alert);
-//       calcTxPower();
-//     }
-//   } else {
-//     empty = document.querySelectorAll(".empty");
-//     for (let i = 0; i < empty.length; i++) {
-//       empty[i].innerHTML = "";
-//     }
-//     window.alert("Radios from same family required");
-//   }
-// }
-
-// // Function to display the antenna gain column when ion4le is selected as the radio
-// //  gets called when radio is changed
-// function selectedRadioB() {
-//   var radioType1 = $("#radio1 option:selected").html();
-//   var radioType2 = $("#radio2 option:selected").html();
-//   if (
-//     (radioType1.includes("4l") && radioType2.includes("4l")) ||
-//     (radioType1.includes("4xl") && radioType2.includes("4xl"))
-//   ) {
-//     var r2 = document.getElementById("radio2");
-//     var gain2 = document.getElementById("antgain2");
-//     var loss2 = document.getElementById("cableLoss2");
-//     document.getElementById("antgain2").value = r2.value;
-//     var radioB = r2.options[r2.selectedIndex];
-//     var option_group = radioB.parentNode;
-//     console.log(option_group.label);
-//     var gain2alert = document.querySelector(".gain2Alert");
-//     var empty = document.querySelectorAll(".empty");
-//     // When ext antenna selected adding certain functionalities.
-//     if (option_group.label == "External Antenna") {
-//       extRadio(gain2, loss2, gain2alert, empty);
-//     } else {
-//       otherRadio(gain2, loss2, gain2alert);
-//       calcTxPower();
-//     }
-//   } else {
-//     empty = document.querySelectorAll(".empty");
-//     for (let i = 0; i < empty.length; i++) {
-//       empty[i].innerHTML = "";
-//     }
-//     window.alert("Radios from same family required");
-//   }
-// }
-
+// when the calculate button is clicked
+$("#latLongBtn").click(function () {
+  inputMarker();
+});
 for (let i = 1; i <= 2; i++) {
   $(`#radio${i}`).change(function () {
-    var radioType1 = $("#radio1 option:selected").html();
-    var radioType2 = $("#radio2 option:selected").html();
-    if (
-      (radioType1.includes("4l") && radioType2.includes("4l")) ||
-      (radioType1.includes("4xl") && radioType2.includes("4xl"))
-    ) {
+    var radioType1 = $("#radio1 option:selected").attr("class");
+    var radioType2 = $("#radio2 option:selected").attr("class");
+    var r = parseInt($(`#radio${i}`).val().split(",")[0]);
+    // populating the value of the antenna gain in the gain field
+    $(`#antgain${i}`).val(r);
+    var gain = $(`#antgain${i}`);
+    var cableloss = $(`#cableLoss${i}`);
+    var optionGroup = $(`#radio${i} option:selected`).parent().prop("label");
+    var gainalert = $(`.gain${i}Alert`);
+    var empty = document.querySelectorAll(`.empty`);
+
+    if (radioType1 == radioType2) {
+      var currentClass = $(`#radio${i} option:selected`).attr("class");
+      var previousClass = tablecontainer.split("-")[0];
+      if (currentClass != previousClass) {
+        /* function which checks the radios and gives the table to refer either ub22-table/ubax-table
+       container*/
+        checkRadios();
+      }
+      // hide the radio alert, if visible
       $(`.radioAlert`).hide();
-      var r = $(`#radio${i}`);
-      var gain = $(`#antgain${i}`);
-      var cableloss = $(`#cableLoss${i}`);
-      $(`#antgain${i}`).val(r.val());
-      var optionGroup = $(`#radio${i} option:selected`).parent().prop("label");
-      var gainalert = $(`.gain${i}Alert`);
-      var empty = document.querySelectorAll(`.empty`);
-      if (optionGroup == "External Antenna") {
-        extRadio(gain, cableloss, gainalert, empty);
-      } else {
-        otherRadio(gain, cableloss, gainalert);
-        calcTxPower();
-      }
     } else {
-      empty = document.querySelectorAll(".empty");
-      for (let i = 0; i < empty.length; i++) {
-        empty[i].innerHTML = "";
-      }
       $(`.radioAlert`).show();
+    }
+    // check whether the selected radio is an external radio or integrated
+    if (optionGroup == "External Antenna") {
+      extRadio(gain, cableloss, gainalert, empty);
+    } else {
+      otherRadio(gain, cableloss, gainalert);
+      updateTransmitPower(i);
+      deviceinfo();
     }
   });
 }
@@ -186,33 +126,45 @@ function hopazimuth() {
   // fresneleirp();
 }
 
+// function to check the radio selected and update which table will be used
+// const tablecontainerArray = [];
+var tablecontainer;
+function checkRadios() {
+  var radioType1 = $("#radio1 option:selected").attr("class");
+  // table for reference
+  tablecontainer = radioType1 + "-table";
+  // check bandwidth and the bandwidth based table
+  checkBandwidth();
+}
+
 // function whihc will check the bandwidth and will give value of noise floor and table for UBAX and normal table
-var referencetable1, referencetable2;
+var referencetable, bandwidthLoss;
 function checkBandwidth() {
   var bw = parseInt($("#ptpchannelBandwidth").val());
-  document.getElementById("reportbandwidth").innerHTML = bw;
+  $("#reportbandwidth").html(bw);
 
   switch (bw) {
     case 10:
       noisefloor = 89;
-      referencetable1 = document.getElementById("10MHz");
-      referencetable2 = document.querySelector("#UBAX10MHz");
+      referencetable = document.querySelector("#" + tablecontainer + "-10MHz");
+      bandwidthLoss = 0;
       break;
     case 20:
       noisefloor = 89;
-      referencetable1 = document.getElementById("20MHz");
-      referencetable2 = document.querySelector("#UBAX20MHz");
+      referencetable = document.querySelector("#" + tablecontainer + "-20MHz");
+      bandwidthLoss = 0;
       break;
     case 40:
       noisefloor = 86;
-      referencetable1 = document.getElementById("40MHz");
-      referencetable2 = document.querySelector("#UBAX40MHz");
+      referencetable = document.querySelector("#" + tablecontainer + "-40MHz");
+      bandwidthLoss = 3;
       break;
     case 80:
       noisefloor = 83;
-      referencetable1 = document.getElementById("80MHz");
-      referencetable2 = document.querySelector("#UBAX80MHz");
+      referencetable = document.querySelector("#" + tablecontainer + "-80MHz");
+      bandwidthLoss = 6;
   }
+  console.log("Table used is:", referencetable);
 }
 
 function calcFresnel() {
@@ -221,96 +173,55 @@ function calcFresnel() {
   document.getElementById("reportfrequency").innerHTML = f.value;
 
   // Calculating fresnel zone radius
-  var distance = parseFloat(document.getElementById("linkDistance").innerHTML);
-  var fres = (17.32 * Math.sqrt(distance / ((4 * cf) / 1000))).toFixed(2);
-  // var fres = (fres * 60) / 100;
+  var distance = document.getElementById("linkDistance").innerHTML;
+  if (distance) {
+    var fres = (17.32 * Math.sqrt(distance / ((4 * cf) / 1000))).toFixed(2);
+    // var fres = (fres * 60) / 100;
 
-  // Populating value of fresnel radius
-  $(`#fresnelRadius`).html(fres);
-  $(`#reportfresradius`).html(fres);
+    // Populating value of fresnel radius
+    $(`#fresnelRadius`).html(fres);
+    $(`#reportfresradius`).html(fres);
+  }
 }
-
-// Function to calculate the eirp using the eirp reference table
-
-// function to calculate the max transmit power based on eirp and antenna gain
-// function calcTxPower() {
-//   var eirp = parseInt(document.getElementById("ptpeirpMax").value);
-//   var antgainA = parseInt(document.getElementById("antgain1").value);
-//   var antgainB = parseInt(document.getElementById("antgain2").value);
-//   var cablelossA = parseInt(document.getElementById("cableLoss1").value);
-//   var cablelossB = parseInt(document.getElementById("cableLoss2").value);
-//   // var maxtxa = parseInt(document.getElementById("maxtransmitPower1").value);
-//   // var maxtxb = parseInt(document.getElementById("maxtransmitPower2").value);
-
-//   // Calculated tx power for A B sites
-//   var txa = eirp - antgainA + cablelossA;
-//   var txb = eirp - antgainB + cablelossB;
-
-//   if (txa < 3) {
-//     document.querySelector(".tx1Alert").style.display = "block";
-//   } else {
-//     document.querySelector(".tx1Alert").style.display = "none";
-//     // tx power for calculation
-//     if (maxtx < txa) {
-//       txa = maxtx;
-//     }
-//     document.getElementById("transmitPower1").value = txa;
-//     document.querySelector("#transmitPower1").max = txa;
-//   }
-
-//   if (txb < 3) {
-//     document.querySelector(".tx2Alert").style.display = "block";
-//   } else {
-//     document.querySelector(".tx2Alert").style.display = "none";
-//     if (maxtx < txb) {
-//       txb = maxtx;
-//     }
-//     document.getElementById("transmitPower2").value = txb;
-//     document.querySelector("#transmitPower2").max = txb;
-//     deviceinfo();
-//   }
-// }
 
 // function to calculate the max transmit power based on eirp and antenna gain
 var maxTxArray = [];
 function calcTxPower() {
   var eirp = parseInt($("#ptpeirpMax").val());
   for (let i = 1; i <= 2; i++) {
-    var antgain = parseInt($(`#antgain${i}`).val());
+    var [antgain, allowedTx] = $(`#radio${i}`).val().split(",");
+    // allowed tx power as per the radio ubax-30 ub22-27
+    allowedTx = parseFloat(allowedTx);
+    antgain = parseFloat(antgain);
     var cableloss = parseInt($(`#cableLoss${i}`).val());
-    // var maxtxa = parseInt(document.getElementById("maxtransmitPower1").value);
-    // var maxtxb = parseInt(document.getElementById("maxtransmitPower2").value);
-    /* we will check whether antenna gain is lower than eirp or not if lower then we put 
-    the same value else we update the antgain value according to eirp.*/
-    antgain = antgain < eirp ? antgain : eirp - 1;
-    $(`#antgain${i}`).val(antgain);
 
     // Calculated tx power for A B sites based on the eirp antenna gain and cable loss
-    var tx = eirp - antgain + cableloss;
+    var txcalculated = eirp - antgain + cableloss;
 
-    if (tx < 3) {
+    if (txcalculated < 3) {
       $(`.tx${i}Alert`).show();
     } else {
       $(".tx1Alert").hide();
       // tx power for calculation
-
-      tx = tx > maxtx ? maxtx : tx;
-      $(`#transmitPower${i}`).val(tx);
-      $(`#transmitPower${i}`).prop("max", tx);
-      maxTxArray[i] = tx;
+      var maxtx = Math.min(txlimitctrybased, allowedTx, txcalculated);
+      $(`#transmitPower${i}`).val(maxtx);
+      $(`#transmitPower${i}`).prop("max", maxtx);
+      maxTxArray[i] = maxtx;
     }
-    deviceinfo();
   }
+  // device info is called but it will only run if the lat long details are there.
+  deviceinfo();
 }
 
-// Qeury Selector for when user changes the tx power, checking whether tx falls in 3-27.
+// Query Selector for when user changes the tx power, checking whether tx falls in 3-27.
 
 for (let i = 1; i <= 2; i++) {
   document
     .querySelector(`#transmitPower${i}`)
     .addEventListener("change", function () {
       var txpower = this.value;
-      if (txpower < 3 || txpower > maxTxArray[i]) {
+      var maxtx = Number($(`#transmitPower${i}`).attr("max"));
+      if (txpower < 3 || txpower > maxtx) {
         document.querySelector(`.tx${i}Alert2`).style.display = "block";
         empty = document.querySelectorAll(".empty");
         for (let j = 0; j < empty.length; j++) {
@@ -333,110 +244,176 @@ for (let i = 1; i <= 2; i++) {
       }
     } else {
       $(`.cable${i}Alert`).hide();
-      calcTxPower();
+      updateTransmitPower(i);
+      deviceinfo();
     }
   });
+}
+
+// tx power after cable loss/ antenna gain or radio model changes
+function updateTransmitPower(index) {
+  var eirp = parseInt($("#ptpeirpMax").val());
+  var antennaGain = parseInt($(`#antgain${index}`).val());
+  var cableLoss = parseInt($(`#cableLoss${index}`).val());
+  var radiobasedmaxtx = parseFloat($(`#radio${index}`).val().split(",")[1]);
+  // var transmitPower = parseInt($(`#transmitPower${index}`).val());
+  // calculate new transmit power based on the change in the cable loss/antenna gain or the radio model
+  var txcalculated = eirp - antennaGain + cableLoss;
+  var maxtxnew = Math.min(txlimitctrybased, radiobasedmaxtx, txcalculated);
+
+  $(`#transmitPower${index}`).val(maxtxnew);
+  // populate the changed value
+  $(`#transmitPower${index}`).prop("max", maxtxnew);
+  // maxTxArray[index] = tx;
+  console.log(
+    `when gain,loss or radio is changed, the transmit power limit now is: ${maxTxArray[i]}`
+  );
 }
 
 // New deviceinfo function
 
 function deviceinfo() {
   // calling function checkBandwidth
-  checkBandwidth();
   var dist = parseFloat(document.getElementById("linkDistance").innerHTML);
+  console.log("Function called but distance not there so cannot proceed");
   if (document.getElementById("linkDistance").innerHTML != "") {
     var f = document.getElementById("ptpchannelFrequency");
     var freq = parseFloat(f.options[f.selectedIndex].innerHTML);
     var loss1 = parseInt(document.getElementById("cableLoss1").value);
     var loss2 = parseInt(document.getElementById("cableLoss2").value);
-    var radio1 = parseInt(document.getElementById("radio1").value);
-    var radio2 = parseInt(document.getElementById("radio2").value);
+    var gain1 = parseInt(document.getElementById("antgain1").value);
+    var gain2 = parseInt(document.getElementById("antgain2").value);
     var tx1 = parseInt(document.getElementById("transmitPower1").value);
     var tx2 = parseInt(document.getElementById("transmitPower2").value);
-    // calculate EIRP value
-    var eirpValue = [
-      radio1 + radio2 + tx2 - loss1 - loss2,
-      radio1 + radio2 + tx1 - loss1 - loss2,
-    ];
-    // a loop which will forward for site A and Site B and put calculated value
-    for (let i = 1; i <= 2; i++) {
-      var rsl = (
-        eirpValue[i - 1] -
-        (20 * Math.log10(dist) + 20 * Math.log10(freq / 1000) + 92.45)
-      ).toFixed(2);
+    var radioName1 = $("#radio1 option:selected").attr("class");
+    var radioName2 = $("#radio2 option:selected").attr("class");
+    if (radioName1 == radioName2) {
+      // populating the data
 
-      console.log(
-        "FSL: ",
-        20 * Math.log10(dist) + 20 * Math.log10(freq / 1000) + 92.45
-      );
+      $("#reporttx1").html(tx1);
+      $("#reporttx2").html(tx2);
+      $("#reportAntGain1").html(gain1);
+      $("#reportAntGain2").html(gain2);
+      $("#reportloss1").html(loss1);
+      $("#reportloss2").html(loss2);
 
-      // SNR
-      var snr = (parseFloat(rsl) + parseFloat(noisefloor)).toFixed(2);
+      // a loop which will forward for site A and Site B and put calculated value
+      var snr = [],
+        fademargin = [],
+        mcs = [],
+        modulation = [],
+        fec = [],
+        linkrate = [],
+        throughput = [];
 
-      // checking the radio if ubax or not
-      var radioName = $(`#radio${i} option:selected`).html();
-      if (radioName.includes("x")) {
-        var refertable = referencetable2;
-        console.log("includes x", refertable);
-      } else {
-        var refertable = referencetable1;
-      }
+      var eirpVal = [
+        gain1 + gain2 + tx2 - loss1 - loss2 - bandwidthLoss,
+        gain1 + gain2 + tx1 - loss1 - loss2 - bandwidthLoss,
+      ];
 
-      // Fade Margin
-      fademargin = (
-        parseFloat(rsl) - parseFloat(refertable.rows[2].cells.item(0).innerHTML)
-      ).toFixed(2);
-
+      var refertable = referencetable;
       var rowlength = refertable.rows.length;
-      for (let t = 1; t < rowlength; t++) {
-        var min = refertable.rows[t].cells.item(0).innerHTML;
-        var max = refertable.rows[t].cells.item(1).innerHTML;
-        if (parseFloat(rsl) >= min && parseFloat(rsl) <= max) {
-          var mcs = refertable.rows[t].cells.item(2).innerHTML;
-          var modulation = refertable.rows[t].cells.item(3).innerHTML;
-          var fec = refertable.rows[t].cells.item(4).innerHTML;
-          var linkrate = refertable.rows[t].cells.item(5).innerHTML;
-          var throughput = refertable.rows[t].cells.item(6).innerHTML;
-        } else if (parseFloat(rsl) < min) {
-          break;
-        } else {
-          continue;
+
+      for (let i = 1; i <= 2; i++) {
+        var rsl = (
+          eirpVal[i - 1] -
+          (20 * Math.log10(dist) + 20 * Math.log10(freq / 1000) + 92.45)
+        ).toFixed(2);
+        console.log(
+          "Free space path loss is:",
+          20 * Math.log10(dist) + 20 * Math.log10(freq / 1000) + 92.45
+        );
+        // update the value of rsl in the field
+        $(`#rsl${i}`).html(rsl);
+        $(`#reportrsl1`).html(rsl);
+        $(`#reportrsl2`).html(rsl);
+        snr.push((parseFloat(rsl) + parseFloat(noisefloor)).toFixed(2));
+
+        for (let t = 1; t < rowlength; t++) {
+          var sensitivity = parseFloat(
+            refertable.rows[t].cells.item(0).innerHTML
+          );
+          console.log(
+            `In loop ${i} Rsl calculated and sensitivity for row ${t} is ${rsl}, ${sensitivity}`
+          );
+          if (rsl < sensitivity) {
+            console.log(
+              `rsl calculated ${rsl} is smaller than sensitivity ${sensitivity}`
+            );
+            mcs.push(refertable.rows[t - 1].cells.item(1).innerHTML);
+            modulation.push(refertable.rows[t - 1].cells.item(2).innerHTML);
+            fec.push(refertable.rows[t - 1].cells.item(3).innerHTML);
+            linkrate.push(refertable.rows[t - 1].cells.item(4).innerHTML);
+            throughput.push(refertable.rows[t - 1].cells.item(5).innerHTML);
+            fademargin.push(
+              (
+                parseFloat(rsl) -
+                parseFloat(refertable.rows[t - 1].cells.item(0).innerHTML)
+              ).toFixed(2)
+            );
+            break;
+          } else if (rsl > 0 || rsl < -150) {
+            console.log("The rsl didnot match sensitivity");
+            mcs.push("N/A");
+            modulation.push("N/A");
+            fec.push("N/A");
+            linkrate.push("N/A");
+            throughput.push("N/A");
+            break;
+          }
         }
       }
+      console.log("mcs array is:", mcs);
 
-      // Populating the link setting values
-      $(`#reportRadio${i}`).html(radioName);
-      $(`#reportloss${i}`).html(eval("loss" + i));
-      $(`#reporttx${i}`).html(eval("tx" + i));
-      $(`#reportAntGain${i}`).html(eval("radio" + i));
+      if (mcs[0] == "N/A" || mcs[1] == "N/A") {
+        for (let i = 1; i <= 2; i++) {
+          $(`#snr${i}`).html("N/A");
+          $(`#reportsnr${i}`).html("N/A");
+          // Fade Margin
+          $(`#fadeMargin${i}`).html("N/A");
+          // MCS
+          $(`#mcs${i}`).html("N/A");
+          // Modulation
+          $(`#modulation${i}`).html("N/A");
+          // FEC
+          $(`#fec${i}`).html("N/A");
+          // Link Rate
+          $(`#linkRate${i}`).html("N/A");
+          // Throughput
+          $(`#throughput${i}`).html("N/A");
+          $(`#reportthroughput${i}`).html("N/A");
+          // Link Availability
+          $("#linkAvailability").html("N/A");
+          $("#reportlinkAvailability").html("N/A");
+        }
+      } else {
+        for (let i = 1; i <= 2; i++) {
+          var radioName = $(`#radio${i} option:selected`).html();
+          $(`#reportRadio${i}`).html(radioName);
+          $(`#snr${i}`).html(snr[i - 1]);
+          $(`#reportsnr${i}`).html(snr[i - 1]);
+          // Fade Margin
+          $(`#fadeMargin${i}`).html(fademargin[i - 1]);
+          // MCS
+          $(`#mcs${i}`).html(mcs[i - 1]);
+          // Modulation
+          $(`#modulation${i}`).html(modulation[i - 1]);
+          // FEC
+          $(`#fec${i}`).html("'" + fec[i - 1]);
+          // Link Rate
+          $(`#linkRate${i}`).html(linkrate[i - 1]);
+          // Throughput
+          $(`#throughput${i}`).html(throughput[i - 1] / 2);
+          $(`#reportthroughput${i}`).html(throughput[i - 1] / 2);
 
-      // Populating all the calculated value now in the fields
-      // RSL
-      document.getElementById(`rsl${i}`).innerHTML = rsl;
-      document.getElementById(`reportrsl${i}`).innerHTML = rsl;
-      // SNR
-      $(`#snr${i}`).html(snr);
-      $(`#reportsnr${i}`).html(snr);
-      // Fade Margin
-      $(`#fadeMargin${i}`).html(fademargin);
-      // MCS
-      $(`#mcs${i}`).html(mcs);
-      // Modulation
-      $(`#modulation${i}`).html(modulation);
-      // FEC
-      $(`#fec${i}`).html(fec);
-      // Link Rate
-      $(`#linkRate${i}`).html(linkrate);
-      // Throughput
-      $(`#throughput${i}`).html(throughput / 2);
-      $(`#reportthroughput${i}`).html(throughput / 2);
-
-      if (radioName.includes("CPE") && throughput > 300) {
-        $(`#throughput${i}`).html(300 / 2);
-        $(`#reportthroughput${i}`).html(300 / 2);
+          if (radioName.includes("CPE") && throughput > 300) {
+            $(`#throughput${i}`).html(300 / 2);
+            $(`#reportthroughput${i}`).html(300 / 2);
+          }
+        }
+        availability();
       }
     }
-    availability();
   }
 }
 
@@ -601,15 +578,6 @@ function availability() {
 
   var linkAvailability = 100 * (1 - 2 * outageDueToFading);
   console.log("fading occurance factor", linkAvailability);
-  // console.log("link Availability: ", link_availability_due_to_multipath);
-
-  // To be deleted
-  // console.log(path_inclination);
-  // console.log(flat_fade_margin);
-  // console.log(fading_occurance_factor);
-  // console.log(fade_depth);
-  // console.log(flat_fade_exceeded_in_WM);
-  // console.log(link_availability_due_to_multipath);
 
   //  populating the link availability column with the value calculated
   document.getElementById("reportlinkAvailability").innerHTML =

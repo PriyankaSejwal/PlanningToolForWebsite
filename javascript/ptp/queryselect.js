@@ -1,15 +1,19 @@
 // Event Listener on the antenna gain at A input to read the change of value.
 
 document.getElementById("antgain1").addEventListener("change", function () {
-  var antgain1 = document.getElementById("antgain1").value;
+  var antgain1 = $("#antgain1").val();
+  var antgain2 = $("#antgain2").val();
   var eirp = parseInt(document.getElementById("ptpeirpMax").value);
   if (antgain1 > 0) {
     if (antgain1 < eirp) {
       var r1 = document.getElementById("radio1");
-      r1.options[r1.selectedIndex].value = antgain1;
+      // r1.options[r1.selectedIndex].value = antgain1;
       // console.log(document.getElementById("radio1").value);
       document.querySelector(".gain1Alert").style.display = "none";
-      calcTxPower();
+      updateTransmitPower(1);
+      if (antgain2 != "") {
+        deviceinfo();
+      }
     } else {
       antgain1 = 0;
       document.querySelector(".gain1Alert").style.display = "block";
@@ -23,13 +27,17 @@ document.getElementById("antgain1").addEventListener("change", function () {
 
 document.getElementById("antgain2").addEventListener("change", function () {
   var antgain2 = document.getElementById("antgain2").value;
+  var antgain1 = $("#antgain1").val();
   var eirp = parseInt(document.getElementById("ptpeirpMax").value);
   if (antgain2 > 0) {
     if (antgain2 < eirp) {
       var r2 = document.getElementById("radio2");
-      r2.options[r2.selectedIndex].value = antgain2;
+      // r2.options[r2.selectedIndex].value = antgain2;
       document.querySelector(".gain2Alert").style.display = "none";
-      calcTxPower();
+      updateTransmitPower(2);
+      if (antgain1 != "") {
+        deviceinfo();
+      }
     } else {
       antgain2 = 0;
       document.querySelector(".gain2Alert").style.display = "block";

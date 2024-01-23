@@ -1,15 +1,16 @@
 body {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-  color: #350964;
+  font-size: 100%;
+  font-family: "Roboto", sans-serif;
+  color: #140f15;
   height: 100%;
-  max-width: 1500px;
+  max-width: 100vw;
   /* overflow: hidden; */
 }
-.container-fluid {
-  padding-top: 110px;
+.padding-top {
+  padding-top: 74px;
 }
 .overlay-section {
   /* height: 547px; */
@@ -32,7 +33,7 @@ body {
   position: relative;
   /* display: flex; */
   /* width: 100%; */
-  /* height: 496px; */
+  height: calc(100vh - 132px);
   /* overflow: hidden; */
   overflow-y: scroll;
   font-size: 13px;
@@ -235,12 +236,6 @@ input {
 }
 
 /* Slave Section */
-#slavesInput {
-  /* height: 248px; */
-  /* overflow-y: scroll; */
-  /* border-bottom: 1px solid #d6d6d6; */
-  /* box-shadow: rgb(0 0 0 /20%) 0 -2px 4px; */
-}
 #slavesInput .inputSection {
   display: flex;
   flex-wrap: wrap;
@@ -328,7 +323,7 @@ button {
   background-color: #fff;
   border: 1px solid #d6d6d6;
   color: #54585a;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 14px;
   border-radius: 5px;
   letter-spacing: 0.05em;

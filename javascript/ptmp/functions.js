@@ -104,9 +104,49 @@ function createSlavesCoordinateField() {
             // checking whether lat long are in the lat long bounds for the country
             // checkSlaveBounds(lat, long, i);
           }
+        } else {
+          if (marker[i] != undefined) {
+            marker[i].setMap(null);
+            polyLine[i].setMap(null);
+            reportmarker[i].setMap(null);
+            reportPolyline[i].setMap(null);
+          }
         }
       });
   }
+
+  // event listener in map to place markers
+  map.addListener("click", function (event) {
+    // clickCount++;
+    if (marker.length == 0 || marker[0].map == null) {
+      addMarkerInPTMP(0, "masterCo-ordinate", "masterDDCoord", event.latLng);
+      checkMasterBounds(event.latLng.lat(), event.latLng.lng());
+    } else if (marker.length >= 1) {
+      var slaveNumber = marker.length;
+      for (let i = 1; i <= marker.length - 1; i++) {
+        if (marker[i] == undefined) {
+          slaveNumber = marker.length;
+          break;
+        } else {
+          if (marker[i].map == null) {
+            slaveNumber = i;
+            break;
+          }
+        }
+      }
+      console.log(slaveNumber);
+      if (slaveNumber <= numOfCoordFields) {
+        addMarkerInPTMP(
+          slaveNumber,
+          `slave${slaveNumber}Co-ordinate`,
+          `slave${slaveNumber}DDCoord`,
+          event.latLng
+        );
+        checkSlaveBounds(event.latLng.lat(), event.latLng.lng(), slaveNumber);
+        // }
+      }
+    }
+  });
 }
 
 // function to create slaves field

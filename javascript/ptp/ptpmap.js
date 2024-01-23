@@ -480,7 +480,7 @@ function elevationchartptp() {
   }
 
   //  Calculating the Antenna Tilt / Vertical Angle and populating them in the Link Installation Report
-  vertical_angle = Math.atan((startY - endY) / dist);
+  vertical_angle = Math.atan((startY - endY) / (dist * 1000)) * (180 / Math.PI);
   document.getElementById("reportTiltA").innerHTML =
     vertical_angle.toFixed(2) + "°";
   document.getElementById("reportTiltB").innerHTML =

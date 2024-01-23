@@ -22,6 +22,7 @@
     ></script>
 
     <!-- Google Fonts Link -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
@@ -53,8 +54,8 @@
 
     <!-- CSS Files -->
     <link rel="stylesheet" href="css/ptmp/navbar.css" />
-    <link rel="stylesheet" href="css/ptmp/responsive.css" />
     <link rel="stylesheet" href="css/ptmp/style.css" />
+    <link rel="stylesheet" href="css/ptmp/responsive.css" />
     <link rel="stylesheet" href="css/ptmp/report.css" />
     <link rel="stylesheet" href="css/ptmp/misc.css">
     <link rel="stylesheet" href="css/ptmp/mapchart.css">
@@ -66,7 +67,7 @@
     <div class="wrapper">
       <div class="header print-hide">
         <!-- Top Header for Search Result -->
-        <div class="top-head">
+        <!-- <div class="top-head">
           <div class="container">
             <div class="topheadflex">
               <a href="https://io.hfcl.com/contact-us" class="active"
@@ -91,10 +92,10 @@
               </div>
             </form>
           </div>
-        </div>
+        </div> -->
         <!-- Bottom Header -->
         <div class="bottom-head">
-          <div class="container">
+          <div class="container-fluid">
             <div class="bottomheadflex">
               <!-- HFCL LOGO -->
               <div class="logo">
@@ -117,13 +118,13 @@
                   </div>
                   <ul class="mobileulfix">
                     <li class="menuhover">
-                      <span>Link Planning Tool</span>
+                      <span>LinkXPert</span>
                     </li>
                   </ul>
                 </div>
                 <!-- Demo Button -->
                 <a href="https://io.hfcl.com/contact-us" class="getdemobtn"
-                  >Get a Demo</a
+                  >Book a Demo</a
                 >
                 <!-- Toggle Menu Hamburger Sign -->
                 <div class="togglemenus">
@@ -144,7 +145,7 @@
     <!-- Nav Bar Ends -->
 
     <!-- Main body starts -->
-    <div class="container-fluid print-hide">
+    <div class="container-fluid print-hide padding-top">
       <div class="row">
         <!--1.  PTP PTMP Selection Section  -->
         <!-- 2. Can include PTP Page containe her also if needed -->
@@ -157,14 +158,17 @@
             <div class="sidebar-section-body">
               <div class="d-flex justify-content-between">
                 <!-- Button to cancel the selected country and reset button -->
-                <div class="col-8" >
-                  <button type="button" class="linkbtn btn" id="cancelp2mp">
-                    <a href="index.html">Go Back</a> </button>
-                  </button>
-                  <button type="button" class="btn disabled-class" id="resetptmpLink" onclick="resetptmp()">Reset</button>
+                <div class="col-lg-9 col-xs-8 p-0" >
+                  <div class="btn-group" role="group" aria-label="Cancel and Reset Section">
+                    <button type="button" class="linkbtn btn" id="cancelp2mp">
+                      <a href="index.html">Go Back</a> </button>
+                    </button>
+                    <button type="button" class="btn disabled-class" id="resetptmpLink">Reset</button>
+                  </div>
+                  
                 </div>    
                 <!-- Choose the country -->
-                <div class="col-3 text-right">
+                <div class="col-lg-3 col-xs-4 p-0 text-right">
                   <select name="" id="ctryCode" onchange="ctryChangePTMP()">
                     <option value="" selected disabled>Country</option>
                     <option value="af">Afghanistan</option>
@@ -385,8 +389,7 @@
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
                       title="Number of slaves to connect">Slaves</label>
-                      <select name="" id="numberOfSlaves" 
-                      onchange="createSlavesCoordinateField(); createMasterTable();">
+                      <select name="" id="numberOfSlaves" >
                       <option value=" " disabled selected>Slaves</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -410,7 +413,6 @@
                         name=""
                         id="channelBW"
                         class="select"
-                        onchange="checkBandwidth(); frequencydata();eirpcalculate();bandwidthChange()"
                       >
                         <option value="" hidden>Bandwidth</option>
                         <option value="10" id="10mhz">10 MHz</option>
@@ -427,7 +429,6 @@
                       <select
                         id="channelFreq"
                         class="select"
-                        onchange="eirpcalculate();bandwidthChange()"
                       ></select>
                       <!-- </div> -->
                     </div>
@@ -445,8 +446,7 @@
                       class="input"
                       placeholder="lat,long"
                       name="Master"
-                      id="masterCoord"
-                      onchange="placeMasterOnMap()">
+                      id="masterCo-ordinate">
                       </div>
                       <!-- Master Angle -->
                       <div class="col-4 sidebar-padding">
@@ -455,8 +455,7 @@
                         data-bs-placement="top"
                         title="Angle where Master is facing horizontally from true North in °">Master Angle</label>
                         <input type="number" class="input" id="masterAngle"
-                        value="0"
-                        onchange="checkAngle()">
+                        value="0">
                         <span class="unit">°</span>
                       </div>
                       <!-- EIRP field -->
@@ -501,7 +500,6 @@
                         class="btn"
                         id="addSlaveButton"
                         disabled
-                        onclick="checkCurrentSlaveCount()"
                       >
                         Add another slave
                       </button>
@@ -513,12 +511,11 @@
                   <div class="sidebar-section-body">
                     <div class="row">
                       <div class="col-sm-4 col-xs-4 sidebar-padding-small">
-                        <label for="">Master Radio</label>
+                        <label for="masterRadio">Master Radio</label>
                         <select
                         name=""
                         id="masterRadio"
                         class="select"
-                        onchange="masterTx();masterRadioChanged()"
                         >
                           <option value="17,90">ion4l1_BTS</option>
                           <option value="19,60">ion4l2_BTS</option>
@@ -552,7 +549,6 @@
                         min="3"
                         max="27"
                         value="27"
-                        onchange="masterTxChange()"
                         />
                         <span class="unit">dBm</span>
                       </div>
@@ -1321,6 +1317,7 @@
     <script src="javascript/ptmp/mastermap.js"></script>
     <script src="javascript/ptmp/functions.js"></script>
     <script src="javascript/ptmp/createMTable.js"></script>
+    <script src="javascript/ptmp/eventlistener.js"></script>
     <script src="javascript/ptmp/onchange.js"></script>
     <script src="javascript/ptmp/mastercoordchange.js"></script>
     <script src="javascript/ptmp/report.js"></script>
@@ -1343,7 +1340,7 @@
     <!-- <script src="https://maps.googleapis.com/maps/api/js?sensor=false&callback=initMap"></script> -->
     <!--  api link-->
     <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5zYlkJtKZsemt792qtpPb6fPs1sMqBI&callback=initMap&v=weekly"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDP4qjMuB62ehF9gDH0VKBNWvDKRRavmYU&callback=initMap&v=weekly"
     defer
   ></script>
   </body>

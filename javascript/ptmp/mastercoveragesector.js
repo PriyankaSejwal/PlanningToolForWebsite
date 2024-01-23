@@ -75,6 +75,7 @@ function drawSector() {
   sectorPolyline = new google.maps.Polygon({
     map: map,
     path: sectorCoordinates,
+    clickable: false,
     strokeColor: "green",
     strokeOpacity: 1,
     strokeWeight: 1,
@@ -84,6 +85,7 @@ function drawSector() {
   reportsectorPolyline = new google.maps.Polygon({
     map: reportMap,
     path: sectorCoordinates,
+    clickable: false,
     strokeColor: "green",
     strokeOpacity: 1,
     strokeWeight: 1,

@@ -105,20 +105,30 @@ function exportToExcel() {
     }
   }
   console.log(arr);
-  // Exporting to excel
-  csvContent = "data:text/csv;charset=utf-8,\uFEFF";
-  arr.forEach(function (rowArray) {
-    row = rowArray.join(",");
-    csvContent += row + "\r\n";
-  });
-  /* create a hidden <a> DOM node and set its download attribute */
-  var encodedUri = encodeURI(csvContent);
-  var link = document.createElement("a");
-  link.setAttribute("href", encodedUri);
-  link.setAttribute("download", "P2MP_Report.csv");
-  document.body.appendChild(link);
-  /* download the data file named "P2MP_Report.csv" */
-  link.click();
-  // Removing the created child a in the body.
-  document.body.removeChild(link);
+  // new way to export to excel not csv
+  // Create a worksheet
+  var ws = XLSX.utils.aoa_to_sheet(arr);
+  // Create a workbook
+  var wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+
+  // Save the workbook as an Excel file
+  XLSX.writeFile(wb, "PTMP_Report.xlsx");
+
+  // // Exporting to excel
+  // csvContent = "data:text/csv;charset=utf-8,\uFEFF";
+  // arr.forEach(function (rowArray) {
+  //   row = rowArray.join(",");
+  //   csvContent += row + "\r\n";
+  // });
+  // /* create a hidden <a> DOM node and set its download attribute */
+  // var encodedUri = encodeURI(csvContent);
+  // var link = document.createElement("a");
+  // link.setAttribute("href", encodedUri);
+  // link.setAttribute("download", "P2MP_Report.csv");
+  // document.body.appendChild(link);
+  // /* download the data file named "P2MP_Report.csv" */
+  // link.click();
+  // // Removing the created child a in the body.
+  // document.body.removeChild(link);
 }

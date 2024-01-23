@@ -25,6 +25,7 @@ function ctryChangePTMP() {
 function eirplimits(code) {
   for (var [key, value] of Object.entries(country_dict)) {
     if (key == code) {
+      console.log("ran number of times:", key);
       var valuesplit = value.split(",");
       var latitude = parseFloat(valuesplit[0]);
       var longitude = parseFloat(valuesplit[1]);
@@ -44,6 +45,7 @@ function eirplimits(code) {
         valuesplit[1],
       ];
     }
+    break;
   }
 }
 

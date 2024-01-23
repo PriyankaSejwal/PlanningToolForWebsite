@@ -68,7 +68,7 @@ function validatecoord(lat, long, i) {
           }
         });
     }
-
+    // calculate button to be enabled when the fields for lat long are both filled
     if ($(`#searchtowerB`).val() != "") {
       var buttonActivate = $("#latLongBtn");
       buttonActivate.prop("disabled", false);
@@ -106,7 +106,10 @@ function validatePopulate() {
   var longB = coordB.split(",")[1];
 
   // Regular expression to match DMS format (e.g. 40°26'46.302"N)
-  const dmsPattern = /^\s?-?\d{1,3}[°]\d{1,2}[']\d{1,2}(\.\d+)?["][NSWE]\s?$/i;
+  /* this expression is updated and can now read the dms pattern where space is used to separate the 
+  degree, min and sec sign */
+  const dmsPattern =
+    /^\s?-?\d{1,3}[°]\s*?|\s*\d{1,2}[']\s*?|\s*?\d{1,2}(\.\d+)?["]|['']|\s*?[NSWE]\s?$/i;
 
   // Regular expression to match DD format (e.g. 40.446195, -79.948862)
   const ddPattern = /^\s?-?\d+(\.\d+)?°?\s?$/;

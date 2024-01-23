@@ -2,13 +2,15 @@
 /* NavBar Styling */
 /* NavBar Styling */
 body {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   font-size: 16px;
   box-sizing: border-box;
   background: transparent;
-  color: #545454;
-  font-family: "Poppins", sans-serif;
+  color: #140f15;
+  font-family: "Roboto", sans-serif;
+  max-width: 100vw;
+  height: 100vh;
 }
 
 /* Loader CSS */
@@ -35,13 +37,14 @@ body {
 }
 .header {
   top: 0;
-  left: 0;
+  /* left: 0; */
   position: fixed;
   z-index: 9;
   width: 100%;
   padding: 0px;
-  height: 110px;
-  box-shadow: rgb(0 0 0 /20%) 0 2px 4px;
+  /* height: 81px; */
+  margin: 0 auto;
+  max-width: 100vw;
 }
 .top-head {
   width: 100%;
@@ -76,7 +79,7 @@ button {
   font-size: 14px;
   font-weight: 400;
   padding: 7.5px 0px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   display: block;
   color: #808285;
 }
@@ -134,6 +137,7 @@ button {
 .bottom-head {
   width: 100%;
   background-color: #fff !important;
+  box-shadow: rgb(0 0 0 /20%) 0 2px 4px;
 }
 
 .bottomheadflex {
@@ -170,8 +174,8 @@ button {
   padding: 0;
 }
 .mainmenu .menuoutbox ul li span {
-  line-height: 30px;
-  color: #808285;
+  /* line-height: 30px; */
+  color: #140f15;
   display: block;
   position: relative;
   font-size: 16px;
@@ -199,14 +203,14 @@ button {
 }
 
 .getdemobtn {
-  width: 120px;
+  /* width: 120px; */
   text-align: center;
-  border-radius: 12px;
+  border-radius: 10px;
   background-color: #350964;
   color: #fff;
-  padding: 5px;
+  padding: 8px 10px;
   line-height: 20px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   display: block;
   font-size: 14px;
   font-weight: 400;
@@ -232,9 +236,9 @@ button {
 
 /* Responsive navbar */
 
-@media screen and (max-width: 1500px) {
+@media screen and (min-width: 1200px) {
   .container {
-    width: 1300px;
+    width: 1250px;
   }
 }
 
@@ -243,10 +247,9 @@ button {
     max-width: 1270px;
   }
 }
-
-@media screen and (max-width: 1280px) {
+@media screen and (min-width: 1500px) {
   .container {
-    width: 1170px;
+    width: 1300px;
   }
 }
 @media screen and (max-width: 1024px) {
@@ -344,11 +347,11 @@ button {
   }
 }
 
-@media screen and (max-width: 1024px) {
+/* @media screen and (max-width: 1024px) {
   .logo {
     width: 30%;
   }
-}
+} */
 
 @media screen and (max-width: 750px) {
   .logo {
@@ -369,13 +372,13 @@ button {
   }
 }
 
-@media screen and (max-width: 500px) {
+/* @media screen and (max-width: 500px) {
   .logo a img {
     width: 59%;
     transform: none;
     margin: 5px 0;
   }
-}
+} */
 @media screen and (max-width: 300px) {
   .logo a img {
     width: 90%;
@@ -384,11 +387,11 @@ button {
   }
 }
 
-@media screen and (max-width: 1024px) {
+/* @media screen and (max-width: 1024px) {
   .mainmenu {
     width: 70%;
   }
-}
+} */
 @media screen and (max-width: 750px) {
   .mainmenu {
     width: 50%;
@@ -475,7 +478,7 @@ button {
 @media screen and (max-width: 920px) {
   .mainmenu .menuoutbox ul li span {
     line-height: 30px;
-    color: #808285;
+    color: #140f15;
     display: block;
     position: relative;
     font-size: 25px;
@@ -488,11 +491,11 @@ button {
 
 @media screen and (max-width: 1300px) {
   .mainmenu .menuoutbox ul li span {
-    line-height: 30px;
-    color: #808285;
+    line-height: 35px;
+    color: #140f15;
     display: block;
     position: relative;
-    font-size: 25px;
+    font-size: 22px;
     padding: 20px 20px;
     border-bottom: 5px solid #fff;
     border-top: 5px solid #fff;
@@ -507,7 +510,7 @@ button {
 }
 @media screen and (max-width: 1390px) {
   .getdemobtn {
-    width: 115px;
+    /* width: 115px; */
     font-size: 14px;
   }
 }
@@ -518,16 +521,18 @@ button {
 }
 @media screen and (max-width: 750px) {
   .getdemobtn {
-    width: 90px;
-    font-size: 10px;
+    /* width: 90px; */
+    font-size: 12px;
     line-height: 15px;
   }
 }
 @media screen and (max-width: 600px) {
   .getdemobtn {
-    width: 85px;
+    /* width: 85px; */
+    padding: 4px 8px;
     font-size: 10px;
     line-height: 13px;
+    border-radius: 3px;
   }
 }
 @media screen and (max-width: 750px) {
@@ -589,4 +594,13 @@ button {
   .show {
     left: 0;
   }
+}
+
+@media screen and (max-width: 1280px) and (min-height: 799px) {
+  #ptpptmpselectionPage {
+    height: 690px;
+  }
+  /* .sidebarBody2 {
+    height: 639px;
+  } */
 }

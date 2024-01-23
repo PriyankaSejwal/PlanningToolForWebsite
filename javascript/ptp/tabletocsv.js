@@ -15,6 +15,49 @@ function downloadExport() {
   }
   document.getElementById("ptpexports").selectedIndex = 0;
 }
+// new function
+// function exportToExcel() {
+//   // Combine data from all tables
+//   var combinedData = [];
+
+//   // Add data from table1
+//   combinedData.push(getTableData("tbl1"));
+
+//   // Add data from table2
+//   combinedData.push(getTableData("tbl2"));
+
+//   // Repeat for table3, table4, table5
+//   combinedData.push(getTableData("tbl3"));
+//   combinedData.push(getTableData("tbl4"));
+//   console.log(combinedData);
+
+//   // Merge data into a single array
+//   var flattenedData = [].concat.apply([], combinedData);
+//   console.log(flattenedData);
+
+//   // Create a new table to export the combined data
+//   var combinedTable = $("<table>").append(flattenedData);
+//   console.log(combinedTable);
+
+//   // Export the combined table to Excel
+//   // combinedTable.table2excel({
+//   //     filename: "combinedTables.xls"
+//   // });
+// }
+
+// function getTableData(tableId) {
+//   var data = [];
+//   $("#" + tableId + " tbody tr").each(function (index, row) {
+//     var rowData = [];
+//     $(row)
+//       .find("td")
+//       .each(function (index, column) {
+//         rowData.push($(column).text().trim());
+//       });
+//     data.push(rowData);
+//   });
+//   return data;
+// }
 
 function exportToExcel() {
   var elt = document.getElementById("tbl1");
@@ -66,21 +109,32 @@ function exportToExcel() {
     rows[2].push(column2);
   }
   console.log(rows);
-  csvContent = "data:text/csv;charset=utf-8,\uFEFF";
-  rows.forEach(function (rowArray) {
-    row = rowArray.join(",");
-    csvContent += row + "\r\n";
-  });
-  /* create a hidden <a> DOM node and set its download attribute */
-  var encodedUri = encodeURI(csvContent);
-  var link = document.createElement("a");
-  link.setAttribute("href", encodedUri);
-  link.setAttribute("download", "PTP_Report.csv");
-  document.body.appendChild(link);
-  /* download the data file named "Stock_Price_Report.csv" */
-  link.click();
-  // Removing the created child a in the body.
-  document.body.removeChild(link);
+
+  // new way to export to excel not csv
+  // Create a worksheet
+  var ws = XLSX.utils.aoa_to_sheet(rows);
+  // Create a workbook
+  var wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+
+  // Save the workbook as an Excel file
+  XLSX.writeFile(wb, "PTP_Report.xlsx");
+
+  // csvContent = "data:text/csv;charset=utf-8,\uFEFF";
+  // rows.forEach(function (rowArray) {
+  //   row = rowArray.join(",");
+  //   csvContent += row + "\r\n";
+  // });
+  // /* create a hidden <a> DOM node and set its download attribute */
+  // var encodedUri = encodeURI(csvContent);
+  // var link = document.createElement("a");
+  // link.setAttribute("href", encodedUri);
+  // link.setAttribute("download", "PTP_Report.csv");
+  // document.body.appendChild(link);
+  // /* download the data file named "Stock_Price_Report.csv" */
+  // link.click();
+  // // Removing the created child a in the body.
+  // document.body.removeChild(link);
 }
 
 function printMaps() {

@@ -38,10 +38,14 @@
       crossorigin="anonymous"
     ></script>
     <!-- Google Fonts Link -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+    <!-- library for excel export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
+
     <!-- Internal CSS -->
     <link type="text/css" rel="stylesheet" href="css/main/navbar.css" />
     <link type="text/css" rel="stylesheet" href="css/ptp/style.css">
@@ -56,7 +60,7 @@
     <div class="wrapper">
       <div class="header print-hide">
         <!-- Top Header for Search Result -->
-        <div class="top-head">
+        <!-- <div class="top-head">
           <div class="container">
             <div class="topheadflex">
               <a href="https://io.hfcl.com/contact-us" class="active"
@@ -81,10 +85,10 @@
               </div>
             </form>
           </div>
-        </div>
+        </div> -->
         <!-- Bottom Header -->
         <div class="bottom-head">
-          <div class="container">
+          <div class="container-fluid">
             <div class="bottomheadflex">
               <!-- HFCL LOGO -->
               <div class="logo">
@@ -107,13 +111,13 @@
                   </div>
                   <ul class="mobileulfix">
                     <li class="menuhover">
-                      <span>Link Planning Tool</span>
+                      <span>LinkXPert</span>
                     </li>
                   </ul>
                 </div>
                 <!-- Demo Button -->
                 <a href="https://io.hfcl.com/contact-us" class="getdemobtn"
-                  >Get a Demo</a
+                  >Book a Demo</a
                 >
                 <!-- Toggle Menu Hamburger Sign -->
                 <div class="togglemenus">
@@ -134,38 +138,8 @@
     <!-- Nav Bar Ends -->
 
     <!-- PTP/PTMP Selection Body Starts -->
-    <div class="container-fluid print-hide">
+    <div class="container-fluid print-hide padding-top">
         <div class="row">
-          <!-- PTP PTMP selection container
-          <div class="col-lg-4" id="ptpptmpselectionPage">
-            <div class="sidebar-body">
-              <form action="">
-                <!-- First Section -->
-                <!-- Section contains the options for PTP and P2MP -->
-                <!-- <div class="sidebar-section">
-                  <div class="sidebar-section-body">
-                    <div class="row btnleft">
-                      <div class="col-6 text-right pull-right">
-                        <span>Click here</span>
-                        <span class="glyphicon glyphicon-arrow-right rightArrow"></span>
-                        <button type="button" class="linkbtn " id="p2pp2mp">
-                          <span
-                            class="glyphicon glyphicon-plus"
-                            aria-hidden="true"
-                          ></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li><a href="#" class="ptp">Add a new PTP</a></li>
-                          <li><a href="ptmp.html" class="ptmp">Add a new P2MP</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div> -->
-          <!-- </div>  -->
-
           <!-- PTP Page -->
           <div class="col-lg-4 overlay-section" id="ptpPage">
             <!-- Close Button to go back to choice of ptp ptmp -->
@@ -173,15 +147,18 @@
                 <div class="sidebar-section-body">
                   <div class="d-flex justify-content-between">
                     <!-- Button to cancel the selected country and reset button -->
-                    <div class="col-8" >
-                      <button type="button" class="ptplinkbtn btn" id="cancelp2p">
-                        <a href="index.html">Go Back</a>
-                      </button>
-                      </button>
-                      <button type="button" class="btn disable" id="ptpresetLink">Reset</button>
+                    <div class="col-lg-9 col-sm-9 col-xs-8 p-0" >
+                      <div class="btn-group" role="group" aria-label="Cancel and Reset Section">
+                        <button type="button" class="ptplinkbtn btn" id="cancelp2p">
+                          <a href="index.html">Go Back</a>
+                        </button>
+                        </button>
+                        <button type="button" class="btn disable" id="ptpresetLink">Reset</button>
+                      </div>
+                      
                     </div>    
                     <!-- Choose the country -->
-                    <div class="col-3 text-right">
+                    <div class="col-lg-3 col-sm-3 col-xs-4 p-0 text-right">
                       <select name="" id="ptpctryCode" onchange="ptpctryChange()">
                         <option value="" selected disabled>Country</option>
                         <option value="af">Afghanistan</option>
@@ -398,7 +375,7 @@
                     <!-- Name to be given to the link  -->
                     <div class="row">
                       <div class="col-12 sidebar-padding">
-                        <label for="" class="label">Link Name</label>
+                        <label for="">Link Name</label>
                         <input
                           type="text"
                           class="input"
@@ -412,7 +389,7 @@
                      <!-- Any relevant information if user wants to enter for the Sites  -->
                      <div class="row">
                       <div class="col-6 sidebar-padding">
-                        <label for="" class="label">Site A Name</label>
+                        <label for="" >Site A Name</label>
                         <input
                           type="text"
                           class="input"
@@ -423,7 +400,7 @@
                         />
                       </div>
                       <div class="col-6 sidebar-padding">
-                        <label for="" class="label">Site B Name</label>
+                        <label for="" >Site B Name</label>
                         <input
                           type="text"
                           class="input"
@@ -446,7 +423,7 @@
                     <div class="row">
                       <!-- First input for address 1 -->
                       <div class="col-6 sidebar-padding">
-                        <label for="channelBandwidth" class="label">Site A</label>
+                        <label for="channelBandwidth" >Site A</label>
                         <!-- <div class="input-grid-col-5"> -->
                         <input
                           type="text"
@@ -460,7 +437,7 @@
                       </div>
                       <!-- Second input for address 2 -->
                       <div class="col-6 sidebar-padding">
-                        <label for="channelBandwidth" class="label">Site B</label>
+                        <label for="channelBandwidth" >Site B</label>
                         <!-- <div class="input-grid-col-5"> -->
                         <input
                           type="text"
@@ -507,41 +484,47 @@
                         <!-- </div> -->
                       </div>
                     </div>
-  
-                    <!-- The hidden row which will contain the decimal formatted co-ordinate which will not be visible -->
-                    <div class="row" hidden>
-                      <!-- LAtlong of Site A -->
-                      <div class="col-6 sidebar-padding">
-                        <!-- <label for="channelBandwidth" class="label">Tower</label> -->
-                        <!-- <div class="input-grid-col-5"> -->
-                        <input
-                          type="text"
-                          class="input towerinput"
-                          id="decimal1"
-                          placeholder="lat,long"
-                          required
-                        />
-                        <!-- </div> -->
-                      </div>
-                      <!-- Latlong of Site B -->
-                      <div class="col-6 sidebar-padding">
-                        <!-- <label for="channelBandwidth" class="label">Tower</label> -->
-                        <!-- <div class="input-grid-col-5"> -->
-                        <input
-                          type="text"
-                          class="input towerinput"
-                          id="decimal2"
-                          placeholder="lat,long"
-                          required
-                          />
-                        <!-- </div> -->
-                      </div>
-                    </div>
                     <div class="row">
                       <div class="col-12 sidebar-padding validate-section">
-                        <button type="button" id="latLongBtn" class="btn btn-validate" onclick="inputMarker()" disabled>Calculate</button>
+                        <button type="button" id="latLongBtn" class="btn btn-validate" disabled>Calculate</button>
                       </div>
                     </div>
+  
+                    <!-- The hidden row which will contain the decimal formatted co-ordinate which will not be visible -->
+                    <div class="sidebar-section" hidden>
+                      <div class="sidebar-section-body">
+                        <div class="row" >
+                          <!-- LAtlong of Site A -->
+                          <div class="col-6 sidebar-padding">
+                            <!-- <label for="channelBandwidth" class="label">Tower</label> -->
+                            <!-- <div class="input-grid-col-5"> -->
+                            <input
+                              type="text"
+                              class="input towerinput"
+                              id="decimal1"
+                              placeholder="lat,long"
+                              required
+                            />
+                            <!-- </div> -->
+                          </div>
+                          <!-- Latlong of Site B -->
+                          <div class="col-6 sidebar-padding">
+                            <!-- <label for="channelBandwidth" class="label">Tower</label> -->
+                            <!-- <div class="input-grid-col-5"> -->
+                            <input
+                              type="text"
+                              class="input towerinput"
+                              id="decimal2"
+                              placeholder="lat,long"
+                              required
+                              />
+                            <!-- </div> -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                   
+                   
                     <!-- </div> -->
                     <!-- End of the inputs for the tower location  -->
                   </div>
@@ -562,7 +545,6 @@
                           name=""
                           id="ptpchannelBandwidth"
                           class="select"
-                          onchange="ptpfrequencydata()"
                         >
                           <option value="" hidden>Bandwidth</option>
                           <option value="10" id="10mhz">10 MHz</option>
@@ -579,7 +561,6 @@
                         <select
                           id="ptpchannelFrequency"
                           class="select"
-                          onchange="calcFresnel(); ptpeirpcalculate()"
                         ></select>
                         <!-- </div> -->
                       </div>
@@ -588,7 +569,7 @@
                       <div class="row" id="eirplevel">
                         <!-- Max EIRP  -->
                         <div class="col-12 sidebar-padding">
-                          <label for="" class="label">Max EIRP</label>
+                          <label for="" >Max EIRP</label>
                           <input
                             type="text"
                             name=""
@@ -603,74 +584,74 @@
                     <div class="row">
                       <!-- Radio A -->
                       <div class="col-6 sidebar-padding">
-                        <label for="" class="label">Radio</label>
+                        <label for="">Radio</label>
                         <!-- <div> -->
-                        <select
+                          <select
                           name=""
                           id="radio1"
                           class="select"
                         >
                           <optgroup label="Integrated Sector Antenna" class="optGroup">
-                            <option value="17">ion4l1_BTS</option>
-                            <option value="17">ion4xl1_BTS</option>
-                            <option value="19">ion4l2_BTS</option>
-                            <option value="19">ion4xl2_BTS</option>
+                            <option value="17, 27" class="ub22">ion4l1_BTS</option>
+                            <option value="17, 30" class="ubax">ion4xl1_BTS</option>
+                            <option value="19, 27" class="ub22">ion4l2_BTS</option>
+                            <option value="19, 30" class="ubax">ion4xl2_BTS</option>
                           </optgroup>
-                          <optgroup label="Integrated Dish Antenna"class="optGroup">
-                            <option value="23">ion4l2</option>
-                            <option value="23">ion4xl2</option>
-                            <option value="25" id="defaultRadioA" selected>ion4l3</option>
-                            <option value="25">ion4xl3</option>
-                            <option value="25">ion4l3_CPE</option>
-                            <option value="27">ion4l4</option>
-                            <option value="27">ion4xl4</option>
+                          <optgroup label="Integrated Dish Antenna" class="optGroup">
+                            <option value="23, 27" class="ub22">ion4l2</option>
+                            <option value="23, 30" class="ubax">ion4xl2</option>
+                            <option value="25, 27" class="ub22" id="defaultRadioA" selected>ion4l3</option>
+                            <option value="25, 30" class="ubax">ion4xl3</option>
+                            <option value="25, 27" class="ub22">ion4l3_CPE</option>
+                            <option value="27, 27" class="ub22">ion4l4</option>
+                            <option value="27, 30" class="ubax">ion4xl4</option>
                           </optgroup>
                           <optgroup label="Integrated Flat Panel Antenna" class="optGroup">
-                            <option value="23">ion4l2_CPE</option>
+                            <option value="23, 27" class="ub22">ion4l2_CPE</option>
                           </optgroup>
                           <optgroup label="External Antenna">
-                            <option value="0" id="extA">ion4le</option>
-                            <option value="0" >ion4xle</option>
-                            <option value="0" >ion4le_CPE</option>
+                            <option value="0, 27" class="ub22" id="extA">ion4le</option>
+                            <option value="0, 30" class="ubax">ion4xle</option>
+                            <option value="0, 27" class="ub22">ion4le_CPE</option>
                           </optgroup>
                         </select>
-                        <strong class="radioAlert" style="display: none;">Select radio from same family</strong>
+                        <strong class="radioAlert warningAlert" style="display: none;">Select radio from same family</strong>
                         <!-- </div> -->
                       </div>
                       <!-- Radio B -->
                       <div class="col-6 sidebar-padding top-margin">
-                        <label for="" class="label"></label>
+                        <label for="" ></label>
                         <!-- <div> -->
-                        <select
+                          <select
                           name=""
                           id="radio2"
                           class="select"
                         >
                         <optgroup label="Integrated Sector Antenna" class="optGroup">
-                          <option value="17">ion4l1_BTS</option>
-                          <option value="17">ion4xl1_BTS</option>
-                          <option value="19">ion4l2_BTS</option>
-                          <option value="19">ion4xl2_BTS</option>
+                          <option value="17, 27" class="ub22">ion4l1_BTS</option>
+                          <option value="17, 30" class="ubax">ion4xl1_BTS</option>
+                          <option value="19, 27" class="ub22">ion4l2_BTS</option>
+                          <option value="19, 30" class="ubax">ion4xl2_BTS</option>
                         </optgroup>
                         <optgroup label="Integrated Dish Antenna"class="optGroup">
-                          <option value="23">ion4l2</option>
-                          <option value="23">ion4xl2</option>
-                          <option value="25" id="defaultRadioB" selected>ion4l3</option>
-                          <option value="25">ion4xl3</option>
-                          <option value="25">ion4l3_CPE</option>
-                          <option value="27">ion4l4</option>
-                          <option value="27">ion4xl4</option>
+                          <option value="23, 27" class="ub22">ion4l2</option>
+                          <option value="23, 30" class="ubax">ion4xl2</option>
+                          <option value="25, 27" class="ub22" id="defaultRadioB" selected>ion4l3</option>
+                          <option value="25, 30" class="ubax">ion4xl3</option>
+                          <option value="25, 27" class="ub22">ion4l3_CPE</option>
+                          <option value="27, 27" class="ub22">ion4l4</option>
+                          <option value="27, 30" class="ubax">ion4xl4</option>
                         </optgroup>
                         <optgroup label="Integrated Flat Panel Antenna" class="optGroup">
-                          <option value="23">ion4l2_CPE</option>
+                          <option value="23, 27" class="ub22">ion4l2_CPE</option>
                         </optgroup>
                         <optgroup label="External Antenna">
-                          <option value="0" id="extB">ion4le</option>
-                          <option value="0" >ion4xle</option>
-                          <option value="0" >ion4le_CPE</option>
+                          <option value="0, 27" class="ub22" id="extB">ion4le</option>
+                          <option value="0, 30" class="ubax">ion4xle</option>
+                          <option value="0, 27" class="ub22">ion4le_CPE</option>
                         </optgroup>
                         </select>
-                        <strong class="radioAlert" style="display: none;">Select radio from same family</strong>
+                        <strong class="radioAlert warningAlert" style="display: none;">Select radio from same family</strong>
                         <!-- </div> -->
                       </div>
                     </div>
@@ -679,7 +660,7 @@
                     <div class="row" id="hiddenGain">
                       <!-- Antenna gain A -->
                       <div class="col-6 sidebar-padding">
-                        <label for="" class="label">Antenna Gain</label>
+                        <label for="" >Antenna Gain</label>
                         <input
                           type="number"
                           name=""
@@ -690,11 +671,11 @@
                           required
                         />
                         <span class="metre">dBi</span>
-                        <strong class="gain1Alert" style="display: none;">Please enter value less than Max EIRP.</strong> 
+                        <strong class="gain1Alert warningAlert" style="display: none;">Please enter value less than Max EIRP.</strong> 
                       </div>
                       <!-- Antenna Gain B -->
                       <div class="col-6 sidebar-padding top-margin">
-                        <label for="" class="label"></label>
+                        <label for="" ></label>
                         <input
                           type="number"
                           name=""
@@ -704,14 +685,14 @@
                           disabled
                         />
                         <span class="metre">dBi</span>
-                        <strong class="gain2Alert" style="display: none;">Please enter value less than Max EIRP.</strong> 
+                        <strong class="gain2Alert warningAlert" style="display: none;">Please enter value less than Max EIRP.</strong> 
                       </div>
                     </div>
                     <!-- Row for cable and other losses -->
                     <div class="row">
                       <!-- Cable Loss A -->
                       <div class="col-6 sidebar-padding">
-                        <label for="" class="label">Cable Loss</label>
+                        <label for="" >Cable Loss</label>
                         <input
                           type="number"
                           name=""
@@ -725,11 +706,11 @@
                           onchange="calcTxPower()"
                         />
                         <span class="metre">dB</span>
-                        <strong class="cable1Alert" style="display: none;">Value range 0-6 dB</strong> 
+                        <strong class="cable1Alert warningAlert" style="display: none;">Value range 0-6 dB</strong> 
                       </div>
                       <!-- Cable loss B -->
                       <div class="col-6 sidebar-padding top-margin">
-                        <label for="" class="label"></label>
+                        <label for=""></label>
                         <input
                           type="number"
                           name=""
@@ -743,7 +724,7 @@
                           onchange="calcTxPower()"
                         />
                         <span class="metre">dB</span>
-                        <strong class="cable2Alert" style="display: none;">Value range 0-6 dB</strong> 
+                        <strong class="cable2Alert warningAlert " style="display: none;">Value range 0-6 dB</strong> 
                       </div>
                     </div>
                       <!-- Max Transmit power B -->
@@ -762,7 +743,7 @@
                     <div class="row">
                       <!-- Calculated Transmit Power A -->
                       <div class="col-6 sidebar-padding">
-                        <label for="" class="label">Transmit Power</label>
+                        <label for="" >Transmit Power</label>
                         <input
                           type="number"
                           name=""
@@ -774,12 +755,12 @@
                           required
                         />
                         <span class="metre">dBm</span>
-                        <strong class="tx1Alert" style="display:none">Less than 3. Please adjust ant. gain/ cable loss.</strong>
-                        <strong class="tx1Alert2" style="display:none">Out of Range</strong>
+                        <strong class="tx1Alert warningAlert" style="display:none">Less than 3. Please adjust ant. gain/ cable loss.</strong>
+                        <strong class="tx1Alert2 warningAlert" style="display:none">Out of Range</strong>
                       </div>
                       <!-- Calculated Transmit power B -->
                       <div class="col-6 sidebar-padding top-margin">
-                        <label for="" class="label"></label>
+                        <label for="" ></label>
                         <input
                           type="number"
                           name=""
@@ -791,15 +772,15 @@
                           required
                         />
                         <span class="metre">dBm</span>
-                        <strong class="tx2Alert" style="display:none">Less than 3. Please adjust ant. gain/ cable loss.</strong>
-                        <strong class="tx2Alert2" style="display:none">Out of Range</strong>
+                        <strong class="tx2Alert warningAlert" style="display:none">Less than 3. Please adjust ant. gain/ cable loss.</strong>
+                        <strong class="tx2Alert2 warningAlert" style="display:none">Out of Range</strong>
                       </div>
                     </div>
                      <!-- For height -->
                      <div class="row">
                       <!-- Height of tower A -->
                       <div class="col-6 sidebar-padding">
-                        <label for="channelBandwidth" class="label">Height</label>
+                        <label>Height</label>
                         <!-- <div class="input-grid-col-5"> -->
                         <input
                           type="text"
@@ -815,7 +796,7 @@
                       <!-- Height for tower B -->
                       <div class="col-6 sidebar-padding top-margin">
                         <!-- <div class="input-grid-col-5"> -->
-                        <label for="channelBandwidth" class="label"></label>
+                        <label></label>
                         <input
                           type="text"
                           class="input"
@@ -1384,11 +1365,11 @@
        <!-- End of link report pop up -->
     <!-- Strat of reference table div -->
     <div class="table" style="display: none">
-        <!-- Table 1 10 MHz -->
-        <table id="10MHz" class="mcsTable" hidden>
+      <div class="ub22-table">
+         <!-- Table 1 10 MHz -->
+         <table id="ub22-table-10MHz" class="mcsTable" hidden>
           <tr>
             <th>Min</th>
-            <th>Max</th>
             <th>MCS</th>
             <th>Modulation</th>
             <th>FEC</th>
@@ -1397,7 +1378,6 @@
           </tr>
           <tr>
             <td>-150</td>
-            <td>-85.01</td>
             <td>NA</td>
             <td>NA</td>
             <td>NA</td>
@@ -1406,7 +1386,6 @@
           </tr>
           <tr>
             <td>-85</td>
-            <td>-82.01</td>
             <td>0</td>
             <td>BPSK</td>
             <td>1/2</td>
@@ -1415,7 +1394,6 @@
           </tr>
           <tr>
             <td>-82</td>
-            <td>-80.01</td>
             <td>1</td>
             <td>QPSK</td>
             <td>1/2</td>
@@ -1424,7 +1402,6 @@
           </tr>
           <tr>
             <td>-80</td>
-            <td>-77.01</td>
             <td>2</td>
             <td>QPSK</td>
             <td>3/4</td>
@@ -1433,7 +1410,6 @@
           </tr>
           <tr>
             <td>-77</td>
-            <td>-73.01</td>
             <td>3</td>
             <td>16-QAM</td>
             <td>1/2</td>
@@ -1442,7 +1418,6 @@
           </tr>
           <tr>
             <td>-73</td>
-            <td>-69.01</td>
             <td>4</td>
             <td>16-QAM</td>
             <td>3/4</td>
@@ -1451,7 +1426,6 @@
           </tr>
           <tr>
             <td>-69</td>
-            <td>-68.01</td>
             <td>5</td>
             <td>64-QAM</td>
             <td>2/3</td>
@@ -1460,7 +1434,6 @@
           </tr>
           <tr>
             <td>-68</td>
-            <td>-65.01</td>
             <td>6</td>
             <td>64-QAM</td>
             <td>3/4</td>
@@ -1469,7 +1442,6 @@
           </tr>
           <tr>
             <td>-65</td>
-            <td>-62.01</td>
             <td>7</td>
             <td>64-QAM</td>
             <td>5/6</td>
@@ -1478,7 +1450,6 @@
           </tr>
           <tr>
             <td>-62</td>
-            <td>-60.01</td>
             <td>8</td>
             <td>256-QAM</td>
             <td>3/4</td>
@@ -1487,7 +1458,6 @@
           </tr>
           <tr>
             <td>-60</td>
-            <td>0</td>
             <td>9</td>
             <td>256-QAM</td>
             <td>5/6</td>
@@ -1495,8 +1465,7 @@
             <td>67.2</td>
           </tr>
           <tr>
-            <td>0.1</td>
-            <td>100</td>
+            <td>0</td>
             <td>NA</td>
             <td>NA</td>
             <td>NA</td>
@@ -1506,10 +1475,9 @@
         </table>
   
         <!-- TABLE 2 BANDWIDTH 20MHz -->
-        <table id="20MHz" class="mcsTable" hidden>
+        <table id="ub22-table-20MHz" class="mcsTable" hidden>
           <tr>
             <th>Min</th>
-            <th>Max</th>
             <th>MCS</th>
             <th>Modulation</th>
             <th>FEC</th>
@@ -1517,8 +1485,7 @@
             <th>Throughput</th>
           </tr>
           <tr>
-            <td>-100</td>
-            <td>-82.01</td>
+            <td>-150</td>
             <td>N/A</td>
             <td>N/A</td>
             <td>N/A</td>
@@ -1527,7 +1494,6 @@
           </tr>
           <tr>
             <td>-82</td>
-            <td>-79.01</td>
             <td>0</td>
             <td>BPSK</td>
             <td>1/2</td>
@@ -1536,7 +1502,6 @@
           </tr>
           <tr>
             <td>-79</td>
-            <td>-77.01</td>
             <td>1</td>
             <td>QPSK</td>
             <td>1/2</td>
@@ -1545,7 +1510,6 @@
           </tr>
           <tr>
             <td>-77</td>
-            <td>-74.01</td>
             <td>2</td>
             <td>QPSK</td>
             <td>3/4</td>
@@ -1554,7 +1518,6 @@
           </tr>
           <tr>
             <td>-74</td>
-            <td>-70.01</td>
             <td>3</td>
             <td>16-QAM</td>
             <td>1/2</td>
@@ -1563,7 +1526,6 @@
           </tr>
           <tr>
             <td>-70</td>
-            <td>-66.01</td>
             <td>4</td>
             <td>16-QAM</td>
             <td>3/4</td>
@@ -1572,7 +1534,6 @@
           </tr>
           <tr>
             <td>-66</td>
-            <td>-65.01</td>
             <td>5</td>
             <td>64-QAM</td>
             <td>2/3</td>
@@ -1581,7 +1542,6 @@
           </tr>
           <tr>
             <td>-65</td>
-            <td>-64.01</td>
             <td>6</td>
             <td>64-QAM</td>
             <td>3/4</td>
@@ -1590,7 +1550,6 @@
           </tr>
           <tr>
             <td>-64</td>
-            <td>-59.01</td>
             <td>7</td>
             <td>64-QAM</td>
             <td>5/6</td>
@@ -1599,7 +1558,6 @@
           </tr>
           <tr>
             <td>-59</td>
-            <td>-57.01</td>
             <td>8</td>
             <td>256-QAM</td>
             <td>3/4</td>
@@ -1608,7 +1566,6 @@
           </tr>
           <tr>
             <td>-57</td>
-            <td>0</td>
             <td>9</td>
             <td>256-QAM</td>
             <td>5/6</td>
@@ -1616,8 +1573,7 @@
             <td>135</td>
           </tr>
           <tr>
-            <td>0.1</td>
-            <td>100</td>
+            <td>0</td>
             <td>N/A</td>
             <td>N/A</td>
             <td>N/A</td>
@@ -1628,10 +1584,9 @@
   
         <!-- TABLE 2 BANDWIDTH 40MHz  -->
   
-        <table id="40MHz" class="mcsTable" hidden>
+        <table id="ub22-table-40MHz" class="mcsTable" hidden>
           <tr>
             <th>Min</th>
-            <th>Max</th>
             <th>MCS</th>
             <th>Modulation</th>
             <th>FEC</th>
@@ -1640,7 +1595,6 @@
           </tr>
           <tr>
             <td>-100</td>
-            <td>-79.01</td>
             <td>N/A</td>
             <td>N/A</td>
             <td>N/A</td>
@@ -1649,7 +1603,6 @@
           </tr>
           <tr>
             <td>-79</td>
-            <td>-76.01</td>
             <td>0</td>
             <td>BPSK</td>
             <td>1/2</td>
@@ -1658,7 +1611,6 @@
           </tr>
           <tr>
             <td>-76</td>
-            <td>-74.01</td>
             <td>1</td>
             <td>QPSK</td>
             <td>1/2</td>
@@ -1667,7 +1619,6 @@
           </tr>
           <tr>
             <td>-74</td>
-            <td>-71.01</td>
             <td>2</td>
             <td>QPSK</td>
             <td>3/4</td>
@@ -1676,7 +1627,6 @@
           </tr>
           <tr>
             <td>-71</td>
-            <td>-67.01</td>
             <td>3</td>
             <td>16-QAM</td>
             <td>1/2</td>
@@ -1685,7 +1635,6 @@
           </tr>
           <tr>
             <td>-67</td>
-            <td>-63.01</td>
             <td>4</td>
             <td>16-QAM</td>
             <td>3/4</td>
@@ -1694,7 +1643,6 @@
           </tr>
           <tr>
             <td>-63</td>
-            <td>-62.01</td>
             <td>5</td>
             <td>64-QAM</td>
             <td>2/3</td>
@@ -1703,7 +1651,6 @@
           </tr>
           <tr>
             <td>-62</td>
-            <td>-61.01</td>
             <td>6</td>
             <td>64-QAM</td>
             <td>3/4</td>
@@ -1712,7 +1659,6 @@
           </tr>
           <tr>
             <td>-61</td>
-            <td>-56.01</td>
             <td>7</td>
             <td>64-QAM</td>
             <td>5/6</td>
@@ -1721,7 +1667,6 @@
           </tr>
           <tr>
             <td>-56</td>
-            <td>-54.01</td>
             <td>8</td>
             <td>256-QAM</td>
             <td>3/4</td>
@@ -1730,7 +1675,6 @@
           </tr>
           <tr>
             <td>-54</td>
-            <td>0</td>
             <td>9</td>
             <td>256-QAM</td>
             <td>5/6</td>
@@ -1738,8 +1682,7 @@
             <td>280</td>
           </tr>
           <tr>
-            <td>0.1</td>
-            <td>100</td>
+            <td>0</td>
             <td>N/A</td>
             <td>N/A</td>
             <td>N/A</td>
@@ -1748,234 +1691,9 @@
           </tr>
         </table>
   
-        <table id="80MHz" class="mcsTable" hidden>
+        <table id="ub22-table-80MHz" class="mcsTable" hidden>
           <tr>
             <th>Min</th>
-            <th>Max</th>
-            <th>MCS</th>
-            <th>Modulation</th>
-            <th>FEC</th>
-            <th>Link Rate</th>
-            <th>Throughput</th>
-          </tr>
-          <tr>
-            <td>-100</td>
-            <td>-76.01</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A</td>
-          </tr>
-          <tr>
-            <td>-76</td>
-            <td>-73.01</td>
-            <td>0</td>
-            <td>BPSK</td>
-            <td>1/2</td>
-            <td>65</td>
-            <td>45</td>
-          </tr>
-          <tr>
-            <td>-73</td>
-            <td>-71.01</td>
-            <td>1</td>
-            <td>QPSK</td>
-            <td>1/2</td>
-            <td>130</td>
-            <td>91</td>
-          </tr>
-          <tr>
-            <td>-71</td>
-            <td>-68.01</td>
-            <td>2</td>
-            <td>QPSK</td>
-            <td>3/4</td>
-            <td>195</td>
-            <td>135</td>
-          </tr>
-          <tr>
-            <td>-68</td>
-            <td>-64.01</td>
-            <td>3</td>
-            <td>16-QAM</td>
-            <td>1/2</td>
-            <td>260</td>
-            <td>182</td>
-          </tr>
-          <tr>
-            <td>-64</td>
-            <td>-60.01</td>
-            <td>4</td>
-            <td>16-QAM</td>
-            <td>3/4</td>
-            <td>390</td>
-            <td>275</td>
-          </tr>
-          <tr>
-            <td>-60</td>
-            <td>-59.01</td>
-            <td>5</td>
-            <td>64-QAM</td>
-            <td>2/3</td>
-            <td>520</td>
-            <td>365</td>
-          </tr>
-          <tr>
-            <td>-59</td>
-            <td>-58.01</td>
-            <td>6</td>
-            <td>64-QAM</td>
-            <td>3/4</td>
-            <td>585</td>
-            <td>410</td>
-          </tr>
-          <tr>
-            <td>-58</td>
-            <td>-53.01</td>
-            <td>7</td>
-            <td>64-QAM</td>
-            <td>5/6</td>
-            <td>650</td>
-            <td>455</td>
-          </tr>
-          <tr>
-            <td>-53</td>
-            <td>-51.01</td>
-            <td>8</td>
-            <td>256-QAM</td>
-            <td>3/4</td>
-            <td>780</td>
-            <td>546</td>
-          </tr>
-          <tr>
-            <td>-51</td>
-            <td>0</td>
-            <td>9</td>
-            <td>256-QAM</td>
-            <td>5/6</td>
-            <td>866.7</td>
-            <td>610</td>
-          </tr>
-          <tr>
-            <td>0.1</td>
-            <td>100</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A</td>
-          </tr>
-        </table>
-  
-        <table id="160MHz" class="mcsTable" hidden>
-          <tr>
-            <th>Min</th>
-            <th>Max</th>
-            <th>MCS</th>
-            <th>Modulation</th>
-            <th>FEC</th>
-            <th>Link Rate</th>
-            <th>Throughput</th>
-          </tr>
-  
-          <tr>
-            <td>6</td>
-            <td>9.9999</td>
-            <td>0</td>
-            <td>BPSK</td>
-            <td>1/2</td>
-            <td>130</td>
-            <td>45</td>
-          </tr>
-          <tr>
-            <td>10</td>
-            <td>11.9999</td>
-            <td>1</td>
-            <td>QPSK</td>
-            <td>1/2</td>
-            <td>260</td>
-            <td>91</td>
-          </tr>
-          <tr>
-            <td>12</td>
-            <td>14.9999</td>
-            <td>2</td>
-            <td>QPSK</td>
-            <td>3/4</td>
-            <td>390</td>
-            <td>135</td>
-          </tr>
-          <tr>
-            <td>15</td>
-            <td>16.9999</td>
-            <td>3</td>
-            <td>16-QAM</td>
-            <td>1/2</td>
-            <td>520</td>
-            <td>182</td>
-          </tr>
-          <tr>
-            <td>17</td>
-            <td>19.9999</td>
-            <td>4</td>
-            <td>16-QAM</td>
-            <td>3/4</td>
-            <td>780</td>
-            <td>275</td>
-          </tr>
-          <tr>
-            <td>20</td>
-            <td>22.9999</td>
-            <td>5</td>
-            <td>64-QAM</td>
-            <td>2/3</td>
-            <td>1040</td>
-            <td>365</td>
-          </tr>
-          <tr>
-            <td>23</td>
-            <td>25.9999</td>
-            <td>6</td>
-            <td>64-QAM</td>
-            <td>3/4</td>
-            <td>1170</td>
-            <td>410</td>
-          </tr>
-          <tr>
-            <td>26</td>
-            <td>29.9999</td>
-            <td>7</td>
-            <td>64-QAM</td>
-            <td>5/6</td>
-            <td>1300</td>
-            <td>455</td>
-          </tr>
-          <tr>
-            <td>30</td>
-            <td>30.9999</td>
-            <td>8</td>
-            <td>256-QAM</td>
-            <td>3/4</td>
-            <td>1560</td>
-            <td>546</td>
-          </tr>
-          <tr>
-            <td>31</td>
-            <td>80</td>
-            <td>9</td>
-            <td>256-QAM</td>  
-            <td>5/6</td>
-            <td>1733.3</td>
-            <td>610</td>
-          </tr>
-        </table>
-        <!-- Tables for UBAX -->
-        <!-- Table 1 10 MHz -->
-        <table id="UBAX10MHz" class="mcsTable" hidden>
-          <tr>
-            <th>Min</th>
-            <th>Max</th>
             <th>MCS</th>
             <th>Modulation</th>
             <th>FEC</th>
@@ -1984,7 +1702,6 @@
           </tr>
           <tr>
             <td>-150</td>
-            <td>-85.01</td>
             <td>N/A</td>
             <td>N/A</td>
             <td>N/A</td>
@@ -1992,515 +1709,87 @@
             <td>N/A</td>
           </tr>
           <tr>
-            <td>-85</td>
-            <td>-82.01</td>
+            <td>-76</td>
             <td>0</td>
             <td>BPSK</td>
             <td>1/2</td>
-            <td>7</td>
-            <td>4.9</td>
-          </tr>
-          <tr>
-            <td>-82</td>
-            <td>-80.01</td>
-            <td>1</td>
-            <td>QPSK</td>
-            <td>1/2</td>
-            <td>14</td>
-            <td>9.8</td>
-          </tr>
-          <tr>
-            <td>-80</td>
-            <td>-77.01</td>
-            <td>2</td>
-            <td>QPSK</td>
-            <td>3/4</td>
-            <td>21</td>
-            <td>14.7</td>
-          </tr>
-          <tr>
-            <td>-77</td>
-            <td>-73.01</td>
-            <td>3</td>
-            <td>16-QAM</td>
-            <td>1/2</td>
-            <td>28</td>
-            <td>19.6</td>
-          </tr>
-          <tr>
-            <td>-73</td>
-            <td>-69.01</td>
-            <td>4</td>
-            <td>16-QAM</td>
-            <td>3/4</td>
-            <td>43</td>
-            <td>30.01</td>
-          </tr>
-          <tr>
-            <td>-69</td>
-            <td>-68.01</td>
-            <td>5</td>
-            <td>64-QAM</td>
-            <td>2/3</td>
-            <td>57</td>
-            <td>39.9</td>
-          </tr>
-          <tr>
-            <td>-68</td>
-            <td>-65.01</td>
-            <td>6</td>
-            <td>64-QAM</td>
-            <td>3/4</td>
             <td>65</td>
-            <td>45.5</td>
-          </tr>
-          <tr>
-            <td>-65</td>
-            <td>-62.01</td>
-            <td>7</td>
-            <td>64-QAM</td>
-            <td>5/6</td>
-            <td>72</td>
-            <td>50.4</td>
-          </tr>
-          <tr>
-            <td>-62</td>
-            <td>-60.01</td>
-            <td>8</td>
-            <td>256-QAM</td>
-            <td>3/4</td>
-            <td>86</td>
-            <td>60.2</td>
-          </tr>
-          <tr>
-            <td>-60</td>
-            <td>0</td>
-            <td>9</td>
-            <td>256-QAM</td>
-            <td>5/6</td>
-            <td>96</td>
-            <td>67.2</td>
-          </tr>
-          <tr>
-            <td>0.1</td>
-            <td>100</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A</td>
-          </tr>
-        </table>
-  
-        <!-- TABLE 2 BANDWIDTH 20MHz -->
-        <table id="UBAX20MHz" class="mcsTable" hidden>
-          <tr>
-            <th>Min</th>
-            <th>Max</th>
-            <th>MCS</th>
-            <th>Modulation</th>
-            <th>FEC</th>
-            <th>Link Rate</th>
-            <th>Throughput</th>
-          </tr>
-          <tr>
-            <td>-100</td>
-            <td>-82.01</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A</td>
-          </tr>
-          <tr>
-            <td>-82</td>
-            <td>-79.01</td>
-            <td>0</td>
-            <td>BPSK</td>
-            <td>1/2</td>
-            <td>17.2</td>
-            <td>12</td>
-          </tr>
-          <tr>
-            <td>-79</td>
-            <td>-77.01</td>
-            <td>1</td>
-            <td>QPSK</td>
-            <td>1/2</td>
-            <td>34.4</td>
-            <td>24</td>
-          </tr>
-          <tr>
-            <td>-77</td>
-            <td>-74.01</td>
-            <td>2</td>
-            <td>QPSK</td>
-            <td>3/4</td>
-            <td>51.6</td>
-            <td>36.1</td>
-          </tr>
-          <tr>
-            <td>-74</td>
-            <td>-70.01</td>
-            <td>3</td>
-            <td>16-QAM</td>
-            <td>1/2</td>
-            <td>68.8</td>
-            <td>48.2</td>
-          </tr>
-          <tr>
-            <td>-70</td>
-            <td>-66.01</td>
-            <td>4</td>
-            <td>16-QAM</td>
-            <td>3/4</td>
-            <td>103.2</td>
-            <td>72.2</td>
-          </tr>
-          <tr>
-            <td>-66</td>
-            <td>-65.01</td>
-            <td>5</td>
-            <td>64-QAM</td>
-            <td>2/3</td>
-            <td>137.6</td>
-            <td>96.3</td>
-          </tr>
-          <tr>
-            <td>-65</td>
-            <td>-64.01</td>
-            <td>6</td>
-            <td>64-QAM</td>
-            <td>3/4</td>
-            <td>154.9</td>
-            <td>108.4</td>
-          </tr>
-          <tr>
-            <td>-64</td>
-            <td>-59.01</td>
-            <td>7</td>
-            <td>64-QAM</td>
-            <td>5/6</td>
-            <td>172.1</td>
-            <td>120.5</td>
-          </tr>
-          <tr>
-            <td>-59</td>
-            <td>-57.01</td>
-            <td>8</td>
-            <td>256-QAM</td>
-            <td>3/4</td>
-            <td>206.5</td>
-            <td>144.5</td>
-          </tr>
-          <tr>
-            <td>-57</td>
-            <td>-54.01</td>
-            <td>9</td>
-            <td>256-QAM</td>
-            <td>5/6</td>
-            <td>229.4</td>
-            <td>160.6</td>
-          </tr>
-          <tr>
-            <td>-54</td>
-            <td>-52.01</td>
-            <td>10</td>
-            <td>1024-QAM</td>
-            <td>3/4</td>
-            <td>258.1</td>
-            <td>180.7</td>
-          </tr>
-          <tr>
-            <td>-52</td>
-            <td>0</td>
-            <td>11</td>
-            <td>1024-QAM</td>
-            <td>5/6</td>
-            <td>286.8</td>
-            <td>200.8</td>
-          </tr>
-          <tr>
-            <td>0.1</td>
-            <td>100</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A</td>
-          </tr>
-        </table>
-  
-        <!-- TABLE 2 BANDWIDTH 40MHz  -->
-  
-        <table id="UBAX40MHz" class="mcsTable" hidden>
-          <tr>
-            <th>Min</th>
-            <th>Max</th>
-            <th>MCS</th>
-            <th>Modulation</th>
-            <th>FEC</th>
-            <th>Link Rate</th>
-            <th>Throughput</th>
-          </tr>
-          <tr>
-            <td>-100</td>
-            <td>-79.01</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A</td>
-          </tr>
-          <tr>
-            <td>-79</td>
-            <td>-76.01</td>
-            <td>0</td>
-            <td>BPSK</td>
-            <td>1/2</td>
-            <td>34.4</td>
-            <td>24.1</td>
-          </tr>
-          <tr>
-            <td>-76</td>
-            <td>-74.01</td>
-            <td>1</td>
-            <td>QPSK</td>
-            <td>1/2</td>
-            <td>68.8</td>
-            <td>48.2</td>
-          </tr>
-          <tr>
-            <td>-74</td>
-            <td>-71.01</td>
-            <td>2</td>
-            <td>QPSK</td>
-            <td>3/4</td>
-            <td>103.2</td>
-            <td>72.2</td>
-          </tr>
-          <tr>
-            <td>-71</td>
-            <td>-67.01</td>
-            <td>3</td>
-            <td>16-QAM</td>
-            <td>1/2</td>
-            <td>137.6</td>
-            <td>96.3</td>
-          </tr>
-          <tr>
-            <td>-67</td>
-            <td>-63.01</td>
-            <td>4</td>
-            <td>16-QAM</td>
-            <td>3/4</td>
-            <td>206.5</td>
-            <td>144.5</td>
-          </tr>
-          <tr>
-            <td>-63</td>
-            <td>-62.01</td>
-            <td>5</td>
-            <td>64-QAM</td>
-            <td>2/3</td>
-            <td>275.3</td>
-            <td>192.7</td>
-          </tr>
-          <tr>
-            <td>-62</td>
-            <td>-61.01</td>
-            <td>6</td>
-            <td>64-QAM</td>
-            <td>3/4</td>
-            <td>309.7</td>
-            <td>216.8</td>
-          </tr>
-          <tr>
-            <td>-61</td>
-            <td>-56.01</td>
-            <td>7</td>
-            <td>64-QAM</td>
-            <td>5/6</td>
-            <td>344.1</td>
-            <td>240.9</td>
-          </tr>
-          <tr>
-            <td>-56</td>
-            <td>-54.01</td>
-            <td>8</td>
-            <td>256-QAM</td>
-            <td>3/4</td>
-            <td>412.9</td>
-            <td>289</td>
-          </tr>
-          <tr>
-            <td>-54</td>
-            <td>-51.01</td>
-            <td>9</td>
-            <td>256-QAM</td>
-            <td>5/6</td>
-            <td>458.8</td>
-            <td>321.2</td>
-          </tr>
-          <tr>
-            <td>-51</td>
-            <td>-49.01</td>
-            <td>10</td>
-            <td>1024-QAM</td>
-            <td>3/4</td>
-            <td>516.2</td>
-            <td>361.3</td>
-          </tr>
-          <tr>
-            <td>-49</td>
-            <td>0</td>
-            <td>11</td>
-            <td>1024-QAM</td>
-            <td>5/6</td>
-            <td>573.5</td>
-            <td>401.4</td>
-          </tr>
-          <tr>
-            <td>0.1</td>
-            <td>100</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A</td>
-          </tr>
-        </table>
-  
-        <table id="UBAX80MHz" class="mcsTable" hidden>
-          <tr>
-            <th>Min</th>
-            <th>Max</th>
-            <th>MCS</th>
-            <th>Modulation</th>
-            <th>FEC</th>
-            <th>Link Rate</th>
-            <th>Throughput</th>
-          </tr>
-          <tr>
-            <td>-100</td>
-            <td>-76.01</td>
-            <td>NA</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <td>N/A</td>
-          </tr>
-          <tr>
-            <td>-76</td>
-            <td>-73.01</td>
-            <td>0</td>
-            <td>BPSK</td>
-            <td>1/2</td>
-            <td>72.1</td>
-            <td>50.5</td>
+            <td>45</td>
           </tr>
           <tr>
             <td>-73</td>
-            <td>-71.01</td>
             <td>1</td>
             <td>QPSK</td>
             <td>1/2</td>
-            <td>144.1</td>
-            <td>100.9</td>
+            <td>130</td>
+            <td>91</td>
           </tr>
           <tr>
             <td>-71</td>
-            <td>-68.01</td>
             <td>2</td>
             <td>QPSK</td>
             <td>3/4</td>
-            <td>216.2</td>
-            <td>151.3</td>
+            <td>195</td>
+            <td>135</td>
           </tr>
           <tr>
             <td>-68</td>
-            <td>-64.01</td>
             <td>3</td>
             <td>16-QAM</td>
             <td>1/2</td>
-            <td>288.2</td>
-            <td>201.7</td>
+            <td>260</td>
+            <td>182</td>
           </tr>
           <tr>
             <td>-64</td>
-            <td>-60.01</td>
             <td>4</td>
             <td>16-QAM</td>
             <td>3/4</td>
-            <td>432.4</td>
-            <td>302.7</td>
+            <td>390</td>
+            <td>275</td>
           </tr>
           <tr>
             <td>-60</td>
-            <td>-59.01</td>
             <td>5</td>
             <td>64-QAM</td>
             <td>2/3</td>
-            <td>576.5</td>
-            <td>403.5</td>
+            <td>520</td>
+            <td>365</td>
           </tr>
           <tr>
             <td>-59</td>
-            <td>-58.01</td>
             <td>6</td>
             <td>64-QAM</td>
             <td>3/4</td>
-            <td>648.5</td>
-            <td>453.9</td>
+            <td>585</td>
+            <td>410</td>
           </tr>
           <tr>
             <td>-58</td>
-            <td>-53.01</td>
             <td>7</td>
             <td>64-QAM</td>
             <td>5/6</td>
-            <td>720.6</td>
-            <td>504.4</td>
+            <td>650</td>
+            <td>455</td>
           </tr>
           <tr>
             <td>-53</td>
-            <td>-51.01</td>
             <td>8</td>
             <td>256-QAM</td>
             <td>3/4</td>
-            <td>864.7</td>
-            <td>605.3</td>
+            <td>780</td>
+            <td>546</td>
           </tr>
           <tr>
             <td>-51</td>
-            <td>-48.01</td>
             <td>9</td>
             <td>256-QAM</td>
             <td>5/6</td>
-            <td>960.8</td>
-            <td>672.6</td>
+            <td>866.7</td>
+            <td>610</td>
           </tr>
           <tr>
-            <td>-48</td>
-            <td>-46.01</td>
-            <td>10</td>
-            <td>1024-QAM</td>
-            <td>3/4</td>
-            <td>1080.9</td>
-            <td>756.6</td>
-          </tr>
-          <tr>
-            <td>-46</td>
             <td>0</td>
-            <td>11</td>
-            <td>1024-QAM</td>
-            <td>5/6</td>
-            <td>1201</td>
-            <td>840.7</td>
-          </tr>
-          <tr>
-            <td>0.1</td>
-            <td>100</td>
             <td>N/A</td>
             <td>N/A</td>
             <td>N/A</td>
@@ -2509,10 +1798,9 @@
           </tr>
         </table>
   
-        <table id="UBAX160MHz" class="mcsTable" hidden>
+        <table id="ub22-table-160MHz" class="mcsTable" hidden>
           <tr>
             <th>Min</th>
-            <th>Max</th>
             <th>MCS</th>
             <th>Modulation</th>
             <th>FEC</th>
@@ -2522,113 +1810,678 @@
   
           <tr>
             <td>6</td>
-            <td>9.9999</td>
             <td>0</td>
             <td>BPSK</td>
             <td>1/2</td>
-            <td>144.1</td>
-            <td>101</td>
+            <td>130</td>
+            <td>45</td>
           </tr>
           <tr>
             <td>10</td>
-            <td>11.9999</td>
             <td>1</td>
             <td>QPSK</td>
             <td>1/2</td>
-            <td>288.2</td>
-            <td>201.7</td>
+            <td>260</td>
+            <td>91</td>
           </tr>
           <tr>
             <td>12</td>
-            <td>14.9999</td>
             <td>2</td>
             <td>QPSK</td>
             <td>3/4</td>
-            <td>432.4</td>
-            <td>302.7</td>
+            <td>390</td>
+            <td>135</td>
           </tr>
           <tr>
             <td>15</td>
-            <td>16.9999</td>
             <td>3</td>
             <td>16-QAM</td>
             <td>1/2</td>
-            <td>576.5</td>
-            <td>403.5</td>
+            <td>520</td>
+            <td>182</td>
           </tr>
           <tr>
             <td>17</td>
-            <td>19.9999</td>
             <td>4</td>
             <td>16-QAM</td>
             <td>3/4</td>
-            <td>864.7</td>
-            <td>605.3</td>
+            <td>780</td>
+            <td>275</td>
           </tr>
           <tr>
             <td>20</td>
-            <td>22.9999</td>
             <td>5</td>
             <td>64-QAM</td>
             <td>2/3</td>
-            <td>1152.9</td>
-            <td>807</td>
+            <td>1040</td>
+            <td>365</td>
           </tr>
           <tr>
             <td>23</td>
-            <td>25.9999</td>
             <td>6</td>
             <td>64-QAM</td>
             <td>3/4</td>
-            <td>1297.1</td>
-            <td>908</td>
+            <td>1170</td>
+            <td>410</td>
           </tr>
           <tr>
             <td>26</td>
-            <td>29.9999</td>
             <td>7</td>
             <td>64-QAM</td>
             <td>5/6</td>
-            <td>1441.2</td>
-            <td>1008.8</td>
+            <td>1300</td>
+            <td>455</td>
           </tr>
           <tr>
             <td>30</td>
-            <td>30.9999</td>
             <td>8</td>
             <td>256-QAM</td>
             <td>3/4</td>
-            <td>1729.4</td>
-            <td>1210.6</td>
+            <td>1560</td>
+            <td>546</td>
           </tr>
           <tr>
             <td>31</td>
-            <td>80</td>
             <td>9</td>
-            <td>256-QAM</td>
+            <td>256-QAM</td>  
             <td>5/6</td>
-            <td>1921.6</td>
-            <td>1345.1</td>
-          </tr>
-          <tr>
-            <td>31</td>
-            <td>80</td>
-            <td>10</td>
-            <td>1024-QAM</td>
-            <td>3/4</td>
-            <td>2161.8</td>
-            <td>1513.3</td>
-          </tr>
-          <tr>
-            <td>31</td>
-            <td>80</td>
-            <td>11</td>
-            <td>1024-QAM</td>
-            <td>5/6</td>
-            <td>2402</td>
-            <td>1681.4</td>
+            <td>1733.3</td>
+            <td>610</td>
           </tr>
         </table>
+      </div>
+       
+        <!-- Tables for UBAX -->
+        <!-- Table 1 10 MHz -->
+        <div class="ubax-table">
+          <table id="ubax-table-10MHz" class="mcsTable" hidden>
+            <tr>
+              <th>Min</th>
+              <th>MCS</th>
+              <th>Modulation</th>
+              <th>FEC</th>
+              <th>Link Rate</th>
+              <th>Throughput</th>
+            </tr>
+            <tr>
+              <td>-150</td>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+            </tr>
+            <tr>
+              <td>-85</td>
+              <td>0</td>
+              <td>BPSK</td>
+              <td>1/2</td>
+              <td>7</td>
+              <td>4.9</td>
+            </tr>
+            <tr>
+              <td>-82</td>
+              <td>1</td>
+              <td>QPSK</td>
+              <td>1/2</td>
+              <td>14</td>
+              <td>9.8</td>
+            </tr>
+            <tr>
+              <td>-80</td>
+              <td>2</td>
+              <td>QPSK</td>
+              <td>3/4</td>
+              <td>21</td>
+              <td>14.7</td>
+            </tr>
+            <tr>
+              <td>-77</td>
+              <td>3</td>
+              <td>16-QAM</td>
+              <td>1/2</td>
+              <td>28</td>
+              <td>19.6</td>
+            </tr>
+            <tr>
+              <td>-73</td>
+              <td>4</td>
+              <td>16-QAM</td>
+              <td>3/4</td>
+              <td>43</td>
+              <td>30.01</td>
+            </tr>
+            <tr>
+              <td>-69</td>
+              <td>5</td>
+              <td>64-QAM</td>
+              <td>2/3</td>
+              <td>57</td>
+              <td>39.9</td>
+            </tr>
+            <tr>
+              <td>-68</td>
+              <td>6</td>
+              <td>64-QAM</td>
+              <td>3/4</td>
+              <td>65</td>
+              <td>45.5</td>
+            </tr>
+            <tr>
+              <td>-65</td>
+              <td>7</td>
+              <td>64-QAM</td>
+              <td>5/6</td>
+              <td>72</td>
+              <td>50.4</td>
+            </tr>
+            <tr>
+              <td>-62</td>
+              <td>8</td>
+              <td>256-QAM</td>
+              <td>3/4</td>
+              <td>86</td>
+              <td>60.2</td>
+            </tr>
+            <tr>
+              <td>-60</td>
+              <td>9</td>
+              <td>256-QAM</td>
+              <td>5/6</td>
+              <td>96</td>
+              <td>67.2</td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+            </tr>
+          </table>
+    
+          <!-- TABLE 2 BANDWIDTH 20MHz -->
+          <table id="ubax-table-20MHz" class="mcsTable" hidden>
+            <tr>
+              <th>Min</th>
+              <th>MCS</th>
+              <th>Modulation</th>
+              <th>FEC</th>
+              <th>Link Rate</th>
+              <th>Throughput</th>
+            </tr>
+            <tr>
+              <td>-100</td>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+            </tr>
+            <tr>
+              <td>-82</td>
+              <td>0</td>
+              <td>BPSK</td>
+              <td>1/2</td>
+              <td>17.2</td>
+              <td>12</td>
+            </tr>
+            <tr>
+              <td>-79</td>
+              <td>1</td>
+              <td>QPSK</td>
+              <td>1/2</td>
+              <td>34.4</td>
+              <td>24</td>
+            </tr>
+            <tr>
+              <td>-77</td>
+              <td>2</td>
+              <td>QPSK</td>
+              <td>3/4</td>
+              <td>51.6</td>
+              <td>36.1</td>
+            </tr>
+            <tr>
+              <td>-74</td>
+              <td>3</td>
+              <td>16-QAM</td>
+              <td>1/2</td>
+              <td>68.8</td>
+              <td>48.2</td>
+            </tr>
+            <tr>
+              <td>-70</td>
+              <td>4</td>
+              <td>16-QAM</td>
+              <td>3/4</td>
+              <td>103.2</td>
+              <td>72.2</td>
+            </tr>
+            <tr>
+              <td>-66</td>
+              <td>5</td>
+              <td>64-QAM</td>
+              <td>2/3</td>
+              <td>137.6</td>
+              <td>96.3</td>
+            </tr>
+            <tr>
+              <td>-65</td>
+              <td>6</td>
+              <td>64-QAM</td>
+              <td>3/4</td>
+              <td>154.9</td>
+              <td>108.4</td>
+            </tr>
+            <tr>
+              <td>-64</td>
+              <td>7</td>
+              <td>64-QAM</td>
+              <td>5/6</td>
+              <td>172.1</td>
+              <td>120.5</td>
+            </tr>
+            <tr>
+              <td>-59</td>
+              <td>8</td>
+              <td>256-QAM</td>
+              <td>3/4</td>
+              <td>206.5</td>
+              <td>144.5</td>
+            </tr>
+            <tr>
+              <td>-57</td>
+              <td>9</td>
+              <td>256-QAM</td>
+              <td>5/6</td>
+              <td>229.4</td>
+              <td>160.6</td>
+            </tr>
+            <tr>
+              <td>-54</td>
+              <td>10</td>
+              <td>1024-QAM</td>
+              <td>3/4</td>
+              <td>258.1</td>
+              <td>180.7</td>
+            </tr>
+            <tr>
+              <td>-52</td>
+              <td>11</td>
+              <td>1024-QAM</td>
+              <td>5/6</td>
+              <td>286.8</td>
+              <td>200.8</td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+            </tr>
+          </table>
+    
+          <!-- TABLE 2 BANDWIDTH 40MHz  -->
+    
+          <table id="ubax-table-40MHz" class="mcsTable" hidden>
+            <tr>
+              <th>Min</th>
+              <th>MCS</th>
+              <th>Modulation</th>
+              <th>FEC</th>
+              <th>Link Rate</th>
+              <th>Throughput</th>
+            </tr>
+            <tr>
+              <td>-100</td>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+            </tr>
+            <tr>
+              <td>-79</td>
+              <td>-76.01</td>
+              <td>0</td>
+              <td>BPSK</td>
+              <td>1/2</td>
+              <td>34.4</td>
+              <td>24.1</td>
+            </tr>
+            <tr>
+              <td>-76</td>
+              <td>1</td>
+              <td>QPSK</td>
+              <td>1/2</td>
+              <td>68.8</td>
+              <td>48.2</td>
+            </tr>
+            <tr>
+              <td>-74</td>
+              <td>2</td>
+              <td>QPSK</td>
+              <td>3/4</td>
+              <td>103.2</td>
+              <td>72.2</td>
+            </tr>
+            <tr>
+              <td>-71</td>
+              <td>3</td>
+              <td>16-QAM</td>
+              <td>1/2</td>
+              <td>137.6</td>
+              <td>96.3</td>
+            </tr>
+            <tr>
+              <td>-67</td>
+              <td>4</td>
+              <td>16-QAM</td>
+              <td>3/4</td>
+              <td>206.5</td>
+              <td>144.5</td>
+            </tr>
+            <tr>
+              <td>-63</td>
+              <td>5</td>
+              <td>64-QAM</td>
+              <td>2/3</td>
+              <td>275.3</td>
+              <td>192.7</td>
+            </tr>
+            <tr>
+              <td>-62</td>
+              <td>6</td>
+              <td>64-QAM</td>
+              <td>3/4</td>
+              <td>309.7</td>
+              <td>216.8</td>
+            </tr>
+            <tr>
+              <td>-61</td>
+              <td>7</td>
+              <td>64-QAM</td>
+              <td>5/6</td>
+              <td>344.1</td>
+              <td>240.9</td>
+            </tr>
+            <tr>
+              <td>-56</td>
+              <td>8</td>
+              <td>256-QAM</td>
+              <td>3/4</td>
+              <td>412.9</td>
+              <td>289</td>
+            </tr>
+            <tr>
+              <td>-54</td>
+              <td>9</td>
+              <td>256-QAM</td>
+              <td>5/6</td>
+              <td>458.8</td>
+              <td>321.2</td>
+            </tr>
+            <tr>
+              <td>-51</td>
+              <td>10</td>
+              <td>1024-QAM</td>
+              <td>3/4</td>
+              <td>516.2</td>
+              <td>361.3</td>
+            </tr>
+            <tr>
+              <td>-49</td>
+              <td>11</td>
+              <td>1024-QAM</td>
+              <td>5/6</td>
+              <td>573.5</td>
+              <td>401.4</td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+            </tr>
+          </table>
+    
+          <table id="ubax-table-80MHz" class="mcsTable" hidden>
+            <tr>
+              <th>Min</th>
+              <th>MCS</th>
+              <th>Modulation</th>
+              <th>FEC</th>
+              <th>Link Rate</th>
+              <th>Throughput</th>
+            </tr>
+            <tr>
+              <td>-150</td>
+              <td>NA</td>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+            </tr>
+            <tr>
+              <td>-76</td>
+              <td>0</td>
+              <td>BPSK</td>
+              <td>1/2</td>
+              <td>72.1</td>
+              <td>50.5</td>
+            </tr>
+            <tr>
+              <td>-73</td>
+              <td>1</td>
+              <td>QPSK</td>
+              <td>1/2</td>
+              <td>144.1</td>
+              <td>100.9</td>
+            </tr>
+            <tr>
+              <td>-71</td>
+              <td>2</td>
+              <td>QPSK</td>
+              <td>3/4</td>
+              <td>216.2</td>
+              <td>151.3</td>
+            </tr>
+            <tr>
+              <td>-68</td>
+              <td>3</td>
+              <td>16-QAM</td>
+              <td>1/2</td>
+              <td>288.2</td>
+              <td>201.7</td>
+            </tr>
+            <tr>
+              <td>-64</td>
+              <td>4</td>
+              <td>16-QAM</td>
+              <td>3/4</td>
+              <td>432.4</td>
+              <td>302.7</td>
+            </tr>
+            <tr>
+              <td>-60</td>
+              <td>5</td>
+              <td>64-QAM</td>
+              <td>2/3</td>
+              <td>576.5</td>
+              <td>403.5</td>
+            </tr>
+            <tr>
+              <td>-59</td>
+              <td>6</td>
+              <td>64-QAM</td>
+              <td>3/4</td>
+              <td>648.5</td>
+              <td>453.9</td>
+            </tr>
+            <tr>
+              <td>-58</td>
+              <td>7</td>
+              <td>64-QAM</td>
+              <td>5/6</td>
+              <td>720.6</td>
+              <td>504.4</td>
+            </tr>
+            <tr>
+              <td>-53</td>
+              <td>8</td>
+              <td>256-QAM</td>
+              <td>3/4</td>
+              <td>864.7</td>
+              <td>605.3</td>
+            </tr>
+            <tr>
+              <td>-51</td>
+              <td>9</td>
+              <td>256-QAM</td>
+              <td>5/6</td>
+              <td>960.8</td>
+              <td>672.6</td>
+            </tr>
+            <tr>
+              <td>-48</td>
+              <td>10</td>
+              <td>1024-QAM</td>
+              <td>3/4</td>
+              <td>1080.9</td>
+              <td>756.6</td>
+            </tr>
+            <tr>
+              <td>-46</td>
+              <td>11</td>
+              <td>1024-QAM</td>
+              <td>5/6</td>
+              <td>1201</td>
+              <td>840.7</td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+            </tr>
+          </table>
+    
+          <table id="ubax-table-160MHz" class="mcsTable" hidden>
+            <tr>
+              <th>Min</th>
+              <th>MCS</th>
+              <th>Modulation</th>
+              <th>FEC</th>
+              <th>Link Rate</th>
+              <th>Throughput</th>
+            </tr>
+    
+            <tr>
+              <td>6</td>
+              <td>0</td>
+              <td>BPSK</td>
+              <td>1/2</td>
+              <td>144.1</td>
+              <td>101</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>1</td>
+              <td>QPSK</td>
+              <td>1/2</td>
+              <td>288.2</td>
+              <td>201.7</td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>2</td>
+              <td>QPSK</td>
+              <td>3/4</td>
+              <td>432.4</td>
+              <td>302.7</td>
+            </tr>
+            <tr>
+              <td>15</td>
+              <td>3</td>
+              <td>16-QAM</td>
+              <td>1/2</td>
+              <td>576.5</td>
+              <td>403.5</td>
+            </tr>
+            <tr>
+              <td>17</td>
+              <td>4</td>
+              <td>16-QAM</td>
+              <td>3/4</td>
+              <td>864.7</td>
+              <td>605.3</td>
+            </tr>
+            <tr>
+              <td>20</td>
+              <td>5</td>
+              <td>64-QAM</td>
+              <td>2/3</td>
+              <td>1152.9</td>
+              <td>807</td>
+            </tr>
+            <tr>
+              <td>23</td>
+              <td>6</td>
+              <td>64-QAM</td>
+              <td>3/4</td>
+              <td>1297.1</td>
+              <td>908</td>
+            </tr>
+            <tr>
+              <td>26</td>
+              <td>7</td>
+              <td>64-QAM</td>
+              <td>5/6</td>
+              <td>1441.2</td>
+              <td>1008.8</td>
+            </tr>
+            <tr>
+              <td>30</td>
+              <td>8</td>
+              <td>256-QAM</td>
+              <td>3/4</td>
+              <td>1729.4</td>
+              <td>1210.6</td>
+            </tr>
+            <tr>
+              <td>31</td>
+              <td>9</td>
+              <td>256-QAM</td>
+              <td>5/6</td>
+              <td>1921.6</td>
+              <td>1345.1</td>
+            </tr>
+            <tr>
+              <td>31</td>
+              <td>10</td>
+              <td>1024-QAM</td>
+              <td>3/4</td>
+              <td>2161.8</td>
+              <td>1513.3</td>
+            </tr>
+            <tr>
+              <td>31</td>
+              <td>11</td>
+              <td>1024-QAM</td>
+              <td>5/6</td>
+              <td>2402</td>
+              <td>1681.4</td>
+            </tr>
+          </table>
+        </div>
       </div>
     <!-- Javascript files -->
     <script src="javascript/main/navbar.js"></script>
@@ -2643,9 +2496,10 @@
     <script src="javascript/ptp/validatlatlng.js"></script>
     <!-- <script src="javascript/ptpptmpselection.js"></script> -->
     <script src="javascript/ptp/queryselect.js"></script>
+    <script src="javascript/ptp/frequencybandwidthchange.js"></script>
     
     <!-- API Link-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5zYlkJtKZsemt792qtpPb6fPs1sMqBI&libraries=places&callback=ptpMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDP4qjMuB62ehF9gDH0VKBNWvDKRRavmYU&libraries=places&callback=ptpMap"></script>
 
     <script src="javascript/ptp/placesapi.js"></script>
   </body>

@@ -37,9 +37,14 @@ function ptpctryChange() {
   // calculation start
   ptpeirparray = ptpeirplimits(cCode);
   console.log(ptpeirparray);
+  // function called which checks the radio selected and gives the class of the container of tables to refer
+  // it gives the mcs table to refer
+  checkRadios();
   /* calling function which gives us the array for the frequency range 
   and further calls a funciton which creates frequency array*/
   ptpfrequencydata();
+  // calling function calctxpower which will calculate the transmit power based on eirp and allowed tx values
+  calcTxPower();
 }
 
 /* function which takes in argument code which is the country code and matches that code with the dictionary
@@ -47,6 +52,7 @@ function ptpctryChange() {
 function ptpeirplimits(code) {
   for (var [key, value] of Object.entries(ptp_country_dict)) {
     if (key == code) {
+      console.log("Country looped", key);
       var valuesplit = value.split(",");
       var latitude = parseFloat(valuesplit[0]);
       var longitude = parseFloat(valuesplit[1]);
@@ -66,6 +72,7 @@ function ptpeirplimits(code) {
         valuesplit[1],
       ];
     }
+    break;
   }
 }
 /* function which will populate the frequency dropdown menu depending on the country selected */
@@ -196,6 +203,7 @@ function ptpfrequencydata() {
 
   // function to give the eirp value
   ptpeirpcalculate();
+  // calcTxPower();
 }
 
 // function to create new options in for the frequency dropdown
