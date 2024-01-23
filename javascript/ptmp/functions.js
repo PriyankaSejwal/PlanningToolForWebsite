@@ -244,7 +244,7 @@ function createSlavesField(i) {
   // $(`#slave${i}Radio`).prop("selectedIndex", 2);
   // $(`#slave${i}Gain`).prop({ disabled: true, value: 25 });
   // $(`#slave${i}Tx`).val(eirp - 25 + 2);
-  $(`#slave${i}Height`).val(10);
+  $(`#slave${i}Height`).val(15);
 
   // function called to create slave output fields
   createOutputTables(slaveInputSection, slaveSectionBody, slavecontainer, i);

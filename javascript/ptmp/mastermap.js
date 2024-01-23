@@ -28,7 +28,7 @@ function addMarkerInPTMP(index, id, idDD, location) {
 
 function placeMasterOnMap() {
   masterAzimuthArray = [];
-  var masterVal = $("#masterCoord").val();
+  var masterVal = $("#masterCo-ordinate").val();
   if (masterVal.includes(",")) {
     var masterCoord = masterVal.split(",");
     if (masterCoord[1] != "") {
